@@ -401,10 +401,10 @@ training, placements, and industry alignment.
 
 | Team Member | Responsibility |
 |---|---|
-| **Likhitha** | Documentation |
+| **P Likhitha reddy** | Documentation |
 | **Nishat Kausar** | Research |
 | **Jyoti** | Documentation |
-| **Nikhil Kumar** | Development & UI/UX |
+| **Nikhil Kumar** | Development & UI/UX | 
 | **RISHABH Kumar** | Development & UI/UX |
 | **Pragyaansh Sagar** | Project Coordination |
 
