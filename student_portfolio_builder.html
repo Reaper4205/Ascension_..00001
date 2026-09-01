@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Build Your Portfolio - SkillBridge</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#3c463f",
+                        "primary-container": "#059669",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "outline": "#6b7d70",
+                        "on-secondary-container": "#006f66",
+                        "surface-tint": "#047857",
+                        "on-primary-fixed": "#022c22",
+                        "secondary": "#006a61",
+                        "on-tertiary-fixed": "#2a1700",
+                        "inverse-primary": "#6ee7b7",
+                        "surface-bright": "#f7fdf9",
+                        "secondary-fixed-dim": "#6bd8cb",
+                        "surface-container-low": "#eef9f1",
+                        "on-primary-container": "#ecfdf5",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#ffeedd",
+                        "surface": "#f7fdf9",
+                        "outline-variant": "#c8d3cb",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#c3e2cd",
+                        "on-secondary-fixed": "#00201d",
+                        "on-error-container": "#93000a",
+                        "background": "#f7fdf9",
+                        "primary-fixed-dim": "#6ee7b7",
+                        "secondary-fixed": "#89f5e7",
+                        "surface-container-high": "#d7f0dd",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "on-surface": "#0c1f14",
+                        "primary": "#047857",
+                        "surface-container-highest": "#cbe8d4",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#cbe8d4",
+                        "tertiary": "#784b00",
+                        "inverse-on-surface": "#e7f7ec",
+                        "secondary-container": "#86f2e4",
+                        "surface-container": "#e3f6e8",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#22362a",
+                        "on-secondary-fixed-variant": "#005049",
+                        "tertiary-container": "#996100",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#065f46",
+                        "on-background": "#0c1f14",
+                        "primary-fixed": "#d1fae5",
+                        "tertiary-fixed": "#ffddb8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xxl": "48px",
+                        "base": "4px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "container-max": "1280px",
+                        "xl": "32px",
+                        "gutter": "24px",
+                        "sm": "8px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "display": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24;
+        }
+        
+        .shadow-level-1 {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        .shadow-level-2 {
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        
+        .input-notion {
+            border: 1px solid #CBD5E1;
+            border-radius: 0.5rem;
+            transition: all 0.2s ease-in-out;
+        }
+        .input-notion:focus {
+            border-color: #059669;
+            box-shadow: 0 0 0 1px #059669;
+            outline: none;
+        }
+        
+        .card-surface {
+            background-color: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- Suppressed Top Nav & FAB as per intent: Transactional Onboarding / Builder flow -->
+<main class="flex-grow flex flex-col items-center justify-center py-xxl px-lg w-full max-w-container-max mx-auto">
+<div class="w-full max-w-3xl card-surface shadow-level-1 p-lg md:p-xl relative overflow-hidden">
+<!-- Progress Header -->
+<div class="mb-xl">
+<div class="flex justify-between items-center mb-sm">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Step 3 of 4</span>
+<span class="font-label-md text-label-md text-primary font-bold">Build Your Portfolio</span>
+</div>
+<div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
+<div class="h-full bg-primary w-3/4 rounded-full"></div>
+</div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface mt-lg mb-sm">Finalize your profile.</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Add your projects, certifications, and past roles to complete your SkillBridge profile.</p>
+</div>
+<div class="space-y-xl">
+<!-- Projects Section -->
+<section>
+<div class="flex justify-between items-center mb-md border-b border-outline-variant pb-sm">
+<h2 class="font-title-lg text-title-lg text-on-surface flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">folder</span>
+                            Projects & Experience
+                        </h2>
+<button type="button" onclick="openAddProjectModal()" class="flex items-center gap-xs font-label-md text-label-md text-primary hover:bg-surface-container-low px-md py-sm rounded-lg transition-colors border border-primary/30 shadow-sm">
+<span class="material-symbols-outlined text-base">add</span>
+                            Add New Project
+                        </button>
+</div>
+<!-- Dynamic Projects Container -->
+<div id="portfolio-projects-list" class="grid grid-cols-1 md:grid-cols-2 gap-md">
+    <!-- Rendered dynamically -->
+</div>
+</section>
+<!-- Certifications Section -->
+<section>
+<div class="flex justify-between items-center mb-md border-b border-outline-variant pb-sm">
+<h2 class="font-title-lg text-title-lg text-on-surface flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">workspace_premium</span>
+                            Certifications
+                        </h2>
+<button type="button" onclick="showToast('Certification added!')" class="flex items-center gap-xs font-label-md text-label-md text-primary hover:bg-surface-container-low px-md py-sm rounded-lg transition-colors">
+<span class="material-symbols-outlined text-base">add</span>
+                            Add Certification
+                        </button>
+</div>
+<!-- Added Cert Card -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-md">
+<div class="card-surface p-md border border-outline-variant hover:shadow-level-2 transition-shadow group relative flex items-start gap-md">
+<div class="w-12 h-12 rounded bg-surface-container flex items-center justify-center shrink-0">
+<span class="material-symbols-outlined text-primary">verified</span>
+</div>
+<div>
+<h3 class="font-body-lg text-body-lg font-semibold text-on-surface mb-xs pr-lg">AWS Certified Developer - Associate</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mb-xs">Amazon Web Services (AWS)</p>
+<p class="font-label-md text-label-md text-outline">Issued Jan 2026</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<!-- Footer Actions -->
+<div class="mt-xl pt-lg border-t border-outline-variant flex justify-between items-center">
+<a href="student_skill_assessment.html" class="font-label-md text-label-md text-outline hover:text-on-surface px-md py-sm transition-colors inline-flex items-center">Back</a>
+<a href="student_ddd_assessment.html" onclick="finishPortfolio(event)" class="bg-primary text-on-primary hover:bg-primary-fixed-variant font-label-md text-label-md font-bold px-xl py-md rounded-lg shadow-level-1 hover:shadow-level-2 transition-all active:scale-95 flex items-center gap-sm">
+                    Next: Step 4 Domain Assessment (DDD)
+                    <span class="material-symbols-outlined text-lg">arrow_forward</span>
+</a>
+</div>
+</div>
+</main>
+
+<!-- Add Project Modal -->
+<div id="addProjectModal" class="fixed inset-0 z-[999] bg-black/50 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-surface-container-lowest border border-outline-variant rounded-2xl shadow-2xl w-full max-w-lg p-6 animate-in fade-in zoom-in duration-200">
+        <div class="flex justify-between items-center mb-4">
+            <h3 class="font-bold text-lg text-on-surface">Add Project / Experience</h3>
+            <button type="button" onclick="closeAddProjectModal()" class="text-on-surface-variant hover:text-on-surface">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+        </div>
+        <form onsubmit="handleSaveNewProject(event)" class="space-y-4">
+            <div>
+                <label class="block text-xs font-semibold text-on-surface mb-1">Project Title</label>
+                <input id="projTitleInput" required class="input-notion w-full p-2.5 text-sm" placeholder="e.g., E-Learning Education Platform">
+            </div>
+            <div>
+                <label class="block text-xs font-semibold text-on-surface mb-1">Description & Key Contributions</label>
+                <textarea id="projDescInput" required rows="4" class="input-notion w-full p-2.5 text-sm" placeholder="Describe what you built and technologies used..."></textarea>
+            </div>
+            <div>
+                <label class="block text-xs font-semibold text-on-surface mb-1">Technologies Used (comma separated)</label>
+                <input id="projTagsInput" class="input-notion w-full p-2.5 text-sm" placeholder="React, Node.js, PostgreSQL">
+            </div>
+            <div class="flex justify-end gap-2 pt-2">
+                <button type="button" onclick="closeAddProjectModal()" class="px-4 py-2 text-xs font-semibold text-on-surface-variant border border-outline-variant rounded-lg">Cancel</button>
+                <button type="submit" class="px-5 py-2 text-xs font-semibold bg-primary text-white rounded-lg shadow-sm">Save Project</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="auth.js"></script>
+<script>
+    function renderPortfolioProjects() {
+        const user = getCurrentUser();
+        const container = document.getElementById('portfolio-projects-list');
+        if (!container) return;
+
+        let projects = user.projects || [];
+        if (projects.length === 0 && user.projectDesc) {
+            projects = [{
+                title: "Featured Student Project",
+                desc: user.projectDesc,
+                tags: user.skills ? user.skills.slice(0, 3) : ["React", "Python"]
+            }];
+        }
+
+        if (projects.length === 0) {
+            container.innerHTML = `<p class="text-sm text-on-surface-variant col-span-2 text-center py-4">No projects added yet. Click "+ Add New Project" to get started!</p>`;
+            return;
+        }
+
+        container.innerHTML = projects.map((proj, idx) => `
+            <div class="card-surface p-md border border-outline-variant hover:shadow-level-2 transition-shadow group relative">
+                <div class="absolute top-md right-md flex gap-sm opacity-0 group-hover:opacity-100 transition-opacity">
+                    <button onclick="deleteProject(${idx})" class="text-outline hover:text-error transition-colors" title="Delete"><span class="material-symbols-outlined text-lg">delete</span></button>
+                </div>
+                <h3 class="font-body-lg text-body-lg font-semibold text-on-surface mb-xs pr-xl">${proj.title}</h3>
+                <p class="font-body-md text-body-md text-on-surface-variant mb-md line-clamp-3">${proj.desc}</p>
+                <div class="flex flex-wrap gap-xs mb-sm">
+                    ${(proj.tags || ["Development"]).map(t => `<span class="bg-primary/10 text-primary font-label-md text-xs px-2 py-0.5 rounded-full">${t}</span>`).join('')}
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function openAddProjectModal() {
+        const modal = document.getElementById('addProjectModal');
+        if (modal) {
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+    }
+
+    function closeAddProjectModal() {
+        const modal = document.getElementById('addProjectModal');
+        if (modal) {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+    }
+
+    function handleSaveNewProject(e) {
+        e.preventDefault();
+        const title = document.getElementById('projTitleInput').value.trim();
+        const desc = document.getElementById('projDescInput').value.trim();
+        const tagsRaw = document.getElementById('projTagsInput').value.trim();
+        const tags = tagsRaw ? tagsRaw.split(',').map(t => t.trim()) : ["Web Dev"];
+
+        const user = getCurrentUser();
+        const projects = user.projects || [];
+        projects.unshift({ title, desc, tags });
+
+        saveCurrentUser({
+            projects: projects,
+            projectDesc: desc // Keep projectDesc synced as main bio project
+        });
+
+        showToast("Project added to your profile!");
+        closeAddProjectModal();
+        renderPortfolioProjects();
+    }
+
+    function deleteProject(idx) {
+        const user = getCurrentUser();
+        let projects = user.projects || [];
+        projects.splice(idx, 1);
+        saveCurrentUser({ projects: projects });
+        showToast("Project removed.");
+        renderPortfolioProjects();
+    }
+
+    function finishPortfolio(e) {
+        e.preventDefault();
+        showToast("Portfolio saved! Proceeding to Step 4: Domain Assessment (DDD)...");
+        setTimeout(() => {
+            window.location.href = "student_ddd_assessment.html";
+        }, 500);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        renderPortfolioProjects();
+    });
+</script>
+</body></html>

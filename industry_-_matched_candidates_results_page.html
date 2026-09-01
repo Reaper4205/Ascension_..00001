@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Matched Candidates for Backend Intern Role - SkillBridge</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#3c463f",
+                        "primary-container": "#059669",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "outline": "#6b7d70",
+                        "on-secondary-container": "#006f66",
+                        "surface-tint": "#047857",
+                        "on-primary-fixed": "#022c22",
+                        "secondary": "#006a61",
+                        "on-tertiary-fixed": "#2a1700",
+                        "inverse-primary": "#6ee7b7",
+                        "surface-bright": "#f7fdf9",
+                        "secondary-fixed-dim": "#6bd8cb",
+                        "surface-container-low": "#eef9f1",
+                        "on-primary-container": "#ecfdf5",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#ffeedd",
+                        "surface": "#f7fdf9",
+                        "outline-variant": "#c8d3cb",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#c3e2cd",
+                        "on-secondary-fixed": "#00201d",
+                        "on-error-container": "#93000a",
+                        "background": "#f7fdf9",
+                        "primary-fixed-dim": "#6ee7b7",
+                        "secondary-fixed": "#89f5e7",
+                        "surface-container-high": "#d7f0dd",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "on-surface": "#0c1f14",
+                        "primary": "#047857",
+                        "surface-container-highest": "#cbe8d4",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#cbe8d4",
+                        "tertiary": "#784b00",
+                        "inverse-on-surface": "#e7f7ec",
+                        "secondary-container": "#86f2e4",
+                        "surface-container": "#e3f6e8",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#22362a",
+                        "on-secondary-fixed-variant": "#005049",
+                        "tertiary-container": "#996100",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#065f46",
+                        "on-background": "#0c1f14",
+                        "primary-fixed": "#d1fae5",
+                        "tertiary-fixed": "#ffddb8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xxl": "48px",
+                        "base": "4px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "container-max": "1280px",
+                        "xl": "32px",
+                        "gutter": "24px",
+                        "sm": "8px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "display": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    },
+                    "boxShadow": {
+                        "level-1": "0 4px 4px -2px rgba(0, 0, 0, 0.05)",
+                        "level-2": "0 8px 8px -4px rgba(0, 0, 0, 0.1)",
+                        "level-3": "0 16px 16px -8px rgba(0, 0, 0, 0.15)"
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: theme('colors.background'); color: theme('colors.on-background'); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .material-symbols-outlined.fill { font-variation-settings: 'FILL' 1; }
+        
+        .card-hover:hover {
+            box-shadow: theme('boxShadow.level-2');
+            transform: translateY(-2px);
+        }
+    </style>
+</head>
+<body class="bg-background min-h-screen flex flex-col">
+<!-- Top Navigation Bar -->
+<nav class="bg-surface-container-lowest dark:bg-surface-dim shadow-sm flex justify-between items-center w-full px-lg md:px-xxl max-w-container-max mx-auto h-16 sticky top-0 z-40">
+<div class="flex items-center gap-lg">
+<a href="index.html" class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">
+                SkillBridge
+            </a>
+<div class="hidden md:flex gap-md items-center h-full pt-1">
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:bg-surface-container-low dark:hover:bg-surface-container-high rounded-lg px-sm py-xs flex items-center h-full active:scale-95 duration-150 font-body-md text-body-md" href="analytics_dashboard_-_placement__skill_insights.html">Dashboard</a>
+<a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1 font-bold hover:bg-surface-container-low dark:hover:bg-surface-container-high rounded-lg px-sm py-xs flex items-center h-full active:scale-95 duration-150 font-body-md text-body-md" href="industry_-_post_opportunity_form.html">Opportunities</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:bg-surface-container-low dark:hover:bg-surface-container-high rounded-lg px-sm py-xs flex items-center h-full active:scale-95 duration-150 font-body-md text-body-md" href="recruiter_-_applicant_management_tracker.html">Applications</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:bg-surface-container-low dark:hover:bg-surface-container-high rounded-lg px-sm py-xs flex items-center h-full active:scale-95 duration-150 font-body-md text-body-md" href="industry_-_matched_candidates_results_page.html">Profile</a>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-full transition-colors active:scale-95">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="p-2 text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-full transition-colors active:scale-95 mr-sm">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<img alt="User profile photo" class="w-8 h-8 rounded-full object-cover border border-outline-variant" data-alt="A professional headshot of a person looking confidently at the camera, wearing a modern dark blazer over a light shirt. The background is a blurred modern office environment. The lighting is soft and flattering, creating a high-end corporate portrait look. 50-100 words." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA127QmWTjbsyv_xVyEhyb7VSkbisHgm41f9Vy-WCaleFA7tAqLy-APQvTChzvYLJm7SlrsY84N5W8vUO6n041GtPpApkROmUj7YdtOiysR6BZA-HrfI_-f_toJxQlhzwRucaCG5iTkFV0WnhvQ6JufqljWPYFmj8C3zLO2nX2lvKDVhPjlPf0EjvIfcoj_08wl8N-pRjgtR0F7GDoX4rQnZ280cvOAbedUruFN8SeJC-iji2050KTFoQ"/>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-md md:px-lg py-xl">
+<!-- Header & Controls -->
+<!-- Opportunity Summary Banner -->
+<div id="opportunity-summary-card" class="bg-primary/5 border border-primary/20 rounded-xl p-md mb-lg flex flex-col md:flex-row justify-between items-start md:items-center gap-md">
+    <div class="flex-1">
+        <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span id="opp-type-badge" class="px-2 py-0.5 rounded text-[11px] font-bold uppercase bg-primary text-white">Full-Time Job</span>
+            <span id="opp-company-name" class="font-bold text-xs text-on-surface">Verve Web Studios</span>
+            <div class="relative inline-block ml-2">
+                <select id="opp-select-dropdown" onchange="switchOpportunity(this.value)" class="text-xs bg-surface border border-outline-variant rounded-md px-2 py-1 font-semibold text-primary focus:ring-1 focus:ring-primary outline-none cursor-pointer pr-6">
+                    <!-- Populated dynamically -->
+                </select>
+            </div>
+        </div>
+        <h1 id="opp-title-heading" class="font-headline-md text-headline-md text-on-surface font-bold">Matched Candidates</h1>
+        <div id="opp-skills-required-bar" class="flex flex-wrap items-center gap-1.5 mt-2">
+            <!-- Dynamic Required Skills Badges -->
+        </div>
+    </div>
+    <div class="flex gap-2 shrink-0">
+        <a href="industry_-_post_opportunity_form.html" class="px-3 py-1.5 text-xs font-semibold text-primary border border-primary/30 rounded-lg hover:bg-primary/5 transition-colors flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">add_circle</span> Post New Role
+        </a>
+        <a href="recruiter_-_applicant_management_tracker.html" class="px-3 py-1.5 text-xs font-semibold bg-primary text-white rounded-lg hover:bg-surface-tint transition-colors flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">assignment</span> View Tracker
+        </a>
+    </div>
+</div>
+
+<!-- Search & Sort Controls -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-md bg-surface-container-lowest p-md rounded-xl shadow-level-1 border border-outline-variant/30 mb-lg">
+    <div class="flex-1 w-full md:w-auto relative group">
+        <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline group-focus-within:text-primary transition-colors">search</span>
+        <input id="candidateSearchInput" oninput="handleCandidateSearch(this.value)" class="w-full pl-10 pr-4 py-2 bg-surface rounded-lg border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none transition-all font-body-md text-body-md text-on-surface placeholder:text-outline" placeholder="Search candidates, universities, or skills..." type="text"/>
+    </div>
+    <div class="flex items-center gap-sm w-full md:w-auto">
+        <div class="relative w-full md:w-auto min-w-[200px]">
+            <select id="candidateSortSelect" onchange="renderMatchedCandidates()" class="w-full appearance-none bg-surface-container-lowest border border-outline-variant rounded-lg pl-3 pr-10 py-2 font-body-md text-body-md text-on-surface focus:border-primary focus:ring-1 focus:ring-primary outline-none cursor-pointer">
+                <option value="match_desc">Sort by Match Score (Highest)</option>
+                <option value="name_asc">Name (A-Z)</option>
+            </select>
+            <span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 text-outline pointer-events-none">expand_more</span>
+        </div>
+    </div>
+</div>
+</header>
+
+<!-- Dynamic Candidate List Container -->
+<div id="candidates-matched-container" class="flex flex-col gap-gutter">
+    <!-- Rendered dynamically -->
+</div>
+
+<!-- Explainability "Why this match?" Modal -->
+<div id="why-match-modal" class="fixed inset-0 z-[10000] bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-surface-container-lowest border border-outline-variant rounded-2xl shadow-2xl w-full max-w-2xl overflow-hidden animate-in fade-in zoom-in duration-200">
+        <div class="bg-primary/10 border-b border-primary/20 px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-xl">psychology</span>
+                <div>
+                    <h3 class="font-bold text-base text-on-surface">Explainable Candidate Match Breakdown</h3>
+                    <p id="modal-candidate-sub" class="text-xs text-on-surface-variant">Detailed arithmetic & competency evidence breakdown</p>
+                </div>
+            </div>
+            <button type="button" onclick="closeWhyMatchModal()" class="w-8 h-8 rounded-full hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface">
+                <span class="material-symbols-outlined text-lg">close</span>
+            </button>
+        </div>
+        <div id="modal-match-body" class="p-6 space-y-4 max-h-[75vh] overflow-y-auto">
+            <!-- Rendered dynamically -->
+        </div>
+    </div>
+</div>
+</main>
+<!-- Bottom Navigation Bar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-sm py-xs pb-safe bg-surface-container-lowest dark:bg-surface-dim shadow-[0_-2px_10px_rgba(0,0,0,0.05)] h-16">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant active:scale-90 transition-transform duration-200 w-16" href="analytics_dashboard_-_placement__skill_insights.html">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md mt-1">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-bold active:scale-90 transition-transform duration-200 w-16" href="industry_-_post_opportunity_form.html">
+<span class="material-symbols-outlined fill" data-icon="work">work</span>
+<span class="font-label-md text-label-md mt-1">Jobs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant active:scale-90 transition-transform duration-200 w-16" href="recruiter_-_applicant_management_tracker.html">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="font-label-md text-label-md mt-1">Apps</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant active:scale-90 transition-transform duration-200 w-16" href="industry_-_matched_candidates_results_page.html">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-md text-label-md mt-1">Profile</span>
+</a>
+</nav>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-surface-container-lowest border-t border-outline-variant dark:border-outline mt-auto w-full py-xl px-lg max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-lg pb-24 md:pb-xl">
+<div class="font-title-lg text-title-lg font-bold text-on-surface dark:text-inverse-on-surface">
+            SkillBridge
+        </div>
+<div class="flex flex-wrap justify-center gap-md font-body-md text-body-md">
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:underline transition-all" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:underline transition-all" href="#">Terms of Service</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:underline transition-all" href="#">Help Center</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:underline transition-all" href="#">Contact Us</a>
+</div>
+<div class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant">
+            © 2026 SkillBridge. Bridging Education and Industry.
+        </div>
+</footer>
+<script src="auth.js"></script>
+<script>
+    let activeOpportunity = null;
+    let candidateSearchFilter = '';
+
+    function getActiveOpportunity() {
+        const sharedData = getSkillBridgeData();
+        const urlParams = new URLSearchParams(window.location.search);
+        const oppId = urlParams.get('oppId');
+
+        if (oppId) {
+            const found = sharedData.opportunities.find(o => o.id === oppId);
+            if (found) return found;
+        }
+        return sharedData.opportunities[0];
+    }
+
+    function renderOpportunitySummary() {
+        activeOpportunity = getActiveOpportunity();
+        const sharedData = getSkillBridgeData();
+        if (!activeOpportunity) return;
+
+        // Populate dropdown
+        const select = document.getElementById('opp-select-dropdown');
+        if (select) {
+            select.innerHTML = sharedData.opportunities.map(o => `
+                <option value="${o.id}" ${o.id === activeOpportunity.id ? 'selected' : ''}>
+                    ${o.title} (${o.company})
+                </option>
+            `).join('');
+        }
+
+        document.getElementById('opp-type-badge').textContent = activeOpportunity.roleType || 'Opportunity';
+        document.getElementById('opp-company-name').textContent = activeOpportunity.company;
+        document.getElementById('opp-title-heading').textContent = `Matched Candidates for "${activeOpportunity.title}"`;
+
+        const skillsBar = document.getElementById('opp-skills-required-bar');
+        skillsBar.innerHTML = (activeOpportunity.requiredSkills || []).map(s => {
+            const prioClass = s.priority === "Critical" ? "bg-red-100 text-red-700 border-red-200"
+                            : s.priority === "High" ? "bg-amber-100 text-amber-800 border-amber-200"
+                            : "bg-blue-50 text-blue-700 border-blue-200";
+            return `
+                <span class="inline-flex items-center gap-1 px-2.5 py-1 rounded-full text-xs font-semibold border ${prioClass}">
+                    <span>${s.skill}</span>
+                    <span class="opacity-75">(${s.reqPct}%)</span>
+                    <span class="text-[9px] uppercase font-bold tracking-wider opacity-80">${s.priority}</span>
+                </span>
+            `;
+        }).join('');
+    }
+
+    function switchOpportunity(oppId) {
+        const url = new URL(window.location.href);
+        url.searchParams.set('oppId', oppId);
+        window.history.pushState({}, '', url);
+        renderOpportunitySummary();
+        renderMatchedCandidates();
+        showToast("Switched active job role!");
+    }
+
+    function renderMatchedCandidates() {
+        activeOpportunity = getActiveOpportunity();
+        const sharedData = getSkillBridgeData();
+        const container = document.getElementById('candidates-matched-container');
+        if (!container || !activeOpportunity) return;
+
+        let candidates = [...sharedData.candidates];
+
+        // Search filter
+        if (candidateSearchFilter) {
+            const q = candidateSearchFilter.toLowerCase();
+            candidates = candidates.filter(c => 
+                c.fullName.toLowerCase().includes(q) ||
+                (c.university && c.university.toLowerCase().includes(q)) ||
+                Object.keys(c.skills || {}).some(k => k.toLowerCase().includes(q))
+            );
+        }
+
+        // Compute match score for each candidate
+        const scoredCandidates = candidates.map(cand => {
+            const matchData = calculateCandidateMatch(cand, activeOpportunity);
+            return {
+                candidate: cand,
+                match: matchData
+            };
+        });
+
+        // Sort
+        const sortVal = document.getElementById('candidateSortSelect')?.value || 'match_desc';
+        if (sortVal === 'match_desc') {
+            scoredCandidates.sort((a, b) => b.match.overallPct - a.match.overallPct);
+        } else if (sortVal === 'name_asc') {
+            scoredCandidates.sort((a, b) => a.candidate.fullName.localeCompare(b.candidate.fullName));
+        }
+
+        if (scoredCandidates.length === 0) {
+            container.innerHTML = `
+                <div class="bg-surface-container-lowest p-xl rounded-xl text-center border border-outline-variant">
+                    <span class="material-symbols-outlined text-4xl text-outline mb-2">person_search</span>
+                    <p class="font-bold text-on-surface">No candidates found matching your filter criteria.</p>
+                </div>
+            `;
+            return;
+        }
+
+        container.innerHTML = scoredCandidates.map(({ candidate, match }) => {
+            const pct = match.overallPct;
+            const badgeColor = pct >= 85 ? "bg-emerald-100 text-emerald-800 border-emerald-300"
+                             : pct >= 70 ? "bg-amber-100 text-amber-800 border-amber-300"
+                             : "bg-red-100 text-red-800 border-red-300";
+
+            return `
+                <article class="bg-surface-container-lowest rounded-xl p-lg shadow-level-1 card-hover transition-all duration-200 border border-outline-variant/30 flex flex-col md:flex-row gap-lg">
+                    <!-- Avatar & Info -->
+                    <div class="flex gap-md flex-1 items-center md:items-start">
+                        <img alt="${candidate.fullName}" class="w-20 h-20 rounded-full object-cover shadow-sm border border-outline-variant/40 flex-shrink-0" src="${candidate.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=256'}"/>
+                        <div>
+                            <div class="flex items-center gap-2">
+                                <h2 class="font-title-lg text-title-lg text-on-surface font-bold">${candidate.fullName}</h2>
+                                <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase ${candidate.status === 'selected' ? 'bg-emerald-100 text-emerald-700' : candidate.status === 'interview' ? 'bg-blue-100 text-blue-700' : 'bg-surface-container text-on-surface-variant'}">${candidate.status}</span>
+                            </div>
+                            <div class="flex items-center gap-xs text-on-surface-variant mt-1 font-body-md text-xs">
+                                <span class="material-symbols-outlined text-[16px]">school</span>
+                                <span>${candidate.university || 'State Engineering College'} • ${candidate.degree || 'Computer Science'}</span>
+                            </div>
+                            <div class="flex items-center gap-xs text-outline mt-1 font-body-md text-xs">
+                                <span class="material-symbols-outlined text-[16px]">verified</span>
+                                <span>${candidate.year || 'Junior'}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Match Score & Skills Breakdown -->
+                    <div class="flex-1 flex flex-col justify-center gap-sm border-y md:border-y-0 md:border-x border-outline-variant/20 py-md md:py-0 md:px-lg">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider font-semibold">Match Strength</span>
+                                <div class="px-3 py-1 rounded-full font-title-lg text-base font-bold flex items-center gap-1 border ${badgeColor}">
+                                    <span class="material-symbols-outlined text-base">verified</span>
+                                    ${pct}%
+                                </div>
+                            </div>
+                            <!-- Explainability "Why?" Button -->
+                            <button type="button" onclick="openWhyMatchModal('${candidate.id}')" class="text-primary hover:underline text-xs font-bold flex items-center gap-0.5">
+                                <span class="material-symbols-outlined text-sm">psychology</span> Why this match?
+                            </button>
+                        </div>
+
+                        <!-- Skill Comparison Badges -->
+                        <div class="space-y-1.5 mt-1">
+                            <div class="text-[11px] font-bold text-on-surface-variant uppercase tracking-wider">Required Skills Competency & Evidence:</div>
+                            <div class="flex flex-wrap gap-1.5">
+                                ${match.skillsBreakdown.map(s => {
+                                    const icon = s.meets ? "check" : "priority_high";
+                                    const color = s.meets ? "bg-emerald-50 text-emerald-800 border-emerald-200" : "bg-amber-50 text-amber-900 border-amber-200";
+                                    return `
+                                        <div class="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg text-xs border ${color}">
+                                            <span class="material-symbols-outlined text-xs ${s.meets ? 'text-emerald-600' : 'text-amber-600'}">${icon}</span>
+                                            <span class="font-semibold">${s.skill}</span>
+                                            <span class="opacity-75">${s.candidatePct}%</span>
+                                            <span class="text-[9px] px-1.5 py-0.5 rounded bg-white/70 font-mono text-outline">${s.evidenceTier}</span>
+                                        </div>
+                                    `;
+                                }).join('')}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Actions -->
+                    <div class="flex flex-row md:flex-col justify-center gap-sm md:w-[170px] flex-shrink-0">
+                        <button type="button" onclick="openWhyMatchModal('${candidate.id}')" class="w-full bg-primary/10 text-primary border border-primary/20 font-label-md text-xs font-bold px-3 py-2 rounded-lg hover:bg-primary/20 transition-colors flex items-center justify-center gap-1">
+                            <span class="material-symbols-outlined text-sm">psychology</span> Why Match?
+                        </button>
+                        <button type="button" onclick="handleCandidateStatusChange('${candidate.id}', 'shortlisted')" class="w-full bg-surface-container-lowest text-on-surface border border-outline-variant font-label-md text-xs font-semibold px-3 py-2 rounded-lg hover:bg-surface-container-low transition-colors flex items-center justify-center gap-1">
+                            <span class="material-symbols-outlined text-sm">bookmark_add</span> Shortlist
+                        </button>
+                        <button type="button" onclick="handleCandidateStatusChange('${candidate.id}', 'interview')" class="w-full bg-[#059669] hover:bg-[#047857] text-white font-label-md text-xs font-bold px-3 py-2 rounded-lg transition-colors flex items-center justify-center gap-1 shadow-sm">
+                            <span class="material-symbols-outlined text-sm">mail</span> Interview
+                        </button>
+                    </div>
+                </article>
+            `;
+        }).join('');
+    }
+
+    function openWhyMatchModal(candidateId) {
+        activeOpportunity = getActiveOpportunity();
+        const sharedData = getSkillBridgeData();
+        const candidate = sharedData.candidates.find(c => c.id === candidateId || c.fullName === candidateId);
+        if (!candidate || !activeOpportunity) return;
+
+        const match = calculateCandidateMatch(candidate, activeOpportunity);
+
+        document.getElementById('modal-candidate-sub').textContent = 
+            `Analysis for ${candidate.fullName} applying for ${activeOpportunity.title} at ${activeOpportunity.company}`;
+
+        const body = document.getElementById('modal-match-body');
+        body.innerHTML = `
+            <!-- Overall Score Summary -->
+            <div class="bg-surface-container-low p-4 rounded-xl border border-outline-variant flex items-center justify-between">
+                <div>
+                    <span class="text-xs uppercase font-bold text-on-surface-variant">Overall Match Score</span>
+                    <h2 class="text-3xl font-display font-bold text-primary">${match.overallPct}%</h2>
+                </div>
+                <div class="text-right">
+                    <span class="text-xs text-on-surface-variant font-semibold">Algorithm Breakdown</span>
+                    <p class="text-xs text-outline">Weighted by skill priority (Critical = 3x, High = 2x, Medium = 1x)</p>
+                </div>
+            </div>
+
+            <!-- Narrative Reason -->
+            <div class="p-3 bg-blue-50/70 border border-blue-200 rounded-lg text-xs text-blue-900 leading-relaxed flex items-start gap-2">
+                <span class="material-symbols-outlined text-base text-blue-600 shrink-0">info</span>
+                <div>
+                    <strong>Why this match?</strong> ${match.whyReason}
+                </div>
+            </div>
+
+            <!-- Skill by Skill Comparison Table -->
+            <div>
+                <h4 class="font-bold text-xs uppercase tracking-wider text-on-surface-variant mb-2">Competency vs Industry Requirement Breakdown</h4>
+                <div class="border border-outline-variant rounded-xl overflow-hidden">
+                    <table class="w-full text-left text-xs border-collapse">
+                        <thead class="bg-surface-container font-semibold text-on-surface-variant border-b border-outline-variant">
+                            <tr>
+                                <th class="p-2.5">Skill Name</th>
+                                <th class="p-2.5">Priority</th>
+                                <th class="p-2.5">Candidate Level</th>
+                                <th class="p-2.5">Required Level</th>
+                                <th class="p-2.5">Status & Gap</th>
+                                <th class="p-2.5">Evidence Tier</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-outline-variant/30">
+                            ${match.skillsBreakdown.map(s => `
+                                <tr class="hover:bg-surface-container-low transition-colors">
+                                    <td class="p-2.5 font-bold text-on-surface">${s.skill}</td>
+                                    <td class="p-2.5">
+                                        <span class="text-[10px] uppercase font-bold px-2 py-0.5 rounded ${s.priority === 'Critical' ? 'bg-red-100 text-red-700' : 'bg-amber-100 text-amber-800'}">${s.priority}</span>
+                                    </td>
+                                    <td class="p-2.5 font-semibold">${s.candidatePct}%</td>
+                                    <td class="p-2.5 text-outline">${s.requiredPct}%</td>
+                                    <td class="p-2.5">
+                                        ${s.meets 
+                                            ? `<span class="text-emerald-700 font-bold flex items-center gap-0.5"><span class="material-symbols-outlined text-sm">check_circle</span> Met (+${s.candidatePct - s.requiredPct}%)</span>`
+                                            : `<span class="text-amber-700 font-bold flex items-center gap-0.5"><span class="material-symbols-outlined text-sm">warning</span> -${s.gap}% gap</span>`
+                                        }
+                                    </td>
+                                    <td class="p-2.5">
+                                        <span class="px-2 py-0.5 rounded text-[10px] font-bold ${
+                                            s.evidenceTier === 'Industry-Verified' ? 'bg-emerald-100 text-emerald-800' :
+                                            s.evidenceTier === 'Assessed' ? 'bg-blue-100 text-blue-800' :
+                                            s.evidenceTier === 'Project-Evidenced' ? 'bg-purple-100 text-purple-800' :
+                                            'bg-gray-100 text-gray-700'
+                                        }">${s.evidenceTier}</span>
+                                    </td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Modal Action Buttons -->
+            <div class="flex justify-end gap-2 pt-2">
+                <button type="button" onclick="closeWhyMatchModal()" class="px-4 py-2 text-xs font-semibold text-on-surface-variant border border-outline-variant rounded-lg hover:bg-surface-container transition-colors">Close</button>
+                <button type="button" onclick="handleCandidateStatusChange('${candidate.id}', 'interview'); closeWhyMatchModal();" class="px-5 py-2 text-xs font-bold bg-primary text-white rounded-lg hover:bg-surface-tint transition-colors flex items-center gap-1">
+                    <span class="material-symbols-outlined text-sm">mail</span> Send Interview Invite
+                </button>
+            </div>
+        `;
+
+        document.getElementById('why-match-modal').classList.remove('hidden');
+        document.getElementById('why-match-modal').classList.add('flex');
+    }
+
+    function closeWhyMatchModal() {
+        const modal = document.getElementById('why-match-modal');
+        if (modal) {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+    }
+
+    function handleCandidateStatusChange(candidateId, newStatus) {
+        const sharedData = getSkillBridgeData();
+        const candidate = sharedData.candidates.find(c => c.id === candidateId || c.fullName === candidateId);
+        if (candidate) {
+            candidate.status = newStatus;
+            saveSkillBridgeData(sharedData);
+            showToast(`${candidate.fullName} moved to status: "${newStatus.toUpperCase()}"!`);
+            renderMatchedCandidates();
+        }
+    }
+
+    function handleCandidateSearch(val) {
+        candidateSearchFilter = val;
+        renderMatchedCandidates();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        renderOpportunitySummary();
+        renderMatchedCandidates();
+    });
+</script>
+</body></html>

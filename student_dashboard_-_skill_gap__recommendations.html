@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Skill Gap Analysis Dashboard — SkillBridge</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#3c463f",
+                    "primary-container": "#059669",
+                    "on-error": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "outline": "#6b7d70",
+                    "on-secondary-container": "#006f66",
+                    "surface-tint": "#047857",
+                    "on-primary-fixed": "#022c22",
+                    "secondary": "#006a61",
+                    "on-tertiary-fixed": "#2a1700",
+                    "inverse-primary": "#6ee7b7",
+                    "surface-bright": "#f7fdf9",
+                    "secondary-fixed-dim": "#6bd8cb",
+                    "surface-container-low": "#eef9f1",
+                    "on-primary-container": "#ecfdf5",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#ffeedd",
+                    "surface": "#f7fdf9",
+                    "outline-variant": "#c8d3cb",
+                    "on-secondary": "#ffffff",
+                    "surface-dim": "#c3e2cd",
+                    "on-secondary-fixed": "#00201d",
+                    "on-error-container": "#93000a",
+                    "background": "#f7fdf9",
+                    "primary-fixed-dim": "#6ee7b7",
+                    "secondary-fixed": "#89f5e7",
+                    "surface-container-high": "#d7f0dd",
+                    "tertiary-fixed-dim": "#ffb95f",
+                    "on-surface": "#0c1f14",
+                    "primary": "#047857",
+                    "surface-container-highest": "#cbe8d4",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#cbe8d4",
+                    "tertiary": "#784b00",
+                    "inverse-on-surface": "#e7f7ec",
+                    "secondary-container": "#86f2e4",
+                    "surface-container": "#e3f6e8",
+                    "on-primary": "#ffffff",
+                    "inverse-surface": "#22362a",
+                    "on-secondary-fixed-variant": "#005049",
+                    "tertiary-container": "#996100",
+                    "on-tertiary-fixed-variant": "#653e00",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#065f46",
+                    "on-background": "#0c1f14",
+                    "primary-fixed": "#d1fae5",
+                    "tertiary-fixed": "#ffddb8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xxl": "48px",
+                    "base": "4px",
+                    "xs": "4px",
+                    "md": "16px",
+                    "container-max": "1280px",
+                    "xl": "32px",
+                    "gutter": "24px",
+                    "sm": "8px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter"],
+                    "label-md": ["Inter"],
+                    "title-lg": ["Inter"],
+                    "display": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-lg": ["Inter"],
+                    "body-md": ["Inter"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+</style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+
+<!-- Top Navigation -->
+<nav class="bg-surface-container-lowest shadow-sm flex justify-between items-center w-full px-lg md:px-xxl max-w-container-max mx-auto h-16 sticky top-0 z-40">
+    <div class="flex items-center gap-xl">
+        <a href="index.html" class="font-headline-md text-headline-md font-bold text-primary tracking-tight">SkillBridge</a>
+        <div class="hidden md:flex items-center gap-md">
+            <a class="text-primary border-b-2 border-primary pb-1 font-bold font-body-md text-body-md" href="student_dashboard_-_skill_gap__recommendations.html">Dashboard</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md rounded-lg px-2 py-1" href="student_-_matched_internshipsjobs_feed.html">Opportunities</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md rounded-lg px-2 py-1" href="application_tracker_student_side.html">Applications</a>
+            <a class="text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md rounded-lg px-2 py-1" href="student_public_profile_page.html">Profile</a>
+        </div>
+    </div>
+    <div class="flex items-center gap-md">
+        <button onclick="document.getElementById('dashboard-search-input').focus();" class="text-on-surface-variant hover:text-primary rounded-full p-2 transition-all">
+            <span class="material-symbols-outlined">search</span>
+        </button>
+        <a href="student_public_profile_page.html" title="View Profile" class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-full bg-primary text-white flex items-center justify-center font-bold text-xs overflow-hidden">
+                <span id="nav-user-avatar">A</span>
+            </div>
+            <span id="nav-user-name" class="font-bold text-xs hidden sm:inline text-on-surface">Alex Chen</span>
+        </a>
+    </div>
+</nav>
+
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-md md:px-lg py-xl md:py-xxl">
+    <!-- Pending DDD Step 4 Alert Banner -->
+    <div id="missing-ddd-alert" class="hidden mb-lg bg-amber-50 border-2 border-amber-400 rounded-xl p-4 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
+        <div class="flex items-center gap-3">
+            <span class="material-symbols-outlined text-amber-600 text-3xl shrink-0">assignment_late</span>
+            <div>
+                <h3 class="font-bold text-sm text-on-surface">Step 4: Domain Deep-Dive Assessment Required</h3>
+                <p class="text-xs text-on-surface-variant">Your personalized skill gap analysis, industry needs comparison, and course recommendations are unlocked in Step 4.</p>
+            </div>
+        </div>
+        <a href="student_ddd_assessment.html" class="whitespace-nowrap px-4 py-2 bg-primary text-white text-xs font-bold rounded-lg shadow-sm hover:bg-surface-tint transition-all flex items-center gap-1 shrink-0">
+            Go to Step 4 DDD <span class="material-symbols-outlined text-sm">arrow_forward</span>
+        </a>
+    </div>
+
+    <!-- Global Search Bar -->
+    <div class="mb-lg">
+        <div class="relative w-full">
+            <span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-on-surface-variant">search</span>
+            <input id="dashboard-search-input" type="text" onkeypress="handleDashboardSearch(event)" placeholder="Search skills, courses, opportunities, or target role..." class="w-full bg-surface-container-lowest border border-outline-variant rounded-xl py-3 pl-12 pr-28 font-body-md text-body-md text-on-surface shadow-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary transition-colors"/>
+            <button onclick="handleDashboardSearch()" class="absolute right-2 top-1/2 -translate-y-1/2 bg-primary text-on-primary font-label-md text-label-md px-4 py-2 rounded-lg hover:bg-surface-tint transition-colors active:scale-95">Search</button>
+        </div>
+    </div>
+
+    <!-- Header & Locked Target Role Display -->
+    <header class="mb-xl flex flex-col md:flex-row md:items-end justify-between gap-md border-b border-outline-variant pb-md">
+        <div>
+            <h1 class="font-headline-lg text-headline-lg text-on-surface mb-2">Your Skill Gap Analysis</h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Compare your proficiencies against industry standards based strictly on your submitted Domain Assessment (Step 4).</p>
+        </div>
+        <div class="relative w-full md:w-auto flex flex-col md:items-end gap-1">
+            <span class="font-label-md text-xs text-on-surface-variant uppercase tracking-wider font-semibold">Target Role (Locked from Step 4)</span>
+            <div class="flex items-center gap-2">
+                <span id="target-role-display-badge" class="px-4 py-2 bg-primary/10 text-primary border border-primary/30 rounded-xl font-bold text-sm flex items-center gap-2 shadow-sm">
+                    <span class="material-symbols-outlined text-base">target</span>
+                    <span id="target-role-title-text">Backend Developer</span>
+                </span>
+                <a href="student_ddd_assessment.html" title="Re-assess or change Target Role in Step 4 DDD" class="px-3 py-2 bg-surface-container-lowest text-on-surface-variant hover:text-primary rounded-xl border border-outline-variant hover:bg-surface-container transition-colors text-xs flex items-center gap-1 font-semibold">
+                    <span class="material-symbols-outlined text-base">edit</span> Step 4 DDD
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Domain Assessment Results Summary (Step 4 Submitted Profiles) -->
+    <div id="domain-assessments-section" class="mb-xl">
+        <div class="flex justify-between items-end mb-md">
+            <div>
+                <h2 class="font-title-lg text-title-lg text-on-surface">Step 4 Domain Assessment Summary</h2>
+                <p class="font-body-md text-body-md text-on-surface-variant mt-1">Live data from your submitted Domain Deep-Dive Assessment.</p>
+            </div>
+            <a href="student_ddd_assessment.html" class="font-label-md text-label-md text-primary hover:underline whitespace-nowrap flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">edit</span> Re-assess Role</a>
+        </div>
+        <div id="domain-assessments-grid" class="grid grid-cols-1 md:grid-cols-2 gap-gutter"></div>
+    </div>
+
+    <!-- Bento Grid Layout for Dashboard Content -->
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter mb-xl">
+        <!-- Skill Gap Chart Section (Takes up 2 columns on large screens) -->
+        <div class="lg:col-span-2 bg-surface-container-lowest rounded-xl shadow-[0_4px_16px_rgba(0,0,0,0.05)] p-lg hover:shadow-[0_8px_24px_rgba(0,0,0,0.1)] transition-shadow duration-300">
+            <div class="flex justify-between items-center mb-lg border-b border-surface-container pb-md">
+                <h2 class="font-title-lg text-title-lg text-on-surface">Proficiency Comparison (DDD Submitted Data Only)</h2>
+                <div class="flex gap-md font-label-md text-label-md">
+                    <div class="flex items-center gap-xs">
+                        <span class="w-3 h-3 rounded-sm bg-primary"></span>
+                        <span class="text-on-surface-variant">Your Submitted Level</span>
+                    </div>
+                    <div class="flex items-center gap-xs">
+                        <span class="w-3 h-3 rounded-sm bg-surface-variant border border-outline-variant"></span>
+                        <span class="text-on-surface-variant">Industry Standard</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Horizontal Bar Chart -->
+            <div class="space-y-6" id="skills-chart-container">
+                <!-- Rendered dynamically strictly from DDD submitted data -->
+            </div>
+        </div>
+
+        <!-- Summary / Action Card (1 column) -->
+        <div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_16px_rgba(0,0,0,0.05)] p-lg flex flex-col justify-between">
+            <div>
+                <h3 class="font-title-lg text-title-lg text-on-surface mb-md">Readiness Score</h3>
+                <div class="flex items-center justify-center py-xl relative">
+                    <div class="w-36 h-36 relative flex items-center justify-center">
+                        <svg class="w-full h-full transform -rotate-90" viewBox="0 0 120 120">
+                            <circle cx="60" cy="60" r="48" stroke="#d7f0dd" stroke-width="12" fill="none" />
+                            <circle id="readiness-circle-ring" cx="60" cy="60" r="48" stroke="#047857" stroke-width="12" fill="none" 
+                                stroke-dasharray="301.59" stroke-dashoffset="114.6" stroke-linecap="round" class="transition-all duration-1000 ease-out" />
+                        </svg>
+                        <div class="absolute inset-0 flex flex-col items-center justify-center text-center">
+                            <span class="font-display text-4xl font-bold text-on-surface leading-none" id="readiness-score-val">70</span>
+                            <span class="font-label-md text-xs text-on-surface-variant font-medium">%</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="font-body-md text-body-md text-on-surface-variant mb-md text-center" id="readiness-summary-text">Your readiness score is calculated strictly from your Step 4 DDD submitted assessment answers.</p>
+            </div>
+            <div class="mt-auto">
+                <a href="student_ddd_assessment.html" class="w-full bg-primary text-on-primary font-label-md text-label-md py-3 rounded-lg hover:bg-surface-tint transition-all active:scale-95 flex items-center justify-center gap-2 shadow-md">
+                    <span class="material-symbols-outlined text-lg">auto_awesome</span> Step 4 DDD Assessment
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Recommended Courses Section (Matching Target Role & Gaps Only) -->
+    <section class="mt-xxl">
+        <div class="flex justify-between items-end mb-lg border-b border-outline-variant pb-sm">
+            <div>
+                <h2 class="font-title-lg text-title-lg text-on-surface">Recommended Courses to Close Your Gaps</h2>
+                <p class="font-body-md text-body-md text-on-surface-variant mt-1">Matched exclusively to your Target Role and identified DDD assessment gaps.</p>
+            </div>
+        </div>
+        <!-- Grid Container -->
+        <div id="recommended-courses-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-gutter">
+            <!-- Rendered dynamically -->
+        </div>
+    </section>
+</main>
+
+<script src="auth.js"></script>
+<script>
+    const DOMAIN_COURSES_MAP = {
+        swe: [
+            { title: "Data Structures & Algorithms Specialization", provider: "Coursera • UC San Diego", level: "Beginner", link: "https://www.coursera.org" },
+            { title: "Design Patterns & Object-Oriented Software Architecture", provider: "Coursera • Alberta", level: "Intermediate", link: "https://www.coursera.org" },
+            { title: "System Design for Large-Scale Distributed Applications", provider: "Coursera • Stanford", level: "Advanced", link: "https://www.coursera.org" },
+            { title: "Automated Software Testing & TDD in Practice", provider: "edX • DelftX", level: "Intermediate", link: "https://www.coursera.org" }
+        ],
+        backend: [
+            { title: "Node.js & Express REST API Architecture", provider: "Coursera • Meta", level: "Beginner", link: "https://www.coursera.org" },
+            { title: "PostgreSQL Database Management Masterclass", provider: "Udemy • Tech", level: "Intermediate", link: "https://www.coursera.org" },
+            { title: "System Design & Distributed Scalability", provider: "Coursera • Stanford", level: "Advanced", link: "https://www.coursera.org" },
+            { title: "AWS Cloud Infrastructure & Docker Deployment", provider: "edX • AWS", level: "Intermediate", link: "https://www.coursera.org" }
+        ],
+        frontend: [
+            { title: "React.js Complete Guide & Hooks", provider: "Coursera • Meta", level: "Beginner", link: "https://www.coursera.org" },
+            { title: "TypeScript & Advanced State Management", provider: "Udemy • Academind", level: "Intermediate", link: "https://www.coursera.org" },
+            { title: "Web Performance & Core Web Vitals", provider: "web.dev • Google", level: "Advanced", link: "https://www.coursera.org" },
+            { title: "Tailwind CSS & Modern Responsive Design", provider: "Coursera • Google", level: "Beginner", link: "https://www.coursera.org" }
+        ],
+        fullstack: [
+            { title: "Fullstack Web Development with React & Node", provider: "Coursera • IBM", level: "Beginner", link: "https://www.coursera.org" },
+            { title: "Prisma ORM & PostgreSQL Production Apps", provider: "Prisma Docs", level: "Intermediate", link: "https://www.coursera.org" },
+            { title: "Docker & CI/CD Pipelines for Fullstack", provider: "Udemy • DevOps", level: "Advanced", link: "https://www.coursera.org" },
+            { title: "GraphQL & REST API Integration", provider: "Apollo GraphQL", level: "Intermediate", link: "https://www.coursera.org" }
+        ],
+        devops: [
+            { title: "Linux Administration & Shell Scripting", provider: "Coursera • Linux Foundation", level: "Beginner", link: "https://www.coursera.org" },
+            { title: "Docker & Kubernetes Orchestration", provider: "Udemy • Mumshad", level: "Intermediate", link: "https://www.coursera.org" },
+            { title: "Terraform Infrastructure as Code", provider: "HashiCorp Learn", level: "Advanced", link: "https://www.coursera.org" },
+            { title: "GitHub Actions CI/CD Pipeline Automation", provider: "Coursera • GitHub", level: "Intermediate", link: "https://www.coursera.org" }
+        ],
+        data: [
+            { title: "Python for Data Science & Pandas Analysis", provider: "Coursera • IBM", level: "Beginner", link: "https://www.coursera.org" },
+            { title: "Applied Machine Learning with Scikit-Learn", provider: "Coursera • Stanford", level: "Intermediate", link: "https://www.coursera.org" },
+            { title: "Deep Learning Foundations with PyTorch", provider: "Udacity • PyTorch", level: "Advanced", link: "https://www.coursera.org" },
+            { title: "SQL for Data Analytics & Warehousing", provider: "Coursera • Google", level: "Beginner", link: "https://www.coursera.org" }
+        ],
+        aiml: [
+            { title: "Machine Learning Specialization with Andrew Ng", provider: "Coursera • DeepLearning.AI", level: "Beginner", link: "https://www.coursera.org" },
+            { title: "Deep Learning Specialization with PyTorch", provider: "Coursera • DeepLearning.AI", level: "Intermediate", link: "https://www.coursera.org" },
+            { title: "Generative AI with Large Language Models", provider: "Coursera • AWS & DeepLearning.AI", level: "Advanced", link: "https://www.coursera.org" },
+            { title: "MLOps Machine Learning Engineering in Production", provider: "Coursera • DeepLearning.AI", level: "Intermediate", link: "https://www.coursera.org" }
+        ],
+        cyber: [
+            { title: "Google Cybersecurity Professional Certificate", provider: "Coursera • Google", level: "Beginner", link: "https://www.coursera.org" },
+            { title: "CompTIA Security+ Network Defense Training", provider: "Udemy • Jason Dion", level: "Intermediate", link: "https://www.coursera.org" },
+            { title: "Practical Web Hacking & OWASP Top 10 Defenses", provider: "PortSwigger Academy", level: "Advanced", link: "https://www.coursera.org" },
+            { title: "SIEM & SOC Threat Analysis with Splunk", provider: "Coursera • Infosec", level: "Intermediate", link: "https://www.coursera.org" }
+        ],
+        cloud: [
+            { title: "AWS Certified Solutions Architect Associate", provider: "Coursera • AWS Training", level: "Beginner", link: "https://www.coursera.org" },
+            { title: "Architecting on AWS Multi-Tier Systems", provider: "edX • AWS", level: "Intermediate", link: "https://www.coursera.org" },
+            { title: "Enterprise Cloud Networking & VPC Security", provider: "Coursera • Google Cloud", level: "Advanced", link: "https://www.coursera.org" },
+            { title: "Serverless Microservices with AWS Lambda & DynamoDB", provider: "Udemy • Stephane Maarek", level: "Intermediate", link: "https://www.coursera.org" }
+        ],
+        uiux: [
+            { title: "Google UX Design Professional Certificate", provider: "Coursera • Google UX", level: "Beginner", link: "https://www.coursera.org" },
+            { title: "Figma UI/UX Design & Auto-Layout Masterclass", provider: "Udemy • Vako Shvili", level: "Intermediate", link: "https://www.coursera.org" },
+            { title: "Design Systems at Scale & Token Architectures", provider: "Figma Academy", level: "Advanced", link: "https://www.coursera.org" },
+            { title: "User Research & Usability Testing Lab", provider: "Interaction Design Foundation", level: "Intermediate", link: "https://www.coursera.org" }
+        ]
+    };
+
+    function initDashboard() {
+        const user = getCurrentUser();
+        
+        // Sync Nav User Info
+        if (user) {
+            const navName = document.getElementById('nav-user-name');
+            if (navName && user.fullName) navName.textContent = user.fullName;
+            const navAvatar = document.getElementById('nav-user-avatar');
+            if (navAvatar) {
+                if (user.avatar) {
+                    navAvatar.innerHTML = `<img src="${user.avatar}" class="w-full h-full object-cover"/>`;
+                } else if (user.fullName) {
+                    navAvatar.textContent = user.fullName.charAt(0).toUpperCase();
+                }
+            }
+        }
+
+        // Locked Target Role from DDD
+        const targetRoleKey = (user && user.careerInterest) || 'backend';
+        const targetRoleTitle = (user && user.targetRole) || (ROLE_BENCHMARKS[targetRoleKey]?.title || "Backend Developer");
+
+        const badgeTitle = document.getElementById('target-role-title-text');
+        if (badgeTitle) badgeTitle.textContent = targetRoleTitle;
+
+        renderDomainAssessmentsSummary(user, targetRoleKey);
+        renderProficiencyChartFromDDD(user, targetRoleKey);
+        renderRecommendedCourses(targetRoleKey);
+    }
+
+    function renderDomainAssessmentsSummary(user, targetRoleKey) {
+        const grid = document.getElementById('domain-assessments-grid');
+        if (!grid) return;
+
+        const assessments = (user && user.domainAssessments) || {};
+        const keys = Object.keys(assessments);
+
+        const alertBanner = document.getElementById('missing-ddd-alert');
+        if (!keys.length) {
+            if (alertBanner) alertBanner.classList.remove('hidden');
+            grid.innerHTML = `
+                <div class="col-span-2 bg-surface-container-lowest border border-dashed border-outline-variant rounded-xl p-lg text-center">
+                    <p class="font-body-md text-on-surface-variant mb-md">You haven't submitted a Domain Deep-Dive Assessment yet.</p>
+                    <a href="student_ddd_assessment.html" class="inline-flex items-center gap-1 text-sm font-bold text-primary hover:underline bg-primary/10 px-4 py-2 rounded-lg">
+                        Take Step 4 DDD Assessment <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+            `;
+            return;
+        } else {
+            if (alertBanner) alertBanner.classList.add('hidden');
+        }
+
+        const tierColor = tier => tier === 'Advanced' ? 'bg-green-100 text-green-700 border-green-300'
+            : tier === 'Intermediate' ? 'bg-amber-100 text-amber-700 border-amber-300'
+            : 'bg-red-100 text-red-700 border-red-300';
+
+        grid.innerHTML = keys.map(key => {
+            const p = assessments[key];
+            const gaps = [...new Set(p.lackingTopics || [])];
+            const expGaps = (p.experienceGaps || []).map(t => t.replace(/^Have you /, '').replace(/\?$/, ''));
+            const allGaps = [...gaps, ...expGaps];
+
+            return `
+            <div class="bg-surface-container-lowest rounded-xl shadow-[0_4px_16px_rgba(0,0,0,0.05)] p-lg border border-outline-variant">
+                <div class="flex items-center justify-between gap-md mb-sm">
+                    <h3 class="font-title-lg text-title-lg text-on-surface">${p.domain}</h3>
+                    <div class="flex items-center gap-2">
+                        <span class="font-body-md text-body-md font-bold text-primary">${p.score}%</span>
+                        <span class="px-2 py-0.5 rounded-full border text-[10px] font-bold uppercase tracking-wider ${tierColor(p.tier)}">${p.tier}</span>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-md mt-sm">
+                    <div>
+                        <p class="font-label-md text-xs text-error font-semibold mb-1 flex items-center gap-1"><span class="material-symbols-outlined text-sm">trending_down</span> Identified Gaps</p>
+                        ${allGaps.length ? `<ul class="space-y-1">${allGaps.slice(0, 3).map(g => `<li class="text-xs text-on-surface-variant flex items-start gap-1"><span class="material-symbols-outlined text-error text-xs mt-0.5">close</span>${g}</li>`).join('')}</ul>`
+                            : `<p class="text-xs text-secondary flex items-center gap-1"><span class="material-symbols-outlined text-xs">check_circle</span> No major gaps</p>`}
+                    </div>
+                    <div>
+                        <p class="font-label-md text-xs text-secondary font-semibold mb-1 flex items-center gap-1"><span class="material-symbols-outlined text-sm">domain</span> Industry Needs</p>
+                        <ul class="space-y-1">${(p.industryNeeds || []).slice(0, 3).map(n => `<li class="text-xs text-on-surface-variant flex items-start gap-1"><span class="material-symbols-outlined text-secondary text-xs mt-0.5">check</span>${n}</li>`).join('')}</ul>
+                    </div>
+                </div>
+            </div>`;
+        }).join('');
+    }
+
+    function renderProficiencyChartFromDDD(user, targetRoleKey) {
+        const chartContainer = document.getElementById('skills-chart-container');
+        const scoreValEl = document.getElementById('readiness-score-val');
+        const summaryTextEl = document.getElementById('readiness-summary-text');
+        const circleRing = document.getElementById('readiness-circle-ring');
+
+        if (!chartContainer) return;
+
+        const assessment = (user && user.domainAssessments && user.domainAssessments[targetRoleKey]);
+
+        if (!assessment) {
+            // No DDD submitted yet for this role
+            chartContainer.innerHTML = `
+                <div class="bg-surface-bright p-lg border border-dashed border-outline-variant rounded-xl text-center my-4">
+                    <span class="material-symbols-outlined text-primary text-3xl mb-2">psychology</span>
+                    <h4 class="font-bold text-on-surface mb-1">Step 4 Assessment Required</h4>
+                    <p class="text-xs text-on-surface-variant mb-4">Complete the Domain Deep-Dive Assessment for ${ROLE_BENCHMARKS[targetRoleKey]?.title || 'your target role'} to view your live Proficiency Comparison.</p>
+                    <a href="student_ddd_assessment.html" class="inline-flex items-center gap-1 bg-primary text-white font-bold text-xs px-4 py-2 rounded-lg hover:bg-surface-tint transition-colors">
+                        Take DDD Assessment <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+            `;
+            if (scoreValEl) scoreValEl.textContent = "0";
+            if (summaryTextEl) summaryTextEl.textContent = "Complete Step 4 DDD Assessment to calculate your live readiness score.";
+            return;
+        }
+
+        // Render strictly from submitted DDD data
+        const score = assessment.score;
+        if (scoreValEl) scoreValEl.textContent = score;
+
+        if (circleRing) {
+            const totalCircumference = 301.59;
+            const offset = totalCircumference * (1 - score / 100);
+            circleRing.style.strokeDashoffset = offset;
+        }
+
+        if (summaryTextEl) {
+            summaryTextEl.textContent = `Your readiness score is ${score}% (${assessment.tier} tier) based on your submitted Knowledge (${assessment.knowledgePct}%) and Experience (${assessment.experiencePct}%) in ${assessment.domain}.`;
+        }
+
+        const benchmark = ROLE_BENCHMARKS[targetRoleKey] || ROLE_BENCHMARKS.backend;
+
+        // Custom chart skills dynamically updated by DDD submitted results
+        const skills = benchmark.skills.map((s, idx) => {
+            const isLacking = assessment.lackingTopics.some(t => t.toLowerCase().includes(s.name.toLowerCase().split(' ')[0]));
+            const userPct = isLacking ? Math.max(25, s.userPct - 20) : Math.min(95, s.userPct + 10);
+            const gap = Math.max(0, s.reqPct - userPct);
+            const priority = gap > 20 ? "Critical" : gap > 5 ? "High" : "Medium";
+            const whyMatters = gap > 20 
+                ? `Demanded in 14+ active partner job postings; recruiters flagged candidate deficiency.`
+                : gap > 5 
+                ? `Core architectural requirement for scalable microservices.`
+                : `Solid benchmark; recommended for bonus differentiation.`;
+
+            return {
+                name: s.name,
+                userPct: userPct,
+                reqPct: s.reqPct,
+                gap: gap,
+                priority: priority,
+                whyMatters: whyMatters,
+                critical: userPct < s.reqPct
+            };
+        });
+
+        // Render both visual comparison bars and the Granular Explainable Table (SIH44 Spec 10 & 19)
+        chartContainer.innerHTML = `
+            <!-- Visual Bars -->
+            <div class="space-y-4 mb-6">
+                ${skills.map(skill => `
+                    <div class="relative">
+                        <div class="flex justify-between font-label-md text-xs mb-1.5">
+                            <span class="text-on-surface font-semibold flex items-center gap-1.5">
+                                ${skill.name}
+                                ${skill.critical 
+                                    ? `<span class="px-1.5 py-0.2 rounded text-[9px] font-bold uppercase ${skill.priority === 'Critical' ? 'bg-red-100 text-red-700' : 'bg-amber-100 text-amber-700'}">${skill.priority} Gap</span>`
+                                    : `<span class="px-1.5 py-0.2 rounded text-[9px] font-bold uppercase bg-emerald-100 text-emerald-700">Proficient</span>`}
+                            </span>
+                            <span class="${skill.critical ? 'text-error font-bold' : 'text-primary font-bold'}">${skill.userPct}% (Industry Req: ${skill.reqPct}%)</span>
+                        </div>
+                        <div class="relative h-4 bg-surface rounded-full overflow-hidden border border-outline-variant/30">
+                            <div class="absolute top-0 left-0 h-full bg-surface-variant rounded-full z-0" style="width: ${skill.reqPct}%;"></div>
+                            <div class="absolute top-0 left-0 h-full ${skill.critical ? 'bg-error opacity-90' : 'bg-primary'} rounded-full z-10 transition-all duration-1000 ease-out" style="width: ${skill.userPct}%;"></div>
+                        </div>
+                    </div>
+                `).join('')}
+            </div>
+
+            <!-- Granular Explainable Skill-Gap Breakdown Table (SIH44 Spec 10 & 19) -->
+            <div class="pt-4 border-t border-outline-variant/40">
+                <h4 class="font-bold text-xs uppercase tracking-wider text-on-surface-variant mb-2">Explainable Skill Gap Breakdown & Industry Context</h4>
+                <div class="border border-outline-variant rounded-xl overflow-hidden">
+                    <table class="w-full text-xs text-left border-collapse">
+                        <thead class="bg-surface-container font-semibold text-on-surface-variant border-b border-outline-variant">
+                            <tr>
+                                <th class="p-2.5">Skill</th>
+                                <th class="p-2.5">Your Level</th>
+                                <th class="p-2.5">Industry Req</th>
+                                <th class="p-2.5">Gap Deficit</th>
+                                <th class="p-2.5">Priority</th>
+                                <th class="p-2.5">Why It Matters & Recruiter Insight</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-outline-variant/30">
+                            ${skills.map(s => `
+                                <tr class="hover:bg-surface-container-low transition-colors">
+                                    <td class="p-2.5 font-bold text-on-surface">${s.name}</td>
+                                    <td class="p-2.5 font-semibold">${s.userPct}%</td>
+                                    <td class="p-2.5 text-outline">${s.reqPct}%</td>
+                                    <td class="p-2.5">
+                                        ${s.gap > 0 
+                                            ? `<span class="text-error font-bold">-${s.gap}%</span>`
+                                            : `<span class="text-emerald-700 font-bold">✓ Met</span>`}
+                                    </td>
+                                    <td class="p-2.5">
+                                        <span class="px-2 py-0.5 rounded text-[10px] font-bold ${
+                                            s.priority === 'Critical' ? 'bg-red-100 text-red-700' :
+                                            s.priority === 'High' ? 'bg-amber-100 text-amber-700' :
+                                            'bg-emerald-100 text-emerald-700'
+                                        }">${s.priority}</span>
+                                    </td>
+                                    <td class="p-2.5 text-[11px] text-on-surface-variant leading-tight">${s.whyMatters}</td>
+                                </tr>
+                            `).join('')}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        `;
+    }
+
+    function renderRecommendedCourses(targetRoleKey) {
+        const container = document.getElementById('recommended-courses-grid');
+        if (!container) return;
+
+        const courses = DOMAIN_COURSES_MAP[targetRoleKey] || DOMAIN_COURSES_MAP.backend;
+
+        container.innerHTML = courses.map(course => `
+            <a href="${course.link}" target="_blank" rel="noopener noreferrer" class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant hover:border-primary transition-all hover:-translate-y-1 p-4 flex flex-col cursor-pointer group">
+                <div class="flex items-center justify-between mb-3">
+                    <span class="text-[10px] uppercase font-bold tracking-wider text-primary bg-primary/10 px-2 py-0.5 rounded-full">${targetRoleKey}</span>
+                    <span class="text-xs text-on-surface-variant font-medium">${course.level}</span>
+                </div>
+                <h4 class="font-bold text-sm text-on-surface group-hover:text-primary transition-colors leading-snug mb-2">${course.title}</h4>
+                <p class="text-xs text-on-surface-variant mb-4">${course.provider}</p>
+                <div class="mt-auto pt-3 border-t border-outline-variant flex justify-between items-center">
+                    <span class="text-xs text-amber-600 font-bold flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm">star</span> 4.8
+                    </span>
+                    <span class="text-xs font-bold text-primary flex items-center gap-1 group-hover:underline">
+                        Enroll <span class="material-symbols-outlined text-sm">open_in_new</span>
+                    </span>
+                </div>
+            </a>
+        `).join('');
+    }
+
+    function handleDashboardSearch(e) {
+        if (e && e.type === 'keypress' && e.key !== 'Enter') return;
+        const input = document.getElementById('dashboard-search-input');
+        const query = input ? input.value.trim() : '';
+        if (!query) {
+            showToast("Type a query to search opportunities.", "error");
+            return;
+        }
+        showToast(`Searching opportunities for "${query}"...`);
+        setTimeout(() => {
+            window.location.href = `student_-_matched_internshipsjobs_feed.html?q=${encodeURIComponent(query)}`;
+        }, 400);
+    }
+
+    document.addEventListener('DOMContentLoaded', initDashboard);
+</script>
+</body>
+</html>

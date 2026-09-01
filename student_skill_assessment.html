@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Step 2: Technical Skills Assessment — SkillBridge</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface-variant": "#3c463f",
+                      "primary-container": "#059669",
+                      "on-error": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "outline": "#6b7d70",
+                      "on-secondary-container": "#006f66",
+                      "surface-tint": "#047857",
+                      "on-primary-fixed": "#022c22",
+                      "secondary": "#006a61",
+                      "on-tertiary-fixed": "#2a1700",
+                      "inverse-primary": "#6ee7b7",
+                      "surface-bright": "#f7fdf9",
+                      "secondary-fixed-dim": "#6bd8cb",
+                      "surface-container-low": "#eef9f1",
+                      "on-primary-container": "#ecfdf5",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-container": "#ffeedd",
+                      "surface": "#f7fdf9",
+                      "outline-variant": "#c8d3cb",
+                      "on-secondary": "#ffffff",
+                      "surface-dim": "#c3e2cd",
+                      "on-secondary-fixed": "#00201d",
+                      "on-error-container": "#93000a",
+                      "background": "#f7fdf9",
+                      "primary-fixed-dim": "#6ee7b7",
+                      "secondary-fixed": "#89f5e7",
+                      "surface-container-high": "#d7f0dd",
+                      "tertiary-fixed-dim": "#ffb95f",
+                      "on-surface": "#0c1f14",
+                      "primary": "#047857",
+                      "surface-container-highest": "#cbe8d4",
+                      "error": "#ba1a1a",
+                      "surface-variant": "#cbe8d4",
+                      "tertiary": "#784b00",
+                      "inverse-on-surface": "#e7f7ec",
+                      "secondary-container": "#86f2e4",
+                      "surface-container": "#e3f6e8",
+                      "on-primary": "#ffffff",
+                      "inverse-surface": "#22362a",
+                      "on-secondary-fixed-variant": "#005049",
+                      "tertiary-container": "#996100",
+                      "on-tertiary-fixed-variant": "#653e00",
+                      "error-container": "#ffdad6",
+                      "on-primary-fixed-variant": "#065f46",
+                      "on-background": "#0c1f14",
+                      "primary-fixed": "#d1fae5",
+                      "tertiary-fixed": "#ffddb8"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xxl": "48px",
+                      "base": "4px",
+                      "xs": "4px",
+                      "md": "16px",
+                      "container-max": "1280px",
+                      "xl": "32px",
+                      "gutter": "24px",
+                      "sm": "8px",
+                      "lg": "24px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Inter"],
+                      "label-md": ["Inter"],
+                      "title-lg": ["Inter"],
+                      "display": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "body-md": ["Inter"]
+              },
+              "fontSize": {
+                      "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                      "label-md": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                      "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                      "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                      "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+<style>
+        .custom-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 6px;
+            border-radius: 3px;
+            background: #d7f0dd;
+            outline: none;
+        }
+        .custom-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #047857;
+            cursor: pointer;
+            border: 2px solid #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+        .custom-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #047857;
+            cursor: pointer;
+            border: 2px solid #ffffff;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+        }
+</style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col font-body-md">
+
+<!-- Top Navigation -->
+<nav class="bg-surface-container-lowest shadow-sm flex justify-between items-center w-full px-lg md:px-xxl max-w-container-max mx-auto h-16 sticky top-0 z-40">
+    <div class="flex items-center gap-sm">
+        <span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">hub</span>
+        <span class="font-headline-md text-headline-md font-bold text-primary">SkillBridge</span>
+    </div>
+    <div class="flex items-center gap-md">
+        <a class="text-on-surface-variant hover:text-primary font-label-md text-label-md transition-colors" href="login.html">Sign Out</a>
+    </div>
+</nav>
+
+<!-- Main Container -->
+<main class="flex-grow flex flex-col items-center justify-center p-md md:p-xl">
+<div class="w-full max-w-3xl">
+    <!-- Progress Indicator (Step 2 of 4) -->
+    <div class="mb-lg">
+        <div class="flex justify-between items-center mb-xs">
+            <span class="font-label-md text-label-md text-primary font-bold">Step 2 of 4: Technical Skills Assessment</span>
+            <span class="font-label-md text-label-md text-on-surface-variant">50% Completed</span>
+        </div>
+        <div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden">
+            <div class="bg-primary h-full rounded-full transition-all duration-300" style="width: 50%;"></div>
+        </div>
+    </div>
+
+    <!-- Main Card -->
+    <div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant p-lg md:p-xl space-y-xl">
+        <div>
+            <h1 class="font-headline-md text-headline-md text-on-surface mb-xs">Rate Your Technical Skills</h1>
+            <p class="font-body-md text-body-md text-on-surface-variant">Assess your current comfort level with core technologies. This helps match you to the right projects and opportunities.</p>
+        </div>
+
+        <hr class="border-t border-surface-container-high"/>
+
+        <!-- Skill Sliders -->
+        <section class="space-y-lg">
+            <h2 class="font-title-lg text-title-lg text-on-surface flex items-center gap-sm">
+                <span class="material-symbols-outlined text-primary">code</span>
+                Core Technical Skills (1 = Beginner, 5 = Expert)
+            </h2>
+            <div class="space-y-md">
+                <!-- Skill 1 -->
+                <div class="flex flex-col md:flex-row md:items-center gap-md">
+                    <div class="md:w-1/4">
+                        <span class="font-body-md text-body-md font-medium text-on-surface">Python</span>
+                    </div>
+                    <div class="md:w-3/4 flex items-center gap-md">
+                        <span class="font-label-md text-label-md text-on-surface-variant w-4 text-center">1</span>
+                        <input class="custom-slider flex-grow" id="skill-python" max="5" min="1" type="range" value="4"/>
+                        <span class="font-label-md text-label-md text-on-surface-variant w-4 text-center">5</span>
+                        <div class="w-8 h-8 bg-surface-container-high rounded-full flex items-center justify-center font-label-md text-label-md text-primary font-bold ml-sm" id="val-python">4</div>
+                    </div>
+                </div>
+                <!-- Skill 2 -->
+                <div class="flex flex-col md:flex-row md:items-center gap-md">
+                    <div class="md:w-1/4">
+                        <span class="font-body-md text-body-md font-medium text-on-surface">SQL / Databases</span>
+                    </div>
+                    <div class="md:w-3/4 flex items-center gap-md">
+                        <span class="font-label-md text-label-md text-on-surface-variant w-4 text-center">1</span>
+                        <input class="custom-slider flex-grow" id="skill-sql" max="5" min="1" type="range" value="3"/>
+                        <span class="font-label-md text-label-md text-on-surface-variant w-4 text-center">5</span>
+                        <div class="w-8 h-8 bg-surface-container-high rounded-full flex items-center justify-center font-label-md text-label-md text-primary font-bold ml-sm" id="val-sql">3</div>
+                    </div>
+                </div>
+                <!-- Skill 3 -->
+                <div class="flex flex-col md:flex-row md:items-center gap-md">
+                    <div class="md:w-1/4">
+                        <span class="font-body-md text-body-md font-medium text-on-surface">Java / C++</span>
+                    </div>
+                    <div class="md:w-3/4 flex items-center gap-md">
+                        <span class="font-label-md text-label-md text-on-surface-variant w-4 text-center">1</span>
+                        <input class="custom-slider flex-grow" id="skill-java" max="5" min="1" type="range" value="3"/>
+                        <span class="font-label-md text-label-md text-on-surface-variant w-4 text-center">5</span>
+                        <div class="w-8 h-8 bg-surface-container-high rounded-full flex items-center justify-center font-label-md text-label-md text-primary font-bold ml-sm" id="val-java">3</div>
+                    </div>
+                </div>
+                <!-- Skill 4 -->
+                <div class="flex flex-col md:flex-row md:items-center gap-md">
+                    <div class="md:w-1/4">
+                        <span class="font-body-md text-body-md font-medium text-on-surface">Communication</span>
+                    </div>
+                    <div class="md:w-3/4 flex items-center gap-md">
+                        <span class="font-label-md text-label-md text-on-surface-variant w-4 text-center">1</span>
+                        <input class="custom-slider flex-grow" id="skill-comm" max="5" min="1" type="range" value="4"/>
+                        <span class="font-label-md text-label-md text-on-surface-variant w-4 text-center">5</span>
+                        <div class="w-8 h-8 bg-surface-container-high rounded-full flex items-center justify-center font-label-md text-label-md text-primary font-bold ml-sm" id="val-comm">4</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add More Skills (Interactive Tag Input) -->
+            <div class="mt-lg pt-md">
+                <label class="block font-label-md text-label-md text-on-surface-variant mb-sm">Other Skills & Frameworks</label>
+                <div class="flex flex-wrap gap-sm mb-sm" id="skill-tags"></div>
+                <div class="relative mb-3">
+                    <span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline-variant pointer-events-none">search</span>
+                    <input id="skill-search-input" onkeypress="handleSkillInputKeyPress(event)" class="w-full bg-surface-bright border border-outline-variant rounded-md py-sm pl-xl pr-16 text-on-surface focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary font-body-md transition-colors" placeholder="Type a skill (e.g. AWS, Docker, TypeScript, React) and press Enter..." type="text"/>
+                    <button type="button" onclick="addCurrentSkillTag()" id="add-skill-btn" class="absolute right-sm top-1/2 -translate-y-1/2 text-primary font-bold text-label-md hover:underline bg-surface-container-low px-2 py-1 rounded">Add</button>
+                </div>
+
+                <!-- Popular Suggestions -->
+                <div class="flex flex-wrap items-center gap-1.5 text-xs text-on-surface-variant">
+                    <span class="font-medium text-[11px]">Popular suggestions:</span>
+                    <button type="button" onclick="addQuickSkill('React')" class="px-2 py-0.5 bg-surface-container hover:bg-emerald-50 border border-outline-variant rounded-full hover:text-primary transition-colors">+ React</button>
+                    <button type="button" onclick="addQuickSkill('AWS')" class="px-2 py-0.5 bg-surface-container hover:bg-emerald-50 border border-outline-variant rounded-full hover:text-primary transition-colors">+ AWS</button>
+                    <button type="button" onclick="addQuickSkill('Docker')" class="px-2 py-0.5 bg-surface-container hover:bg-emerald-50 border border-outline-variant rounded-full hover:text-primary transition-colors">+ Docker</button>
+                    <button type="button" onclick="addQuickSkill('TypeScript')" class="px-2 py-0.5 bg-surface-container hover:bg-emerald-50 border border-outline-variant rounded-full hover:text-primary transition-colors">+ TypeScript</button>
+                    <button type="button" onclick="addQuickSkill('Node.js')" class="px-2 py-0.5 bg-surface-container hover:bg-emerald-50 border border-outline-variant rounded-full hover:text-primary transition-colors">+ Node.js</button>
+                    <button type="button" onclick="addQuickSkill('Git')" class="px-2 py-0.5 bg-surface-container hover:bg-emerald-50 border border-outline-variant rounded-full hover:text-primary transition-colors">+ Git</button>
+                </div>
+            </div>
+        </section>
+
+        <hr class="border-t border-surface-container-high"/>
+
+        <!-- Project Experience / Bio -->
+        <section>
+            <h2 class="font-title-lg text-title-lg text-on-surface mb-sm flex items-center gap-sm">
+                <span class="material-symbols-outlined text-primary">description</span>
+                Featured Project Summary
+            </h2>
+            <p class="font-body-md text-body-md text-on-surface-variant mb-md">Describe a key project or highlight your technical capabilities.</p>
+            <div class="space-y-sm">
+                <textarea class="w-full bg-surface-bright border border-outline-variant rounded-md p-md text-on-surface focus:outline-none focus:ring-1 focus:ring-primary focus:border-primary font-body-md transition-colors resize-y" id="project-desc" oninput="updateCharCounter(this)" placeholder="E.g., I developed a full-stack REST API and dashboard using React, Node.js, and PostgreSQL..." rows="4"></textarea>
+                <div class="flex justify-between items-center text-outline font-label-md text-label-md">
+                    <span>Markdown supported</span>
+                    <span id="char-counter">0 / 1000 characters</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Action Buttons -->
+        <div class="flex justify-between items-center pt-md border-t border-outline-variant">
+            <a href="student_signup_-_basic_info.html" class="px-lg py-sm rounded-md font-label-md text-label-md text-on-surface-variant border border-outline-variant hover:bg-surface-container-low transition-colors inline-flex items-center">
+                Back to Step 1
+            </a>
+            <button type="button" onclick="handleSaveSkillsAndProceed()" class="px-xl py-sm rounded-md font-label-md text-label-md bg-primary text-on-primary hover:bg-primary-fixed-variant transition-colors shadow-sm flex items-center gap-xs font-semibold active:scale-95">
+                Next Step: Portfolio Builder (Step 3)
+                <span class="material-symbols-outlined" style="font-size: 16px;">arrow_forward</span>
+            </button>
+        </div>
+    </div>
+</div>
+</main>
+
+<script src="auth.js"></script>
+<script>
+    let currentSkillTags = ["React", "Figma", "Python", "SQL"];
+    const sliders = ['python', 'sql', 'java', 'comm'];
+    
+    sliders.forEach(skill => {
+        const input = document.getElementById(`skill-${skill}`);
+        const display = document.getElementById(`val-${skill}`);
+        if (input && display) {
+            input.addEventListener('input', (e) => {
+                display.textContent = e.target.value;
+            });
+        }
+    });
+
+    function renderSkillTags() {
+        const container = document.getElementById('skill-tags');
+        if (!container) return;
+        container.innerHTML = currentSkillTags.map((skill, index) => `
+            <span class="inline-flex items-center gap-1.5 bg-primary/10 text-primary font-semibold px-3 py-1 rounded-full text-xs shadow-sm">
+                ${skill}
+                <button type="button" onclick="removeSkillTag(${index})" class="hover:text-red-600 transition-colors material-symbols-outlined text-[14px]">close</button>
+            </span>
+        `).join('');
+    }
+
+    function removeSkillTag(index) {
+        currentSkillTags.splice(index, 1);
+        renderSkillTags();
+    }
+
+    function addCurrentSkillTag() {
+        const input = document.getElementById('skill-search-input');
+        if (!input) return;
+        const val = input.value.trim();
+        if (val && !currentSkillTags.includes(val)) {
+            currentSkillTags.push(val);
+            renderSkillTags();
+            input.value = '';
+            showToast(`Added skill: ${val}`);
+        }
+    }
+
+    function addQuickSkill(skillName) {
+        if (!currentSkillTags.includes(skillName)) {
+            currentSkillTags.push(skillName);
+            renderSkillTags();
+            showToast(`Added ${skillName}`);
+        }
+    }
+
+    function handleSkillInputKeyPress(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            addCurrentSkillTag();
+        }
+    }
+
+    function updateCharCounter(textarea) {
+        const counter = document.getElementById('char-counter');
+        if (counter) {
+            counter.textContent = `${textarea.value.length} / 1000 characters`;
+        }
+    }
+
+    const SKILL_LABELS = {
+        python: 'Python',
+        sql: 'SQL',
+        java: 'Java',
+        comm: 'Communication'
+    };
+
+    function handleSaveSkillsAndProceed() {
+        const projectDesc = document.getElementById('project-desc')?.value || '';
+        const existingRatings = (getCurrentUser() && getCurrentUser().skillRatings) || {};
+        const skillRatings = { ...existingRatings };
+
+        sliders.forEach(s => {
+            const val = document.getElementById(`skill-${s}`)?.value;
+            if (val !== undefined) {
+                skillRatings[SKILL_LABELS[s].toLowerCase()] = parseInt(val, 10);
+            }
+        });
+
+        const coreSkillNames = Object.values(SKILL_LABELS);
+        const mergedSkills = [...currentSkillTags];
+        coreSkillNames.forEach(name => {
+            if (!mergedSkills.some(s => s.toLowerCase() === name.toLowerCase())) {
+                mergedSkills.push(name);
+            }
+        });
+
+        saveCurrentUser({
+            projectDesc: projectDesc,
+            skills: mergedSkills,
+            skillRatings: skillRatings
+        });
+
+        showToast("Technical skills saved! Proceeding to Step 3: Portfolio Builder...");
+        setTimeout(() => {
+            window.location.href = "student_portfolio_builder.html";
+        }, 500);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const user = getCurrentUser();
+        if (user && user.skills && Array.isArray(user.skills) && user.skills.length > 0) {
+            currentSkillTags = [...user.skills];
+        }
+        if (user && user.projectDesc) {
+            const descArea = document.getElementById('project-desc');
+            if (descArea) {
+                descArea.value = user.projectDesc;
+                updateCharCounter(descArea);
+            }
+        }
+        if (user && user.skillRatings) {
+            sliders.forEach(s => {
+                const label = SKILL_LABELS[s].toLowerCase();
+                const rating = user.skillRatings[label] !== undefined ? user.skillRatings[label] : user.skillRatings[s];
+                if (rating) {
+                    const inp = document.getElementById(`skill-${s}`);
+                    const disp = document.getElementById(`val-${s}`);
+                    if (inp) inp.value = rating;
+                    if (disp) disp.textContent = rating;
+                }
+            });
+        }
+        renderSkillTags();
+    });
+</script>
+</body>
+</html>

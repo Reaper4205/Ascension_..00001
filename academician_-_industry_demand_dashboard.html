@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Industry Demand &amp; Curriculum Insights | SkillBridge</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#3c463f",
+                    "primary-container": "#059669",
+                    "on-error": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "outline": "#6b7d70",
+                    "on-secondary-container": "#006f66",
+                    "surface-tint": "#047857",
+                    "on-primary-fixed": "#022c22",
+                    "secondary": "#006a61",
+                    "on-tertiary-fixed": "#2a1700",
+                    "inverse-primary": "#6ee7b7",
+                    "surface-bright": "#f7fdf9",
+                    "secondary-fixed-dim": "#6bd8cb",
+                    "surface-container-low": "#eef9f1",
+                    "on-primary-container": "#ecfdf5",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#ffeedd",
+                    "surface": "#f7fdf9",
+                    "outline-variant": "#c8d3cb",
+                    "on-secondary": "#ffffff",
+                    "surface-dim": "#c3e2cd",
+                    "on-secondary-fixed": "#00201d",
+                    "on-error-container": "#93000a",
+                    "background": "#f7fdf9",
+                    "primary-fixed-dim": "#6ee7b7",
+                    "secondary-fixed": "#89f5e7",
+                    "surface-container-high": "#d7f0dd",
+                    "tertiary-fixed-dim": "#ffb95f",
+                    "on-surface": "#0c1f14",
+                    "primary": "#047857",
+                    "surface-container-highest": "#cbe8d4",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#cbe8d4",
+                    "tertiary": "#784b00",
+                    "inverse-on-surface": "#e7f7ec",
+                    "secondary-container": "#86f2e4",
+                    "surface-container": "#e3f6e8",
+                    "on-primary": "#ffffff",
+                    "inverse-surface": "#22362a",
+                    "on-secondary-fixed-variant": "#005049",
+                    "tertiary-container": "#996100",
+                    "on-tertiary-fixed-variant": "#653e00",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#065f46",
+                    "on-background": "#0c1f14",
+                    "primary-fixed": "#d1fae5",
+                    "tertiary-fixed": "#ffddb8"
+            },
+            "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+            "spacing": { "xxl": "48px", "base": "4px", "xs": "4px", "md": "16px", "container-max": "1280px", "xl": "32px", "gutter": "24px", "sm": "8px", "lg": "24px" },
+            "fontFamily": {
+                    "headline-md": ["Inter"], "label-md": ["Inter"], "title-lg": ["Inter"],
+                    "display": ["Inter"], "body-lg": ["Inter"], "headline-lg": ["Inter"], "body-md": ["Inter"]
+            },
+            "fontSize": {
+                    "headline-md": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "label-md": ["12px", {"lineHeight": "16px", "fontWeight": "500"}],
+                    "title-lg": ["20px", {"lineHeight": "28px", "fontWeight": "600"}],
+                    "display": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "body-lg": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                    "body-md": ["14px", {"lineHeight": "20px", "fontWeight": "400"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+    .shadow-level-1 { box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.05); }
+    .shadow-level-2 { box-shadow: 0px 8px 8px 0px rgba(0,0,0,0.10); }
+</style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest shadow-sm docked full-width top-0 z-50">
+<div class="flex justify-between items-center w-full px-lg md:px-xxl max-w-container-max mx-auto h-16">
+<div class="flex items-center gap-md">
+<a href="index.html" class="font-headline-md text-headline-md font-bold text-primary flex items-center gap-sm">
+<span class="material-symbols-outlined text-primary">hub</span>SkillBridge
+</a>
+<nav class="hidden md:flex gap-lg ml-xl">
+<a class="text-tertiary border-b-2 border-tertiary pb-1 font-bold" href="academician_-_industry_demand_dashboard.html">Industry Demand</a>
+<a class="text-on-surface-variant hover:text-tertiary transition-colors" href="analytics_dashboard_-_placement__skill_insights.html">Student Progress</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<button onclick="logoutUser()" title="Logout" class="hover:bg-surface-container-low rounded-lg transition-all p-sm active:scale-95 duration-150 flex items-center gap-xs">
+<span class="material-symbols-outlined text-on-surface-variant">logout</span>
+</button>
+<img id="teacher-avatar" class="w-8 h-8 rounded-full object-cover ml-sm" src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&amp;fit=crop&amp;q=80&amp;w=256"/>
+</div>
+</div>
+</header>
+
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-md md:px-lg py-lg md:py-xl">
+<div class="mb-lg flex flex-col md:flex-row md:items-end md:justify-between gap-sm">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Industry Demand &amp; Curriculum Insights</h1>
+<p id="teacher-welcome" class="font-body-md text-body-md text-on-surface-variant">Welcome back — here's what employers are hiring for right now, so you can align teaching with market demand.</p>
+</div>
+<span class="font-label-md text-label-md text-on-surface-variant bg-surface-container-low border border-outline-variant rounded-full px-md py-xs">Live snapshot • updated weekly</span>
+</div>
+
+<!-- Stat Cards -->
+<div id="stat-cards" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mb-xl"></div>
+
+<!-- Skills + Roles Row -->
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-gutter mb-gutter">
+<!-- Top Skills in Demand -->
+<div class="bg-surface-container-lowest rounded-xl p-lg shadow-level-1 border border-outline-variant">
+<h3 class="font-title-lg text-title-lg text-on-surface mb-md">Top Skills in Demand</h3>
+<p class="font-label-md text-label-md text-on-surface-variant mb-md">Ranked by how often employers request each skill in postings this month.</p>
+<div id="skills-demand-list" class="space-y-md"></div>
+</div>
+
+<!-- Most Available Roles -->
+<div class="bg-surface-container-lowest rounded-xl p-lg shadow-level-1 border border-outline-variant">
+<h3 class="font-title-lg text-title-lg text-on-surface mb-md">Most Available Job Roles</h3>
+<p class="font-label-md text-label-md text-on-surface-variant mb-md">Open internship &amp; job roles currently posted by partner companies.</p>
+<div id="roles-available-list" class="space-y-sm"></div>
+</div>
+</div>
+
+<!-- Actionable Curriculum Gap Alerts (SIH44 Spec 4) -->
+<div class="bg-surface-container-lowest rounded-xl p-lg shadow-level-1 border border-outline-variant mb-gutter">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 mb-md">
+        <div>
+            <h3 class="font-title-lg text-title-lg text-on-surface flex items-center gap-xs">
+                <span class="material-symbols-outlined text-tertiary">notification_important</span>
+                Actionable Curriculum Gap Alerts (Live Industry-Fed)
+            </h3>
+            <p class="font-label-md text-label-md text-on-surface-variant">Live skill deficiencies identified from recent industry postings and recruiter feedback. Click an action to intervene.</p>
+        </div>
+        <span class="px-3 py-1 bg-red-100 text-red-800 text-xs font-bold rounded-full flex items-center gap-1 border border-red-200">
+            <span class="material-symbols-outlined text-sm">bolt</span> Auto-Fed From Recruiter Feedback Loop
+        </span>
+    </div>
+    <div id="curriculum-alerts-list" class="space-y-md">
+        <!-- Rendered dynamically with 4 actionable buttons -->
+    </div>
+</div>
+
+<!-- Grid: Institutional Heatmap + Intervention Outcome Tracker (SIH44 Spec 15 & 16) -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter mb-gutter">
+    <!-- Institutional Skill-Gap Heatmap (Col 7) -->
+    <div class="lg:col-span-7 bg-surface-container-lowest rounded-xl p-lg shadow-level-1 border border-outline-variant">
+        <div class="flex justify-between items-center mb-md">
+            <div>
+                <h3 class="font-title-lg text-title-lg text-on-surface flex items-center gap-xs">
+                    <span class="material-symbols-outlined text-primary">grid_on</span>
+                    Institutional Skill-Gap Heatmap Matrix
+                </h3>
+                <p class="font-label-md text-label-md text-on-surface-variant">Cross-department skill lag across cohort academic years.</p>
+            </div>
+            <span class="text-[11px] text-outline font-semibold">Skill × Dept × Year</span>
+        </div>
+        <div class="overflow-x-auto">
+            <table class="w-full text-xs text-left border-collapse">
+                <thead>
+                    <tr class="bg-surface-container font-semibold text-on-surface-variant border-b border-outline-variant">
+                        <th class="p-2.5">Skill Area</th>
+                        <th class="p-2.5 text-center">CS (3rd Yr)</th>
+                        <th class="p-2.5 text-center">CS (4th Yr)</th>
+                        <th class="p-2.5 text-center">IT (3rd Yr)</th>
+                        <th class="p-2.5 text-center">AI-DS (3rd Yr)</th>
+                    </tr>
+                </thead>
+                <tbody id="heatmap-table-body" class="divide-y divide-outline-variant/30">
+                    <!-- Rendered dynamically -->
+                </tbody>
+            </table>
+        </div>
+        <div class="flex items-center gap-4 mt-3 pt-3 border-t border-outline-variant/30 text-[11px] text-on-surface-variant">
+            <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded bg-emerald-500"></span> &lt; 15% (Healthy)</span>
+            <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded bg-amber-500"></span> 15% - 30% (Moderate Lag)</span>
+            <span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded bg-red-500"></span> &gt; 30% (Critical Gap)</span>
+        </div>
+    </div>
+
+    <!-- Intervention Outcome Tracker (Col 5) -->
+    <div class="lg:col-span-5 bg-surface-container-lowest rounded-xl p-lg shadow-level-1 border border-outline-variant flex flex-col justify-between">
+        <div>
+            <div class="flex justify-between items-center mb-md">
+                <h3 class="font-title-lg text-title-lg text-on-surface flex items-center gap-xs">
+                    <span class="material-symbols-outlined text-secondary">trending_up</span>
+                    Skill Gap → Intervention → Outcome
+                </h3>
+                <span class="text-xs bg-emerald-100 text-emerald-800 font-bold px-2 py-0.5 rounded">Measurable Impact</span>
+            </div>
+            <p class="font-label-md text-label-md text-on-surface-variant mb-sm">Tracking student proficiency shifts before vs after academic interventions.</p>
+            <div id="intervention-outcomes-list" class="space-y-sm">
+                <!-- Rendered dynamically -->
+            </div>
+        </div>
+        <div class="mt-4 pt-3 border-t border-outline-variant/30 text-center">
+            <p class="text-xs text-outline italic">Interventions systematically increase candidate match % in industry recruiter view.</p>
+        </div>
+    </div>
+</div>
+
+<!-- Faculty–Industry Opportunities & Collaboration Hub (SIH44 Spec 5 & 7) -->
+<div class="bg-surface-container-lowest rounded-xl p-lg shadow-level-1 border border-outline-variant mb-gutter">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 mb-md">
+        <div>
+            <h3 class="font-title-lg text-title-lg text-on-surface flex items-center gap-xs">
+                <span class="material-symbols-outlined text-tertiary">handshake</span>
+                Faculty–Industry Opportunities & Collaboration Center
+            </h3>
+            <p class="font-label-md text-label-md text-on-surface-variant">Faculty Industrial Immersions, FDPs, Consultancy, and Direct Industry Collaboration Requests.</p>
+        </div>
+        <button type="button" onclick="openCollabModal()" class="px-4 py-2 bg-primary text-white text-xs font-bold rounded-lg hover:bg-surface-tint transition-all flex items-center gap-1 shadow-sm">
+            <span class="material-symbols-outlined text-sm">add_circle</span> Request Industry Collaboration
+        </button>
+    </div>
+
+    <!-- Active Faculty Programs from Industry -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-md mb-md">
+        <div class="p-md rounded-xl border border-secondary/30 bg-secondary/5 flex flex-col justify-between">
+            <div>
+                <div class="flex justify-between items-start mb-1">
+                    <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-secondary/20 text-secondary">Faculty Immersion</span>
+                    <span class="text-xs font-bold text-on-surface">Amazon Web Services</span>
+                </div>
+                <h4 class="font-bold text-sm text-on-surface">Summer Cloud Architecture Immersion (4 Weeks)</h4>
+                <p class="text-xs text-on-surface-variant mt-1">Deep dive for CS/IT professors into Kubernetes cluster provisioning, serverless architectures, and industry cost optimization.</p>
+                <div class="flex items-center gap-3 text-xs text-outline mt-2">
+                    <span><strong class="text-on-surface">5</strong> Seats Sponsored</span>
+                    <span>Starts: <strong class="text-on-surface">June 2025</strong></span>
+                </div>
+            </div>
+            <div class="mt-3 pt-2 border-t border-secondary/20 flex justify-end">
+                <button type="button" onclick="showToast('Nomination application submitted to AWS Academic Partnerships!')" class="px-3 py-1 text-xs font-bold bg-secondary text-white rounded hover:bg-secondary/90 transition-colors">Nominate Faculty</button>
+            </div>
+        </div>
+
+        <div class="p-md rounded-xl border border-primary/30 bg-primary/5 flex flex-col justify-between">
+            <div>
+                <div class="flex justify-between items-start mb-1">
+                    <span class="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 rounded bg-primary/20 text-primary">Industry FDP</span>
+                    <span class="text-xs font-bold text-on-surface">Google Cloud / DeepMind</span>
+                </div>
+                <h4 class="font-bold text-sm text-on-surface">Applied Generative AI & LLM Systems for Educators</h4>
+                <p class="text-xs text-on-surface-variant mt-1">Curriculum development and pedagogical tools for modern NLP, Transformer mechanics, and responsible AI guardrails.</p>
+                <div class="flex items-center gap-3 text-xs text-outline mt-2">
+                    <span><strong class="text-on-surface">Open</strong> to AI/DS & CS Faculty</span>
+                    <span>Duration: <strong class="text-on-surface">2 Weeks (Hybrid)</strong></span>
+                </div>
+            </div>
+            <div class="mt-3 pt-2 border-t border-primary/20 flex justify-end">
+                <button type="button" onclick="showToast('Nomination application submitted for Google Cloud FDP!')" class="px-3 py-1 text-xs font-bold bg-primary text-white rounded hover:bg-surface-tint transition-colors">Nominate Faculty</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Active Collaboration Requests Status Tracker (SIH44 Spec 7) -->
+    <div>
+        <h4 class="font-bold text-xs uppercase tracking-wider text-on-surface-variant mb-2">Faculty → Industry Request Pipeline</h4>
+        <div id="collab-requests-table" class="border border-outline-variant rounded-xl overflow-hidden">
+            <!-- Rendered dynamically -->
+        </div>
+    </div>
+</div>
+
+<!-- Modal: Teacher Collaboration Request -->
+<div id="collab-modal" class="fixed inset-0 z-[10000] bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-surface-container-lowest border border-outline-variant rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden animate-in fade-in zoom-in duration-200">
+        <div class="bg-primary/10 border-b border-primary/20 px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-xl">handshake</span>
+                <div>
+                    <h3 class="font-bold text-base text-on-surface">Request Industry Collaboration</h3>
+                    <p class="text-xs text-on-surface-variant">Connect your classroom with enterprise leaders</p>
+                </div>
+            </div>
+            <button type="button" onclick="closeCollabModal()" class="w-8 h-8 rounded-full hover:bg-surface-container flex items-center justify-center text-on-surface-variant">
+                <span class="material-symbols-outlined text-lg">close</span>
+            </button>
+        </div>
+        <form onsubmit="handleCollabFormSubmit(event)" class="p-6 space-y-4">
+            <div>
+                <label class="block text-xs font-semibold text-on-surface mb-1">Target Company</label>
+                <select id="collabCompany" class="w-full bg-surface border border-outline-variant rounded p-2 text-xs">
+                    <option value="CloudScale Systems">CloudScale Systems</option>
+                    <option value="FinTech Innovations">FinTech Innovations</option>
+                    <option value="Apex Data Labs">Apex Data Labs</option>
+                    <option value="Verve Web Studios">Verve Web Studios</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-xs font-semibold text-on-surface mb-1">Collaboration Type</label>
+                <select id="collabType" class="w-full bg-surface border border-outline-variant rounded p-2 text-xs">
+                    <option value="Guest Lecture Series">Guest Lecture Series (Industry Expert Talk)</option>
+                    <option value="Joint Curriculum Review">Joint Curriculum Review (Industry Advisory Board)</option>
+                    <option value="Capstone Project Mentorship">Capstone Project Mentorship (Mentoring 5 Teams)</option>
+                    <option value="Industrial Lab Setup">Industrial Center of Excellence / CoE Lab</option>
+                </select>
+            </div>
+            <div>
+                <label class="block text-xs font-semibold text-on-surface mb-1">Target Topic / Skill Focus</label>
+                <input id="collabTopic" required type="text" class="w-full bg-surface border border-outline-variant rounded p-2 text-xs" placeholder="e.g. Distributed Systems & Docker Deployment in Production" value="Production Docker & CI/CD Pipelines"/>
+            </div>
+            <div class="flex justify-end gap-2 pt-2 border-t border-outline-variant/30">
+                <button type="button" onclick="closeCollabModal()" class="px-4 py-2 text-xs font-semibold text-on-surface-variant border border-outline-variant rounded-lg">Cancel</button>
+                <button type="submit" class="px-5 py-2 text-xs font-bold bg-primary text-white rounded-lg hover:bg-surface-tint transition-all">Submit Collaboration Request</button>
+            </div>
+        </form>
+    </div>
+</div>
+</main>
+
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-surface-container-lowest shadow-[0_-2px_10px_rgba(0,0,0,0.05)] flex justify-around items-center px-sm py-xs pb-safe">
+<a class="flex flex-col items-center justify-center text-tertiary font-bold p-sm rounded-lg active:scale-90 transition-transform duration-200" href="academician_-_industry_demand_dashboard.html">
+<span class="material-symbols-outlined">insights</span>
+<span class="font-label-md text-label-md mt-1">Demand</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant p-sm rounded-lg active:scale-90 transition-transform duration-200" href="analytics_dashboard_-_placement__skill_insights.html">
+<span class="material-symbols-outlined">group</span>
+<span class="font-label-md text-label-md mt-1">Students</span>
+</a>
+</nav>
+
+<script src="auth.js"></script>
+<script>
+function renderIndustryDemandDashboard() {
+    const user = getCurrentUser();
+    const sharedData = getSkillBridgeData();
+    const demandData = getIndustryDemandData();
+
+    if (user && user.fullName) {
+        document.getElementById('teacher-welcome').textContent =
+            `Welcome back, ${user.fullName.split(' ')[0]} — here's what employers are hiring for right now, so you can align teaching with market demand.`;
+    }
+    if (user && user.avatar) {
+        document.getElementById('teacher-avatar').src = user.avatar;
+    }
+
+    // Stat cards
+    const stats = [
+        { label: "Active Job Postings", value: demandData.stats.totalActiveJobPostings, icon: "work", trend: "+12% this month" },
+        { label: "Active Internships", value: demandData.stats.totalActiveInternships, icon: "school", trend: "+8% this month" },
+        { label: "Live Industry Projects", value: sharedData.opportunities.filter(o => o.type === 'live_project').length + 2, icon: "hub", trend: "+3 new projects" },
+        { label: "Avg. Student Readiness", value: demandData.stats.avgStudentReadiness + "%", icon: "target", isBar: true, barPct: demandData.stats.avgStudentReadiness }
+    ];
+    document.getElementById('stat-cards').innerHTML = stats.map(s => `
+        <div class="bg-surface-container-lowest rounded-xl p-lg shadow-level-1 border border-outline-variant hover:shadow-level-2 transition-shadow">
+            <div class="flex justify-between items-start mb-md">
+                <div>
+                    <p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wide">${s.label}</p>
+                    <h2 class="font-display text-display text-on-surface mt-xs">${s.value}</h2>
+                </div>
+                <div class="p-sm bg-surface-container rounded-lg">
+                    <span class="material-symbols-outlined text-tertiary">${s.icon}</span>
+                </div>
+            </div>
+            ${s.isBar
+                ? `<div class="w-full h-2 bg-surface-variant rounded-full mt-sm overflow-hidden"><div class="h-full bg-tertiary rounded-full" style="width:${s.barPct}%"></div></div>`
+                : `<div class="flex items-center gap-xs text-secondary"><span class="material-symbols-outlined text-sm">trending_up</span><span class="font-label-md text-label-md">${s.trend}</span></div>`
+            }
+        </div>
+    `).join('');
+
+    // Top skills in demand
+    document.getElementById('skills-demand-list').innerHTML = demandData.topSkillsInDemand.map(s => `
+        <div>
+            <div class="flex justify-between font-label-md text-label-md mb-xs">
+                <span class="text-on-surface font-semibold">${s.skill}</span>
+                <span class="text-on-surface-variant">${s.requests} employer postings</span>
+            </div>
+            <div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden">
+                <div class="h-full bg-tertiary rounded-full" style="width:${s.pct}%"></div>
+            </div>
+        </div>
+    `).join('');
+
+    // Most available roles
+    const trendIcon = t => t === 'up' ? { icon: 'trending_up', color: 'text-secondary' }
+                         : t === 'down' ? { icon: 'trending_down', color: 'text-error' }
+                         : { icon: 'trending_flat', color: 'text-on-surface-variant' };
+    document.getElementById('roles-available-list').innerHTML = demandData.mostAvailableRoles.map(r => {
+        const t = trendIcon(r.trend);
+        return `
+        <div class="flex items-center justify-between p-md rounded-lg border border-outline-variant hover:border-tertiary transition-colors">
+            <div>
+                <p class="font-body-md text-body-md font-semibold text-on-surface">${r.role}</p>
+                <p class="font-label-md text-label-md text-on-surface-variant">${r.openings} open roles</p>
+            </div>
+            <span class="material-symbols-outlined ${t.color}">${t.icon}</span>
+        </div>`;
+    }).join('');
+
+    // Actionable Curriculum Gap Alerts (SIH44 Spec 4: 4 Immediate Action Buttons)
+    const alertsContainer = document.getElementById('curriculum-alerts-list');
+    const gaps = sharedData.curriculumGaps || [];
+
+    if (gaps.length === 0) {
+        alertsContainer.innerHTML = `<p class="text-xs text-outline italic">No active curriculum gaps detected.</p>`;
+    } else {
+        alertsContainer.innerHTML = gaps.map(g => {
+            const prioBadge = g.priority === 'Critical' ? 'bg-red-100 text-red-800 border-red-300'
+                            : g.priority === 'High' ? 'bg-amber-100 text-amber-800 border-amber-300'
+                            : 'bg-blue-100 text-blue-800 border-blue-300';
+            return `
+                <div class="p-md rounded-xl border border-outline-variant/60 bg-surface hover:shadow-md transition-all">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-2 mb-2">
+                        <div class="flex items-center gap-2">
+                            <span class="material-symbols-outlined text-tertiary text-xl">warning</span>
+                            <h4 class="font-bold text-sm text-on-surface">${g.skill}</h4>
+                            <span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase border ${prioBadge}">${g.priority} Gap (${g.gapPct}% deficit)</span>
+                        </div>
+                        <div class="text-xs text-on-surface-variant">
+                            <span class="font-bold text-on-surface">${g.affectedStudents} students</span> lagging • Demanded in <span class="font-bold text-on-surface">${g.industryDemandCount} roles</span>
+                        </div>
+                    </div>
+                    <p class="text-xs text-on-surface-variant mb-3">${g.note}</p>
+                    
+                    <!-- 4 Actionable Buttons (SIH44 Spec) -->
+                    <div class="flex flex-wrap gap-2 pt-2 border-t border-outline-variant/30">
+                        <button type="button" onclick="triggerTeacherAction('${g.skill}', 'workshop', '2-Day Weekend Hands-on Workshop')" class="px-3 py-1.5 bg-primary text-white text-xs font-bold rounded-lg hover:bg-surface-tint transition-all flex items-center gap-1 shadow-sm">
+                            <span class="material-symbols-outlined text-sm">build</span> Create Workshop
+                        </button>
+                        <button type="button" onclick="triggerTeacherAction('${g.skill}', 'mentor', 'Find Industry Mentor')" class="px-3 py-1.5 bg-secondary text-white text-xs font-bold rounded-lg hover:bg-secondary/90 transition-all flex items-center gap-1 shadow-sm">
+                            <span class="material-symbols-outlined text-sm">person_search</span> Find Industry Mentor
+                        </button>
+                        <button type="button" onclick="triggerTeacherAction('${g.skill}', 'live_project', 'New Capstone Industry Project')" class="px-3 py-1.5 bg-tertiary text-white text-xs font-bold rounded-lg hover:bg-tertiary/90 transition-all flex items-center gap-1 shadow-sm">
+                            <span class="material-symbols-outlined text-sm">hub</span> Create Live Project
+                        </button>
+                        <button type="button" onclick="triggerTeacherAction('${g.skill}', 'notification', 'Curriculum Alert Broadcast')" class="px-3 py-1.5 bg-surface-container-high text-on-surface hover:bg-surface-container-highest border border-outline-variant text-xs font-bold rounded-lg transition-all flex items-center gap-1">
+                            <span class="material-symbols-outlined text-sm">campaign</span> Notify Students (${g.affectedStudents})
+                        </button>
+                    </div>
+                </div>
+            `;
+        }).join('');
+    }
+
+    // Institutional Skill-Gap Heatmap Matrix (SIH44 Spec 15)
+    const heatmapBody = document.getElementById('heatmap-table-body');
+    const heatmapData = sharedData.institutionalHeatmap || [];
+
+    const cellClass = (val) => {
+        if (val < 15) return 'bg-emerald-50 text-emerald-800 font-bold';
+        if (val <= 30) return 'bg-amber-50 text-amber-900 font-bold';
+        return 'bg-red-50 text-red-800 font-bold';
+    };
+
+    heatmapBody.innerHTML = heatmapData.map(h => `
+        <tr class="hover:bg-surface-container-low transition-colors">
+            <td class="p-2.5 font-bold text-on-surface">${h.skill}</td>
+            <td class="p-2.5 text-center ${cellClass(h.cs3rd)}">${h.cs3rd}%</td>
+            <td class="p-2.5 text-center ${cellClass(h.cs4th)}">${h.cs4th}%</td>
+            <td class="p-2.5 text-center ${cellClass(h.it3rd)}">${h.it3rd}%</td>
+            <td class="p-2.5 text-center ${cellClass(h.aids3rd)}">${h.aids3rd}%</td>
+        </tr>
+    `).join('');
+
+    // Skill Gap → Intervention → Outcome Tracker (SIH44 Spec 16)
+    const outcomesContainer = document.getElementById('intervention-outcomes-list');
+    const outcomes = sharedData.interventions || [];
+
+    outcomesContainer.innerHTML = outcomes.map(i => `
+        <div class="p-3 rounded-lg border border-outline-variant bg-surface-container-low flex flex-col gap-1.5">
+            <div class="flex justify-between items-center">
+                <span class="font-bold text-xs text-on-surface">${i.title}</span>
+                <span class="px-2 py-0.5 rounded text-[10px] font-bold ${i.status === 'completed' ? 'bg-emerald-100 text-emerald-800' : 'bg-blue-100 text-blue-800'}">${i.status.toUpperCase()}</span>
+            </div>
+            <div class="flex items-center justify-between text-xs mt-1">
+                <span class="text-outline">Skill: <strong>${i.skill}</strong></span>
+                <div class="flex items-center gap-1 font-semibold">
+                    <span class="text-red-600">Before: ${i.beforePct}%</span>
+                    <span class="material-symbols-outlined text-xs text-outline">arrow_forward</span>
+                    <span class="text-emerald-600">After: ${i.afterPct}%</span>
+                    <span class="text-emerald-700 font-bold text-[11px]">(+${i.afterPct - i.beforePct}%)</span>
+                </div>
+            </div>
+        </div>
+    `).join('');
+
+    // Collaboration Requests Status Pipeline (SIH44 Spec 7)
+    const collabContainer = document.getElementById('collab-requests-table');
+    const requests = sharedData.collaborationRequests || [];
+
+    collabContainer.innerHTML = `
+        <table class="w-full text-xs text-left border-collapse">
+            <thead class="bg-surface-container font-semibold text-on-surface-variant border-b border-outline-variant">
+                <tr>
+                    <th class="p-2.5">Industry Partner</th>
+                    <th class="p-2.5">Collaboration Type</th>
+                    <th class="p-2.5">Topic</th>
+                    <th class="p-2.5">Status</th>
+                    <th class="p-2.5 text-right">Action</th>
+                </tr>
+            </thead>
+            <tbody class="divide-y divide-outline-variant/30">
+                ${requests.map(r => `
+                    <tr class="hover:bg-surface-container-low transition-colors">
+                        <td class="p-2.5 font-bold text-on-surface">${r.company}</td>
+                        <td class="p-2.5">${r.type}</td>
+                        <td class="p-2.5 text-on-surface-variant font-mono text-[11px]">${r.topic}</td>
+                        <td class="p-2.5">
+                            <span class="px-2 py-0.5 rounded text-[10px] font-bold ${
+                                r.status === 'Completed' ? 'bg-emerald-100 text-emerald-800' :
+                                r.status === 'Scheduled' ? 'bg-blue-100 text-blue-800' :
+                                r.status === 'Accepted' ? 'bg-purple-100 text-purple-800' :
+                                'bg-amber-100 text-amber-800'
+                            }">${r.status}</span>
+                        </td>
+                        <td class="p-2.5 text-right">
+                            <button type="button" onclick="advanceCollabStatus('${r.id}')" class="text-primary hover:underline font-bold text-[11px]">
+                                ${r.status === 'Requested' ? 'Mark Accepted' : r.status === 'Accepted' ? 'Schedule' : r.status === 'Scheduled' ? 'Complete' : 'View Summary'}
+                            </button>
+                        </td>
+                    </tr>
+                `).join('')}
+            </tbody>
+        </table>
+    `;
+}
+
+function triggerTeacherAction(skill, actionType, title) {
+    createTeacherIntervention(skill, actionType, `${title} for ${skill}`);
+    showToast(`Action initiated: "${title}". Intervention recorded and student cohorts notified!`);
+    renderIndustryDemandDashboard();
+}
+
+function openCollabModal() {
+    const modal = document.getElementById('collab-modal');
+    modal.classList.remove('hidden');
+    modal.classList.add('flex');
+}
+
+function closeCollabModal() {
+    const modal = document.getElementById('collab-modal');
+    if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+    }
+}
+
+function handleCollabFormSubmit(e) {
+    e.preventDefault();
+    const company = document.getElementById('collabCompany').value;
+    const type = document.getElementById('collabType').value;
+    const topic = document.getElementById('collabTopic').value;
+
+    submitCollaborationRequest({ company, type, topic });
+    closeCollabModal();
+    renderIndustryDemandDashboard();
+    showToast(`Collaboration request sent to ${company}! Track progress below.`);
+}
+
+function advanceCollabStatus(reqId) {
+    const sharedData = getSkillBridgeData();
+    const req = (sharedData.collaborationRequests || []).find(r => r.id === reqId);
+    if (req) {
+        if (req.status === 'Requested') req.status = 'Accepted';
+        else if (req.status === 'Accepted') req.status = 'Scheduled';
+        else if (req.status === 'Scheduled') req.status = 'Completed';
+        saveSkillBridgeData(sharedData);
+        showToast(`Collaboration status advanced to: ${req.status}!`);
+        renderIndustryDemandDashboard();
+    }
+}
+
+document.addEventListener('DOMContentLoaded', renderIndustryDemandDashboard);
+</script>
+</body>
+</html>

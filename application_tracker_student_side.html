@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>My Applications - SkillBridge</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#3c463f",
+                        "primary-container": "#059669",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "outline": "#6b7d70",
+                        "on-secondary-container": "#006f66",
+                        "surface-tint": "#047857",
+                        "on-primary-fixed": "#022c22",
+                        "secondary": "#006a61",
+                        "on-tertiary-fixed": "#2a1700",
+                        "inverse-primary": "#6ee7b7",
+                        "surface-bright": "#f7fdf9",
+                        "secondary-fixed-dim": "#6bd8cb",
+                        "surface-container-low": "#eef9f1",
+                        "on-primary-container": "#ecfdf5",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#ffeedd",
+                        "surface": "#f7fdf9",
+                        "outline-variant": "#c8d3cb",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#c3e2cd",
+                        "on-secondary-fixed": "#00201d",
+                        "on-error-container": "#93000a",
+                        "background": "#f7fdf9",
+                        "primary-fixed-dim": "#6ee7b7",
+                        "secondary-fixed": "#89f5e7",
+                        "surface-container-high": "#d7f0dd",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "on-surface": "#0c1f14",
+                        "primary": "#047857",
+                        "surface-container-highest": "#cbe8d4",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#cbe8d4",
+                        "tertiary": "#784b00",
+                        "inverse-on-surface": "#e7f7ec",
+                        "secondary-container": "#86f2e4",
+                        "surface-container": "#e3f6e8",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#22362a",
+                        "on-secondary-fixed-variant": "#005049",
+                        "tertiary-container": "#996100",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#065f46",
+                        "on-background": "#0c1f14",
+                        "primary-fixed": "#d1fae5",
+                        "tertiary-fixed": "#ffddb8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xxl": "48px",
+                        "base": "4px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "container-max": "1280px",
+                        "xl": "32px",
+                        "gutter": "24px",
+                        "sm": "8px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "display": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; background-color: #f7fdf9; }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .kanban-col { min-height: calc(100vh - 200px); }
+        .card-shadow { box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); }
+        .card-hover-shadow:hover { box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1); transform: translateY(-2px); transition: all 0.2s ease; }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest shadow-sm flex justify-between items-center w-full px-lg md:px-xxl max-w-container-max mx-auto h-16 sticky top-0 z-50">
+<div class="flex items-center gap-xl">
+<a href="index.html" class="font-headline-md text-headline-md font-bold text-primary">SkillBridge</a>
+<nav class="hidden md:flex gap-lg h-full">
+<a class="flex flex-col justify-center h-full text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="student_dashboard_-_skill_gap__recommendations.html">Dashboard</a>
+<a class="flex flex-col justify-center h-full text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="student_-_matched_internshipsjobs_feed.html">Opportunities</a>
+<a class="flex flex-col justify-center h-full text-primary border-b-2 border-primary font-bold font-body-md text-body-md" href="application_tracker_student_side.html">Applications</a>
+<a class="flex flex-col justify-center h-full text-on-surface-variant hover:text-primary transition-colors font-body-md text-body-md" href="student_public_profile_page.html">Profile</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<button class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg transition-all p-sm">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary hover:bg-surface-container-low rounded-lg transition-all p-sm">
+<span class="material-symbols-outlined">settings</span>
+</button>
+<img alt="User profile photo" class="w-10 h-10 rounded-full object-cover ml-sm border border-outline-variant" data-alt="A small, circular professional headshot photograph of a young professional individual smiling warmly, set against a clean, bright, corporate light-mode background, fitting perfectly into a standard navigation profile icon slot." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBtJlqg-ScJp6xkGHN5F5TC0_oZpTOmU-ClVe0cLoakKyx-ujwWwKV-irnoJiOCI1JkHmoX-qifQjfzbnuov4-LIZ-o_-FCGRUUAVYxEvk_oRdm9NhSbyWWGCKdwspvi5XWKDlA2bQF_6NUsQgoe6KnZ9EsYng1BxJS5Tns-ohOOZzggkV6YcSwf51XCfn87aIwFh3faNx-v-N3_x0BOrdQMcUMcY-3_s8j1PdqEs-TC2u44iiFPA7mg"/>
+</div>
+</header>
+<!-- Main Canvas -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-md md:px-lg py-xl pb-xxl mb-xxl md:mb-0">
+<div class="mb-xl flex flex-col md:flex-row justify-between items-start md:items-center gap-md">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface mb-xs">My Applications</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Track your progress and manage your career opportunities.</p>
+</div>
+<button class="bg-primary text-on-primary font-label-md text-label-md px-lg py-sm rounded-lg hover:bg-surface-tint transition-colors flex items-center gap-sm">
+<span class="material-symbols-outlined" style="font-size: 18px;">add</span> New Application
+            </button>
+</div>
+<!-- Kanban Board -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter h-full">
+<!-- Applied Column -->
+<div class="bg-surface-container-low rounded-xl p-md flex flex-col gap-md kanban-col border border-outline-variant/30">
+<div class="flex items-center justify-between px-xs mb-sm">
+<h3 class="font-title-lg text-title-lg text-on-surface flex items-center gap-sm">
+<span class="w-3 h-3 rounded-full bg-emerald-500 block"></span> Applied / Under Review
+</h3>
+<span id="col-applied-count" class="bg-surface-variant text-on-surface-variant font-label-md text-label-md px-sm py-[2px] rounded-full">0</span>
+</div>
+<div id="col-applied-cards" class="space-y-3">
+    <!-- Rendered dynamically -->
+</div>
+</div>
+
+<!-- Shortlisted Column -->
+<div class="bg-surface-container-low rounded-xl p-md flex flex-col gap-md kanban-col border border-outline-variant/30">
+<div class="flex items-center justify-between px-xs mb-sm">
+<h3 class="font-title-lg text-title-lg text-on-surface flex items-center gap-sm">
+<span class="w-3 h-3 rounded-full bg-yellow-400 block"></span> Shortlisted / Interview
+</h3>
+<span id="col-shortlisted-count" class="bg-surface-variant text-on-surface-variant font-label-md text-label-md px-sm py-[2px] rounded-full">0</span>
+</div>
+<div id="col-shortlisted-cards" class="space-y-3">
+    <!-- Rendered dynamically -->
+</div>
+</div>
+
+<!-- Finalized Column -->
+<div class="bg-surface-container-low rounded-xl p-md flex flex-col gap-md kanban-col border border-outline-variant/30">
+<div class="flex items-center justify-between px-xs mb-sm">
+<h3 class="font-title-lg text-title-lg text-on-surface flex items-center gap-sm">
+<span class="w-3 h-3 rounded-full bg-gray-400 block"></span> Finalized / Selected
+</h3>
+<span id="col-finalized-count" class="bg-surface-variant text-on-surface-variant font-label-md text-label-md px-sm py-[2px] rounded-full">0</span>
+</div>
+<div id="col-finalized-cards" class="space-y-3">
+    <!-- Rendered dynamically -->
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-sm py-xs pb-safe bg-surface-container-lowest shadow-[0_-2px_10px_rgba(0,0,0,0.05)] h-[64px]">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md active:bg-surface-container-high active:scale-90 w-16 rounded-lg py-xs" href="student_dashboard_-_skill_gap__recommendations.html">
+<span class="material-symbols-outlined mb-1">dashboard</span>
+            Dashboard
+        </a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md active:bg-surface-container-high active:scale-90 w-16 rounded-lg py-xs" href="student_-_matched_internshipsjobs_feed.html">
+<span class="material-symbols-outlined mb-1">work</span>
+            Jobs
+        </a>
+<a class="flex flex-col items-center justify-center text-primary font-bold font-label-md text-label-md active:bg-surface-container-high active:scale-90 w-16 rounded-lg py-xs" href="application_tracker_student_side.html">
+<span class="material-symbols-outlined mb-1" style="font-variation-settings: 'FILL' 1;">assignment</span>
+            Apps
+        </a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-colors font-label-md text-label-md active:bg-surface-container-high active:scale-90 w-16 rounded-lg py-xs" href="student_public_profile_page.html">
+<span class="material-symbols-outlined mb-1">person</span>
+            Profile
+        </a>
+</nav>
+<!-- Footer -->
+<footer class="bg-surface-container-low border-t border-outline-variant w-full mt-auto hidden md:block">
+<div class="w-full py-xl px-lg max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-lg">
+<p class="font-body-md text-body-md text-on-surface-variant">© 2026 SkillBridge. Bridging Education and Industry.</p>
+<div class="flex gap-lg">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all" href="#">Privacy Policy</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all" href="#">Terms of Service</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all" href="#">Help Center</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary transition-all" href="#">Contact Us</a>
+</div>
+</div>
+</footer>
+
+<script src="auth.js"></script>
+<script>
+    function renderStudentTracker() {
+        const sharedData = getSkillBridgeData();
+        const user = getCurrentUser() || {};
+        const studentEmail = (user.email || 'alex.chen@university.edu').toLowerCase();
+        const studentName = (user.fullName || 'Alex Chen').toLowerCase();
+
+        let apps = sharedData.applications || [];
+        // Filter applications for current student (or show all if in demo mode)
+        const myApps = apps.filter(a => {
+            if (!a.studentEmail && !a.studentName) return true;
+            const matchEmail = a.studentEmail && a.studentEmail.toLowerCase() === studentEmail;
+            const matchName = a.studentName && a.studentName.toLowerCase() === studentName;
+            return matchEmail || matchName;
+        });
+
+        const appliedCol = document.getElementById('col-applied-cards');
+        const shortlistedCol = document.getElementById('col-shortlisted-cards');
+        const finalizedCol = document.getElementById('col-finalized-cards');
+
+        const appliedApps = myApps.filter(a => a.status === 'applied' || a.status === 'reviewed' || a.status === 'new');
+        const shortlistedApps = myApps.filter(a => a.status === 'shortlisted' || a.status === 'interview');
+        const finalizedApps = myApps.filter(a => a.status === 'selected' || a.status === 'internship' || a.status === 'feedback_submitted' || a.status === 'rejected');
+
+        document.getElementById('col-applied-count').textContent = appliedApps.length;
+        document.getElementById('col-shortlisted-count').textContent = shortlistedApps.length;
+        document.getElementById('col-finalized-count').textContent = finalizedApps.length;
+
+        function renderCard(app, borderClass, statusBadge) {
+            return `
+                <div class="bg-surface-container-lowest rounded-lg p-md card-shadow card-hover-shadow border-l-4 ${borderClass} cursor-pointer space-y-2">
+                    <div class="flex items-start justify-between gap-2">
+                        <div>
+                            <h4 class="font-title-lg text-sm font-bold text-on-surface leading-tight">${app.opportunityTitle || app.title}</h4>
+                            <p class="font-body-md text-xs text-on-surface-variant">${app.company} • ${app.roleType || 'Full-Time'}</p>
+                        </div>
+                        ${app.matchPct ? `
+                            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-primary/10 text-primary border border-primary/20 shrink-0">
+                                ${app.matchPct}%
+                            </span>
+                        ` : ''}
+                    </div>
+                    <div class="flex items-center justify-between text-xs pt-1 border-t border-outline-variant/20">
+                        <span class="text-outline text-[11px] flex items-center gap-1">
+                            <span class="material-symbols-outlined text-[13px]">calendar_today</span> ${app.appliedDate || 'Oct 2026'}
+                        </span>
+                        ${statusBadge}
+                    </div>
+                </div>
+            `;
+        }
+
+        const emptyPlaceholder = (msg) => `
+            <div class="p-6 text-center text-outline italic text-xs border border-dashed border-outline-variant/40 rounded-lg">
+                ${msg}
+            </div>
+        `;
+
+        if (appliedCol) {
+            appliedCol.innerHTML = appliedApps.length === 0 
+                ? emptyPlaceholder('No new applications pending review.')
+                : appliedApps.map(a => renderCard(a, 'border-emerald-500', `
+                    <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-emerald-100 text-emerald-800">
+                        ${a.status === 'reviewed' ? 'Under Review' : 'Applied'}
+                    </span>
+                `)).join('');
+        }
+
+        if (shortlistedCol) {
+            shortlistedCol.innerHTML = shortlistedApps.length === 0 
+                ? emptyPlaceholder('No applications shortlisted yet.')
+                : shortlistedApps.map(a => renderCard(a, 'border-yellow-400', `
+                    <span class="px-2 py-0.5 rounded text-[10px] font-bold ${a.status === 'interview' ? 'bg-blue-100 text-blue-800' : 'bg-amber-100 text-amber-800'}">
+                        ${a.status === 'interview' ? 'Interview Scheduled' : 'Shortlisted'}
+                    </span>
+                `)).join('');
+        }
+
+        if (finalizedCol) {
+            finalizedCol.innerHTML = finalizedApps.length === 0 
+                ? emptyPlaceholder('No finalized offers or decisions yet.')
+                : finalizedApps.map(a => renderCard(a, a.status === 'rejected' ? 'border-red-500' : 'border-green-500', `
+                    <span class="px-2 py-0.5 rounded text-[10px] font-bold ${a.status === 'rejected' ? 'bg-red-100 text-red-800' : 'bg-teal-100 text-teal-800'}">
+                        ${a.status === 'selected' ? 'Offer Extended' : a.status === 'internship' ? 'In Internship' : a.status === 'feedback_submitted' ? 'Feedback Done' : 'Not Selected'}
+                    </span>
+                `)).join('');
+        }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        renderStudentTracker();
+    });
+</script>
+</body></html>

@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Post a New Opportunity</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface-variant": "#3c463f",
+                      "primary-container": "#059669",
+                      "on-error": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "outline": "#6b7d70",
+                      "on-secondary-container": "#006f66",
+                      "surface-tint": "#047857",
+                      "on-primary-fixed": "#022c22",
+                      "secondary": "#006a61",
+                      "on-tertiary-fixed": "#2a1700",
+                      "inverse-primary": "#6ee7b7",
+                      "surface-bright": "#f7fdf9",
+                      "secondary-fixed-dim": "#6bd8cb",
+                      "surface-container-low": "#eef9f1",
+                      "on-primary-container": "#ecfdf5",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-container": "#ffeedd",
+                      "surface": "#f7fdf9",
+                      "outline-variant": "#c8d3cb",
+                      "on-secondary": "#ffffff",
+                      "surface-dim": "#c3e2cd",
+                      "on-secondary-fixed": "#00201d",
+                      "on-error-container": "#93000a",
+                      "background": "#f7fdf9",
+                      "primary-fixed-dim": "#6ee7b7",
+                      "secondary-fixed": "#89f5e7",
+                      "surface-container-high": "#d7f0dd",
+                      "tertiary-fixed-dim": "#ffb95f",
+                      "on-surface": "#0c1f14",
+                      "primary": "#047857",
+                      "surface-container-highest": "#cbe8d4",
+                      "error": "#ba1a1a",
+                      "surface-variant": "#cbe8d4",
+                      "tertiary": "#784b00",
+                      "inverse-on-surface": "#e7f7ec",
+                      "secondary-container": "#86f2e4",
+                      "surface-container": "#e3f6e8",
+                      "on-primary": "#ffffff",
+                      "inverse-surface": "#22362a",
+                      "on-secondary-fixed-variant": "#005049",
+                      "tertiary-container": "#996100",
+                      "on-tertiary-fixed-variant": "#653e00",
+                      "error-container": "#ffdad6",
+                      "on-primary-fixed-variant": "#065f46",
+                      "on-background": "#0c1f14",
+                      "primary-fixed": "#d1fae5",
+                      "tertiary-fixed": "#ffddb8"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xxl": "48px",
+                      "base": "4px",
+                      "xs": "4px",
+                      "md": "16px",
+                      "container-max": "1280px",
+                      "xl": "32px",
+                      "gutter": "24px",
+                      "sm": "8px",
+                      "lg": "24px"
+              },
+              "fontFamily": {
+                      "headline-md": [
+                              "Inter"
+                      ],
+                      "label-md": [
+                              "Inter"
+                      ],
+                      "title-lg": [
+                              "Inter"
+                      ],
+                      "display": [
+                              "Inter"
+                      ],
+                      "body-lg": [
+                              "Inter"
+                      ],
+                      "headline-lg": [
+                              "Inter"
+                      ],
+                      "body-md": [
+                              "Inter"
+                      ]
+              },
+              "fontSize": {
+                      "headline-md": [
+                              "24px",
+                              {
+                                      "lineHeight": "32px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "label-md": [
+                              "12px",
+                              {
+                                      "lineHeight": "16px",
+                                      "fontWeight": "500"
+                              }
+                      ],
+                      "title-lg": [
+                              "20px",
+                              {
+                                      "lineHeight": "28px",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "display": [
+                              "48px",
+                              {
+                                      "lineHeight": "56px",
+                                      "letterSpacing": "-0.02em",
+                                      "fontWeight": "700"
+                              }
+                      ],
+                      "body-lg": [
+                              "16px",
+                              {
+                                      "lineHeight": "24px",
+                                      "fontWeight": "400"
+                              }
+                      ],
+                      "headline-lg": [
+                              "32px",
+                              {
+                                      "lineHeight": "40px",
+                                      "letterSpacing": "-0.01em",
+                                      "fontWeight": "600"
+                              }
+                      ],
+                      "body-md": [
+                              "14px",
+                              {
+                                      "lineHeight": "20px",
+                                      "fontWeight": "400"
+                              }
+                      ]
+              }
+      },
+          },
+        }
+      </script>
+<style>
+        body {
+            background-color: #F8FAFC; /* Fallback */
+        }
+        
+        /* Custom scrollbar for skills area */
+        .skills-scroll::-webkit-scrollbar {
+            height: 6px;
+        }
+        .skills-scroll::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .skills-scroll::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 20px;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen">
+<!-- Top Navigation -->
+<header class="bg-surface-container-lowest dark:bg-surface-dim font-body-md text-body-md docked full-width top-0 shadow-sm dark:shadow-none shadow-sm z-40">
+<div class="flex justify-between items-center w-full px-lg md:px-xxl max-w-container-max mx-auto h-16">
+<a href="index.html" class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">
+                SkillBridge
+            </a>
+<nav class="hidden md:flex gap-lg items-center">
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:bg-surface-container-low dark:hover:bg-surface-container-high rounded-lg transition-all active:scale-95 transition-transform duration-150 px-md py-sm" href="analytics_dashboard_-_placement__skill_insights.html">Dashboard</a>
+<a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary dark:border-primary-fixed-dim pb-1 font-bold hover:bg-surface-container-low dark:hover:bg-surface-container-high rounded-lg transition-all active:scale-95 transition-transform duration-150 px-md py-sm" href="industry_-_post_opportunity_form.html">Opportunities</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:bg-surface-container-low dark:hover:bg-surface-container-high rounded-lg transition-all active:scale-95 transition-transform duration-150 px-md py-sm" href="recruiter_-_applicant_management_tracker.html">Applications</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim transition-colors hover:bg-surface-container-low dark:hover:bg-surface-container-high rounded-lg transition-all active:scale-95 transition-transform duration-150 px-md py-sm" href="industry_-_matched_candidates_results_page.html">Profile</a>
+</nav>
+<div class="flex items-center gap-md">
+<button class="text-on-surface-variant hover:text-primary transition-colors p-xs hover:bg-surface-container-low rounded-full">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors p-xs hover:bg-surface-container-low rounded-full">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<div class="w-8 h-8 rounded-full overflow-hidden bg-surface-container-high border border-outline-variant">
+<img alt="User profile photo" class="w-full h-full object-cover" data-alt="A professional headshot of a corporate recruiter, looking friendly but professional, isolated on a light neutral grey background with soft studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkoV98oL9NY2Z0AE38h8IAMxINwoIRAQvBzCTCeORZezibpq_W7fvsLdNmoxZIOqKcYVmeKdbUGE-NsgVI8Swu7RVVAuGV9187aJ9_Ha1z3qGMUSiwFnnNFS71DPss7JD0773CMDaf6eaO4jI5x5-dtL4f5ScBb0j4pzcRX9RXuB8lJI7DRQUgqEyc0HlO_Yg1iRiCRCtgHvJzj9iF-Br51WOiHstVsQATalhwGnVtNlb2H9VeSPP5mA"/>
+</div>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="w-full max-w-container-max mx-auto px-md md:px-lg py-xl pb-xxl">
+<!-- Header Section -->
+<div class="mb-lg">
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Post a New Opportunity</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">Create a new posting to find the best talent for your organization. Ensure all fields are filled accurately to attract the right candidates.</p>
+</div>
+<!-- Form Container - Level 1 Surface -->
+<form id="postOpportunityForm" onsubmit="handlePostOpportunitySubmit(event)" class="bg-surface-container-lowest rounded-[16px] shadow-[0_4px_16px_rgba(0,0,0,0.05)] border-none p-lg md:p-xl flex flex-col gap-lg">
+<!-- Section: Company Details -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-4">
+<h2 class="font-title-lg text-title-lg text-on-surface mb-xs">Company Details</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Provide information about the hiring organization or partner institute.</p>
+</div>
+<div class="md:col-span-8 flex flex-col gap-md bg-surface-container rounded-lg p-md">
+<!-- Company Name -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant" for="companyName">Company / Organization Name *</label>
+<input required class="w-full bg-surface-container-lowest border border-outline-variant rounded-md px-sm py-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary font-body-md text-body-md text-on-surface transition-colors" id="companyName" placeholder="e.g. CloudScale Systems" type="text" value="CloudScale Systems"/>
+</div>
+<!-- Industry Dropdown -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant" for="industry">Industry Sector *</label>
+<div class="relative">
+<select class="w-full appearance-none bg-surface-container-lowest border border-outline-variant rounded-md px-sm py-sm pr-lg focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary font-body-md text-body-md text-on-surface transition-colors" id="industry">
+<option value="Technology">Technology & Cloud Software</option>
+<option value="FinTech">FinTech & Digital Banking</option>
+<option value="Healthcare">Healthcare & HealthTech</option>
+<option value="AI/ML">Artificial Intelligence & MLOps</option>
+<option value="Education">EdTech & Higher Education</option>
+</select>
+<span class="material-symbols-outlined absolute right-sm top-1/2 -translate-y-1/2 text-on-surface-variant pointer-events-none" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+<hr class="border-outline-variant/30"/>
+
+<!-- Section: Opportunity Details -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-4">
+<h2 class="font-title-lg text-title-lg text-on-surface mb-xs">Opportunity Type & Logistics</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Choose whether you are posting a student job/internship, a student Live Capstone Project, or a Faculty collaboration program.</p>
+</div>
+<div class="md:col-span-8 flex flex-col gap-md">
+<!-- 4 Opportunity Types Toggle (SIH44 Spec) -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant">Select Opportunity Category *</label>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2 bg-surface-container-high rounded-lg p-1.5">
+<label class="text-center cursor-pointer">
+<input checked class="peer sr-only" name="oppType" type="radio" value="job" onchange="toggleOppFields('job')"/>
+<div class="py-2 px-2 rounded-md font-body-md text-xs font-semibold peer-checked:bg-surface-container-lowest peer-checked:text-primary peer-checked:shadow-sm text-on-surface-variant transition-all">Job (Full-Time)</div>
+</label>
+<label class="text-center cursor-pointer">
+<input class="peer sr-only" name="oppType" type="radio" value="internship" onchange="toggleOppFields('internship')"/>
+<div class="py-2 px-2 rounded-md font-body-md text-xs font-semibold peer-checked:bg-surface-container-lowest peer-checked:text-primary peer-checked:shadow-sm text-on-surface-variant transition-all">Internship</div>
+</label>
+<label class="text-center cursor-pointer">
+<input class="peer sr-only" name="oppType" type="radio" value="live_project" onchange="toggleOppFields('live_project')"/>
+<div class="py-2 px-2 rounded-md font-body-md text-xs font-semibold peer-checked:bg-surface-container-lowest peer-checked:text-tertiary peer-checked:shadow-sm text-on-surface-variant transition-all">Live Project</div>
+</label>
+<label class="text-center cursor-pointer">
+<input class="peer sr-only" name="oppType" type="radio" value="faculty" onchange="toggleOppFields('faculty')"/>
+<div class="py-2 px-2 rounded-md font-body-md text-xs font-semibold peer-checked:bg-surface-container-lowest peer-checked:text-secondary peer-checked:shadow-sm text-on-surface-variant transition-all">Faculty Program</div>
+</label>
+</div>
+</div>
+
+<!-- Dynamic Live Project Extra Fields -->
+<div id="live-project-fields" class="hidden bg-tertiary-container/10 border border-tertiary/20 rounded-lg p-md space-y-3">
+<div class="flex items-center gap-2 text-tertiary font-bold text-xs uppercase tracking-wider">
+<span class="material-symbols-outlined text-base">hub</span> Live Capstone Project Parameters
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+<div>
+<label class="block text-xs font-semibold text-on-surface mb-1">Student Team Size</label>
+<input id="teamSizeInput" type="number" value="4" min="2" max="10" class="w-full bg-surface-container-lowest border border-outline-variant rounded p-2 text-xs">
+</div>
+<div>
+<label class="block text-xs font-semibold text-on-surface mb-1">Project Duration</label>
+<input id="durationInput" type="text" value="8 Weeks" class="w-full bg-surface-container-lowest border border-outline-variant rounded p-2 text-xs">
+</div>
+<div>
+<label class="block text-xs font-semibold text-on-surface mb-1">Industry Mentor Name</label>
+<input id="mentorInput" type="text" placeholder="e.g. Rajesh Verma (Lead Architect)" class="w-full bg-surface-container-lowest border border-outline-variant rounded p-2 text-xs">
+</div>
+</div>
+</div>
+
+<!-- Dynamic Faculty Opportunity Fields -->
+<div id="faculty-fields" class="hidden bg-secondary-container/10 border border-secondary/20 rounded-lg p-md space-y-3">
+<div class="flex items-center gap-2 text-secondary font-bold text-xs uppercase tracking-wider">
+<span class="material-symbols-outlined text-base">school</span> Faculty–Industry Collaboration Type
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+<div>
+<label class="block text-xs font-semibold text-on-surface mb-1">Collaboration Track</label>
+<select id="facultyTrackSelect" class="w-full bg-surface-container-lowest border border-outline-variant rounded p-2 text-xs">
+<option value="Industrial Training">Industrial Training & Immersion</option>
+<option value="Faculty Internship">Faculty Industry Internship (Summer/Winter)</option>
+<option value="FDP">Faculty Development Program (FDP)</option>
+<option value="Guest Lecture">Guest Lecture Series</option>
+<option value="Research Collaboration">Joint Research / Consultancy</option>
+</select>
+</div>
+<div>
+<label class="block text-xs font-semibold text-on-surface mb-1">Available Faculty Seats / Grants</label>
+<input id="facultySeatsInput" type="text" value="10 Faculty Seats (Sponsored)" class="w-full bg-surface-container-lowest border border-outline-variant rounded p-2 text-xs">
+</div>
+</div>
+</div>
+
+<!-- Role Title -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant" for="roleTitle">Opportunity / Project Title *</label>
+<input required class="w-full bg-surface-container-lowest border border-outline-variant rounded-md px-sm py-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary font-body-md text-body-md text-on-surface transition-colors" id="roleTitle" placeholder="e.g. Senior Frontend Engineer (React/TypeScript)" type="text" value="Cloud Microservices Backend Engineer"/>
+</div>
+
+<!-- SIH44 Granular Skill Requirement Builder -->
+<div class="flex flex-col gap-xs">
+<div class="flex justify-between items-center">
+<label class="font-label-md text-label-md text-on-surface-variant font-bold">Skill Requirements & Benchmark Levels (Feeds Student Gap Analysis) *</label>
+<span class="text-[11px] text-primary font-semibold">Shared Taxonomy Connected</span>
+</div>
+
+<!-- Skill Add Form Bar -->
+<div class="border border-outline-variant rounded-lg p-3 bg-surface-container-lowest space-y-3">
+<div class="grid grid-cols-1 sm:grid-cols-12 gap-2">
+<div class="sm:col-span-4">
+<label class="block text-[10px] uppercase font-bold text-on-surface-variant mb-1">Skill</label>
+<select id="newSkillSelect" class="w-full bg-surface border border-outline-variant rounded px-2 py-1.5 text-xs text-on-surface">
+<option value="React.js">React.js</option>
+<option value="TypeScript">TypeScript</option>
+<option value="JavaScript">JavaScript</option>
+<option value="Node.js" selected>Node.js</option>
+<option value="Python">Python</option>
+<option value="SQL / PostgreSQL">SQL / PostgreSQL</option>
+<option value="Docker & Containers">Docker & Containers</option>
+<option value="Cloud (AWS/GCP)">Cloud (AWS/GCP)</option>
+<option value="Data Structures & Algorithms">Data Structures & Algorithms</option>
+<option value="Machine Learning">Machine Learning</option>
+<option value="Cybersecurity">Cybersecurity</option>
+<option value="Testing & QA">Testing & QA</option>
+<option value="System Design">System Design</option>
+</select>
+</div>
+<div class="sm:col-span-3">
+<label class="block text-[10px] uppercase font-bold text-on-surface-variant mb-1">Req. Proficiency</label>
+<select id="newSkillProficiency" class="w-full bg-surface border border-outline-variant rounded px-2 py-1.5 text-xs text-on-surface">
+<option value="60">60% (Basic)</option>
+<option value="70">70% (Competent)</option>
+<option value="80" selected>80% (Advanced)</option>
+<option value="90">90% (Expert)</option>
+</select>
+</div>
+<div class="sm:col-span-3">
+<label class="block text-[10px] uppercase font-bold text-on-surface-variant mb-1">Priority</label>
+<select id="newSkillPriority" class="w-full bg-surface border border-outline-variant rounded px-2 py-1.5 text-xs text-on-surface">
+<option value="Critical" selected>Critical (Must-Have)</option>
+<option value="High">High (Core)</option>
+<option value="Medium">Medium (Bonus)</option>
+</select>
+</div>
+<div class="sm:col-span-2 flex items-end">
+<button type="button" onclick="handleAddSkillToRequirement()" class="w-full py-1.5 px-3 bg-primary text-white text-xs font-semibold rounded hover:bg-surface-tint transition-all flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-sm">add</span> Add
+</button>
+</div>
+</div>
+
+<!-- Active Skill Tags Container -->
+<div id="required-skills-badge-list" class="flex flex-wrap gap-2 pt-2 border-t border-outline-variant/30">
+<!-- Dynamic tags rendered here -->
+</div>
+</div>
+<p class="font-label-md text-[11px] text-on-surface-variant mt-1">
+These requirements will dynamically determine candidate match % and automatically trigger curriculum gap alerts for teachers.
+</p>
+</div>
+
+<!-- Description -->
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant" for="description">Detailed Description & Responsibilities *</label>
+<textarea required class="w-full bg-surface-container-lowest border border-outline-variant rounded-md px-sm py-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary font-body-md text-body-md text-on-surface transition-colors resize-y" id="description" rows="4">We are looking for engineers to design and scale cloud backend APIs, optimize PostgreSQL query throughput, and containerize microservices using Docker.</textarea>
+</div>
+
+<!-- Logistics Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-md mt-sm">
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant" for="locationInput">Location *</label>
+<input required class="w-full bg-surface-container-lowest border border-outline-variant rounded-md px-sm py-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary font-body-md text-body-md text-on-surface transition-colors" id="locationInput" placeholder="e.g. Bengaluru, India / Remote" type="text" value="Bengaluru (Hybrid)"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant" for="workModeSelect">Work Mode *</label>
+<select id="workModeSelect" class="w-full bg-surface-container-lowest border border-outline-variant rounded-md px-sm py-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary font-body-md text-body-md text-on-surface transition-colors">
+<option value="Hybrid">Hybrid</option>
+<option value="Remote">Remote</option>
+<option value="On-site">On-site</option>
+</select>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant" for="experienceInput">Experience Required *</label>
+<input required class="w-full bg-surface-container-lowest border border-outline-variant rounded-md px-sm py-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary font-body-md text-body-md text-on-surface transition-colors" id="experienceInput" placeholder="e.g. 0 - 1 yrs or Freshers" type="text" value="0 - 2 yrs"/>
+</div>
+<div class="flex flex-col gap-xs">
+<label class="font-label-md text-label-md text-on-surface-variant" for="compensation">Salary / Stipend *</label>
+<input required class="w-full bg-surface-container-lowest border border-outline-variant rounded-md px-sm py-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary font-body-md text-body-md text-on-surface transition-colors" id="compensation" placeholder="e.g. ₹12 - 16 LPA or ₹40,000 / mo" type="text" value="₹12 - 16 LPA"/>
+</div>
+<div class="flex flex-col gap-xs md:col-span-2">
+<label class="font-label-md text-label-md text-on-surface-variant" for="deadline">Application Deadline *</label>
+<input required class="w-full bg-surface-container-lowest border border-outline-variant rounded-md px-sm py-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary font-body-md text-body-md text-on-surface transition-colors text-on-surface-variant" id="deadline" type="date" value="2026-11-30"/>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Actions -->
+<div class="mt-lg pt-lg border-t border-outline-variant/30 flex justify-end gap-md items-center">
+<button class="px-lg py-sm font-label-md text-label-md font-medium text-on-surface-variant hover:text-on-surface hover:bg-surface-container-low rounded-md transition-colors" type="button" onclick="history.back()">
+Cancel
+</button>
+<button class="px-lg py-sm bg-[#059669] hover:bg-[#047857] text-white font-label-md text-label-md font-medium rounded-md transition-colors shadow-sm hover:shadow-md active:scale-95 transition-transform flex items-center gap-1.5" type="submit">
+<span class="material-symbols-outlined text-sm">rocket_launch</span>
+Post Opportunity & Connect Skills
+</button>
+</div>
+</form>
+</main>
+<!-- Bottom Navigation (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-sm py-xs pb-safe bg-surface-container-lowest dark:bg-surface-dim shadow-[0_-2px_10px_rgba(0,0,0,0.05)] shadow-lg">
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant active:bg-surface-container-high dark:active:bg-surface-container-highest transition-colors active:scale-90 transition-transform duration-200 p-sm rounded-lg" href="analytics_dashboard_-_placement__skill_insights.html">
+<span class="material-symbols-outlined mb-1" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary-fixed-dim font-bold active:bg-surface-container-high dark:active:bg-surface-container-highest transition-colors active:scale-90 transition-transform duration-200 p-sm rounded-lg" href="industry_-_post_opportunity_form.html">
+<span class="material-symbols-outlined mb-1" data-icon="work">work</span>
+<span class="font-label-md text-label-md">Jobs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant active:bg-surface-container-high dark:active:bg-surface-container-highest transition-colors active:scale-90 transition-transform duration-200 p-sm rounded-lg" href="recruiter_-_applicant_management_tracker.html">
+<span class="material-symbols-outlined mb-1" data-icon="assignment">assignment</span>
+<span class="font-label-md text-label-md">Apps</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant dark:text-outline-variant active:bg-surface-container-high dark:active:bg-surface-container-highest transition-colors active:scale-90 transition-transform duration-200 p-sm rounded-lg" href="industry_-_matched_candidates_results_page.html">
+<span class="material-symbols-outlined mb-1" data-icon="person">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</nav>
+<!-- Footer -->
+<footer class="bg-surface-container-low dark:bg-surface-container-lowest border-t border-outline-variant dark:border-outline full-width bottom-0 mb-16 md:mb-0">
+<div class="w-full py-xl px-lg max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-lg">
+<div class="font-title-lg text-title-lg font-bold text-on-surface dark:text-inverse-on-surface">
+                SkillBridge
+            </div>
+<div class="flex flex-wrap justify-center gap-md">
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:underline transition-all font-body-md text-body-md" href="#">Privacy Policy</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:underline transition-all font-body-md text-body-md" href="#">Terms of Service</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:underline transition-all font-body-md text-body-md" href="#">Help Center</a>
+<a class="text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim hover:underline transition-all font-body-md text-body-md" href="#">Contact Us</a>
+</div>
+<div class="font-body-md text-body-md text-on-surface-variant text-center md:text-right">
+                © 2026 SkillBridge. Bridging Education and Industry.
+            </div>
+</div>
+</footer>
+<script src="auth.js"></script>
+<script>
+    // State of required skills for this opportunity
+    let selectedSkills = [
+        { skill: "Node.js", reqPct: 80, priority: "Critical", preferred: false },
+        { skill: "SQL / PostgreSQL", reqPct: 75, priority: "Critical", preferred: false },
+        { skill: "Docker & Containers", reqPct: 70, priority: "High", preferred: false },
+        { skill: "Cloud (AWS/GCP)", reqPct: 65, priority: "Medium", preferred: true }
+    ];
+
+    function renderRequiredSkills() {
+        const container = document.getElementById('required-skills-badge-list');
+        if (!container) return;
+
+        if (selectedSkills.length === 0) {
+            container.innerHTML = `<span class="text-xs text-outline italic">No skills added yet. Use the selector above to add requirements.</span>`;
+            return;
+        }
+
+        container.innerHTML = selectedSkills.map((s, idx) => {
+            const priorityClass = s.priority === "Critical" ? "bg-red-100 text-red-700 border-red-200"
+                                : s.priority === "High" ? "bg-amber-100 text-amber-800 border-amber-200"
+                                : "bg-emerald-100 text-emerald-800 border-emerald-200";
+
+            return `
+                <div class="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-semibold border ${priorityClass} shadow-sm animate-in fade-in">
+                    <span class="material-symbols-outlined text-sm">${s.priority === "Critical" ? "error" : "check_circle"}</span>
+                    <span>${s.skill}</span>
+                    <span class="opacity-75 font-normal">(${s.reqPct}%)</span>
+                    <span class="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-white/60">${s.priority}</span>
+                    <button type="button" onclick="handleRemoveSkill(${idx})" class="ml-1 hover:text-black transition-colors">
+                        <span class="material-symbols-outlined text-sm">close</span>
+                    </button>
+                </div>
+            `;
+        }).join('');
+    }
+
+    function handleAddSkillToRequirement() {
+        const skillSelect = document.getElementById('newSkillSelect');
+        const profSelect = document.getElementById('newSkillProficiency');
+        const prioSelect = document.getElementById('newSkillPriority');
+
+        const skill = skillSelect.value;
+        const reqPct = Number(profSelect.value);
+        const priority = prioSelect.value;
+
+        // Prevent duplicate
+        const existingIdx = selectedSkills.findIndex(s => s.skill.toLowerCase() === skill.toLowerCase());
+        if (existingIdx !== -1) {
+            selectedSkills[existingIdx] = { skill, reqPct, priority, preferred: priority === "Medium" };
+        } else {
+            selectedSkills.push({ skill, reqPct, priority, preferred: priority === "Medium" });
+        }
+
+        renderRequiredSkills();
+        showToast(`Added ${skill} (${reqPct}%, ${priority})`);
+    }
+
+    function handleRemoveSkill(idx) {
+        selectedSkills.splice(idx, 1);
+        renderRequiredSkills();
+    }
+
+    function toggleOppFields(type) {
+        const liveFields = document.getElementById('live-project-fields');
+        const facultyFields = document.getElementById('faculty-fields');
+
+        if (liveFields) liveFields.classList.toggle('hidden', type !== 'live_project');
+        if (facultyFields) facultyFields.classList.toggle('hidden', type !== 'faculty');
+    }
+
+    function handlePostOpportunitySubmit(e) {
+        e.preventDefault();
+        if (selectedSkills.length === 0) {
+            showToast("Please specify at least 1 required skill for candidate matching.", "error");
+            return;
+        }
+
+        const compName = document.getElementById('companyName').value;
+        const industry = document.getElementById('industry').value;
+        const oppType = document.querySelector('input[name="oppType"]:checked')?.value || 'job';
+        const roleTitle = document.getElementById('roleTitle').value;
+        const description = document.getElementById('description').value;
+        const compensation = document.getElementById('compensation').value;
+        const deadline = document.getElementById('deadline').value;
+        const locationVal = document.getElementById('locationInput')?.value || 'Bengaluru (Hybrid)';
+        const workModeVal = document.getElementById('workModeSelect')?.value || 'Hybrid';
+        const experienceVal = document.getElementById('experienceInput')?.value || '0 - 2 yrs';
+
+        const oppPayload = {
+            companyName: compName,
+            title: roleTitle,
+            type: oppType,
+            roleType: oppType === 'job' ? 'Full-Time' : oppType === 'internship' ? 'Internship' : oppType === 'live_project' ? 'Live Industry Project' : 'Faculty Opportunity',
+            description: description,
+            requiredSkills: selectedSkills,
+            location: locationVal,
+            workMode: workModeVal,
+            compensation: compensation,
+            stipendOrSalary: compensation,
+            experience: experienceVal,
+            deadline: deadline,
+            industry: industry,
+            postedDate: new Date().toISOString().split('T')[0],
+            status: "active",
+            source: "SkillBridge Recruiter",
+            isRecruiterPosted: true
+        };
+
+        if (oppType === 'live_project') {
+            oppPayload.teamSize = Number(document.getElementById('teamSizeInput')?.value || 4);
+            oppPayload.duration = document.getElementById('durationInput')?.value || '8 Weeks';
+            oppPayload.mentor = document.getElementById('mentorInput')?.value || 'Industry Mentor';
+        }
+
+        if (oppType === 'faculty') {
+            oppPayload.facultyTrack = document.getElementById('facultyTrackSelect')?.value || 'Industrial Training';
+            oppPayload.seats = document.getElementById('facultySeatsInput')?.value || '10 Faculty Seats';
+        }
+
+        const createdOpp = addOpportunity(oppPayload);
+
+        showToast(`Opportunity "${roleTitle}" posted successfully! It is now live in Student Opportunities.`);
+        setTimeout(() => {
+            window.location.href = `student_-_matched_internshipsjobs_feed.html`;
+        }, 1000);
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        renderRequiredSkills();
+    });
+</script>
+</body></html>

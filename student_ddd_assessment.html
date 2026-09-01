@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Step 4: Domain Deep-Dive Assessment — SkillBridge</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "on-surface-variant": "#3c463f",
+                      "primary-container": "#059669",
+                      "on-error": "#ffffff",
+                      "on-tertiary": "#ffffff",
+                      "outline": "#6b7d70",
+                      "on-secondary-container": "#006f66",
+                      "surface-tint": "#047857",
+                      "on-primary-fixed": "#022c22",
+                      "secondary": "#006a61",
+                      "on-tertiary-fixed": "#2a1700",
+                      "inverse-primary": "#6ee7b7",
+                      "surface-bright": "#f7fdf9",
+                      "secondary-fixed-dim": "#6bd8cb",
+                      "surface-container-low": "#eef9f1",
+                      "on-primary-container": "#ecfdf5",
+                      "surface-container-lowest": "#ffffff",
+                      "on-tertiary-container": "#ffeedd",
+                      "surface": "#f7fdf9",
+                      "outline-variant": "#c8d3cb",
+                      "on-secondary": "#ffffff",
+                      "surface-dim": "#c3e2cd",
+                      "on-secondary-fixed": "#00201d",
+                      "on-error-container": "#93000a",
+                      "background": "#f7fdf9",
+                      "primary-fixed-dim": "#6ee7b7",
+                      "secondary-fixed": "#89f5e7",
+                      "surface-container-high": "#d7f0dd",
+                      "tertiary-fixed-dim": "#ffb95f",
+                      "on-surface": "#0c1f14",
+                      "primary": "#047857",
+                      "surface-container-highest": "#cbe8d4",
+                      "error": "#ba1a1a",
+                      "surface-variant": "#cbe8d4",
+                      "tertiary": "#784b00",
+                      "inverse-on-surface": "#e7f7ec",
+                      "secondary-container": "#86f2e4",
+                      "surface-container": "#e3f6e8",
+                      "on-primary": "#ffffff",
+                      "inverse-surface": "#22362a",
+                      "on-secondary-fixed-variant": "#005049",
+                      "tertiary-container": "#996100",
+                      "on-tertiary-fixed-variant": "#653e00",
+                      "error-container": "#ffdad6",
+                      "on-primary-fixed-variant": "#065f46",
+                      "on-background": "#0c1f14",
+                      "primary-fixed": "#d1fae5",
+                      "tertiary-fixed": "#ffddb8"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "xxl": "48px",
+                      "base": "4px",
+                      "xs": "4px",
+                      "md": "16px",
+                      "container-max": "1280px",
+                      "xl": "32px",
+                      "gutter": "24px",
+                      "sm": "8px",
+                      "lg": "24px"
+              },
+              "fontFamily": {
+                      "headline-md": ["Inter"],
+                      "label-md": ["Inter"],
+                      "title-lg": ["Inter"],
+                      "display": ["Inter"],
+                      "body-lg": ["Inter"],
+                      "headline-lg": ["Inter"],
+                      "body-md": ["Inter"]
+              }
+            }
+          }
+        }
+      </script>
+<style>
+        .custom-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            background: #d7f0dd;
+            outline: none;
+            border-radius: 4px;
+        }
+        .custom-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #047857;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .card-elevation-1 {
+            box-shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.05);
+        }
+</style>
+</head>
+<body class="bg-background text-on-surface font-body-md min-h-screen antialiased">
+<main class="max-w-container-max mx-auto px-md md:px-lg py-xl">
+<div class="max-w-3xl mx-auto">
+    <!-- Progress Header -->
+    <div class="mb-lg text-center">
+        <span class="font-label-md text-label-md text-primary uppercase tracking-wider block mb-sm">Step 4 of 4</span>
+        <h1 class="font-headline-lg text-headline-lg text-on-surface mb-md">Domain Deep-Dive Assessment</h1>
+        <p class="font-body-md text-body-md text-on-surface-variant max-w-xl mx-auto mb-md">Select your Target Role below. Complete the quick evaluation — skills are analyzed <strong>automatically in real-time</strong> as you answer.</p>
+        <!-- Progress Bar -->
+        <div class="w-full bg-surface-container-high h-2 rounded-full overflow-hidden mt-sm">
+            <div class="bg-primary h-full w-full rounded-full transition-all duration-500"></div>
+        </div>
+    </div>
+
+    <!-- Main Card -->
+    <div class="bg-surface-container-lowest rounded-xl card-elevation-1 p-lg md:p-xl space-y-xl">
+        <!-- Target Role Selection Grid -->
+        <section>
+            <h2 class="font-title-lg text-title-lg text-on-surface mb-sm flex items-center gap-sm">
+                <span class="material-symbols-outlined text-primary">target</span>
+                Select Your Target Role
+            </h2>
+            <p class="font-label-md text-label-md text-on-surface-variant mb-md">This sets your official Target Role across SkillBridge and customizes your Skill Gap Analysis.</p>
+            <div id="target-role-grid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-sm"></div>
+        </section>
+
+        <hr class="border-t border-surface-container-high"/>
+
+        <!-- Dynamic Assessment Questionnaire -->
+        <section id="ddd-questionnaire-section">
+            <div id="ddd-questionnaire-container" class="space-y-lg"></div>
+        </section>
+
+        <!-- Dynamic Real-Time Skill Report -->
+        <div id="ddd-report-container"></div>
+    </div>
+
+    <!-- Navigation Footer -->
+    <div class="flex justify-between items-center mt-lg">
+        <a href="student_portfolio_builder.html" class="px-lg py-sm rounded-md font-label-md text-label-md text-on-surface-variant border border-outline-variant hover:bg-surface-container-low transition-colors inline-flex items-center">
+            Back
+        </a>
+        <button type="button" onclick="finishDDDAssessment()" class="px-xl py-sm rounded-md font-label-md text-label-md bg-primary text-on-primary hover:bg-surface-tint transition-colors shadow-sm flex items-center gap-xs">
+            Complete & View Dashboard
+            <span class="material-symbols-outlined" style="font-size: 16px;">arrow_forward</span>
+        </button>
+    </div>
+</div>
+</main>
+
+<script src="auth.js"></script>
+<script>
+    const DOMAIN_DATA = {
+        swe: {
+            name: "Software Engineer",
+            awareness: { q: "Which best describes what a Software Engineer does day-to-day?", options: ["Designing, developing, testing, and maintaining software systems & algorithms", "Only designing banner ads", "Only managing company social media", "Hardware assembly only"], correct: 0 },
+            knowledge: [
+                { q: "What is the time complexity of binary search on a sorted array of size N?", options: ["O(log N)", "O(N^2)", "O(1)", "O(N!)"], correct: 0, topic: "Data Structures & Algorithms" },
+                { q: "Which of the following is a core principle of Object-Oriented Programming (OOP)?", options: ["Encapsulation", "Compilation", "Pipelining", "Caching"], correct: 0, topic: "OOP Principles" },
+                { q: "What is the primary function of a Version Control System like Git?", options: ["Tracking code modifications and coordinating among developers", "Hosting DNS records", "Designing UI layouts", "Compiling machine code"], correct: 0, topic: "Git & Version Control" },
+                { q: "What is unit testing in software engineering?", options: ["Testing individual components or functions in isolation", "Testing the entire user payment flow", "Manual testing by customers", "Stress testing physical servers"], correct: 0, topic: "Testing & Code Quality" }
+            ],
+            experience: ["Have you implemented core data structures (trees, graphs, heaps) or solved algorithmic problems?", "Have you collaborated on code using Git pull requests and branch merges?"],
+            industryNeeds: ["Data Structures & Algorithms (DSA)", "Object-Oriented Design (OOP)", "Git Workflow & Code Review", "Unit & Integration Testing (TDD)", "Clean Architecture & Design Patterns"],
+            courses: [
+                { title: "Data Structures & Algorithms Specialization", tier: "Beginner", link: "https://www.coursera.org" },
+                { title: "Design Patterns & Software Architecture", tier: "Intermediate", link: "https://www.coursera.org" },
+                { title: "System Design for Large-Scale Applications", tier: "Advanced", link: "https://www.coursera.org" },
+                { title: "Test-Driven Development (TDD) in Practice", tier: "Intermediate", link: "https://www.coursera.org" }
+            ],
+            internships: [
+                { title: "Software Engineering Intern", company: "Google / Tech Partner", tier: "Beginner" },
+                { title: "Associate Software Engineer", company: "Infosys Labs", tier: "Intermediate" }
+            ]
+        },
+        backend: {
+            name: "Backend Developer",
+            awareness: { q: "Which best describes what a Backend Developer does day-to-day?", options: ["Writing server logic, API endpoints, and database queries", "Designing CSS colors and button animations", "Managing social media campaigns", "Designing logos"], correct: 0 },
+            knowledge: [
+                { q: "What is the primary role of an HTTP GET request?", options: ["Retrieve data from a server", "Delete a server database", "Upload a new file", "Create a CSS stylesheet"], correct: 0, topic: "API Development" },
+                { q: "Which database type uses structured tables with rows and columns?", options: ["Relational (SQL)", "Key-Value (Redis)", "Graph Database", "NoSQL Document"], correct: 0, topic: "Database Management" },
+                { q: "What is the main purpose of Caching (e.g., Redis)?", options: ["Store frequently accessed data in-memory for faster speed", "Design responsive mobile layouts", "Encrypt user passwords on disk", "Compile Java bytecode"], correct: 0, topic: "System Design" },
+                { q: "Which tool is commonly used for containerizing applications?", options: ["Docker", "Photoshop", "Figma", "Excel"], correct: 0, topic: "Cloud & DevOps" }
+            ],
+            experience: ["Have you built a backend API (REST or GraphQL)?", "Have you connected an application to a SQL or NoSQL database?"],
+            industryNeeds: ["API Development (REST/GraphQL)", "Database Management (SQL/NoSQL)", "System Architecture & Security", "Cloud Infrastructure (AWS/GCP)", "Automated Unit & Integration Testing"],
+            courses: [
+                { title: "Node.js & Express REST API Architecture", tier: "Beginner", link: "https://www.coursera.org" },
+                { title: "PostgreSQL & Database Design Masterclass", tier: "Intermediate", link: "https://www.coursera.org" },
+                { title: "System Design Fundamentals for Scalable Apps", tier: "Advanced", link: "https://www.coursera.org" },
+                { title: "AWS Cloud & Docker Deployment Bootcamp", tier: "Intermediate", link: "https://www.coursera.org" }
+            ],
+            internships: [
+                { title: "Backend Engineering Intern", company: "CloudScale Inc.", tier: "Beginner" },
+                { title: "API Systems Intern", company: "Finverse Labs", tier: "Intermediate" }
+            ]
+        },
+        frontend: {
+            name: "Frontend Developer",
+            awareness: { q: "What is the core focus of a Frontend Developer?", options: ["Building responsive, interactive user interfaces in web browsers", "Managing SQL database backup servers", "Writing operating system kernels", "Configuring physical routers"], correct: 0 },
+            knowledge: [
+                { q: "What is the primary purpose of React.js?", options: ["Building component-based user interfaces", "Querying relational databases", "Containerizing backend applications", "Managing Linux server security"], correct: 0, topic: "React & Frameworks" },
+                { q: "What does DOM stand for in web development?", options: ["Document Object Model", "Data Object Manager", "Domain Operating Mode", "Direct Output Method"], correct: 0, topic: "JavaScript Core" },
+                { q: "Which CSS layout module is designed for 1D component positioning?", options: ["Flexbox", "SQL Table", "Docker Compose", "CORS"], correct: 0, topic: "HTML5/CSS3/Tailwind" },
+                { q: "What is Core Web Vitals (LCP, CLS, FID) used for?", options: ["Measuring real-world user experience and performance", "Designing database schemas", "Writing server endpoints", "Setting up Git submodules"], correct: 0, topic: "Web Performance" }
+            ],
+            experience: ["Have you built a multi-page web application in React/Next.js?", "Have you styled complex UI layouts using Tailwind CSS or CSS Grid?"],
+            industryNeeds: ["React.js / Next.js Frameworks", "TypeScript & State Management", "Web Performance & Core Web Vitals", "Responsive UI Design & Accessibility", "Testing (Vitest / Testing Library)"],
+            courses: [
+                { title: "React.js Complete Guide & Hooks", tier: "Beginner", link: "https://www.coursera.org" },
+                { title: "TypeScript & Advanced State Management", tier: "Intermediate", link: "https://www.coursera.org" },
+                { title: "Web Performance & Lighthouse Optimization", tier: "Advanced", link: "https://www.coursera.org" }
+            ],
+            internships: [
+                { title: "Frontend Engineering Intern", company: "PixelCraft Technologies", tier: "Beginner" },
+                { title: "UI Engineering Intern", company: "Verve Web Studios", tier: "Intermediate" }
+            ]
+        },
+        fullstack: {
+            name: "Fullstack Engineer",
+            awareness: { q: "What does a Fullstack Engineer specialize in?", options: ["Both client-side frontend and server-side backend development", "Only writing hardware drivers", "Only managing social media accounts", "Only designing print graphics"], correct: 0 },
+            knowledge: [
+                { q: "What is the MERN stack?", options: ["MongoDB, Express, React, Node.js", "MySQL, Excel, Ruby, Network", "Math, Enterprise, Redis, Netlify", "Mobile, Email, Rest, Next"], correct: 0, topic: "Fullstack Architecture" },
+                { q: "What is CORS in web architecture?", options: ["Cross-Origin Resource Sharing security mechanism", "Core Operating System", "Cloud Object Storage", "Component React State"], correct: 0, topic: "API Integration" },
+                { q: "What is JWT used for in web applications?", options: ["Secure authentication token exchange between client and server", "Styling CSS buttons", "Compressing PNG images", "Hosting DNS records"], correct: 0, topic: "Authentication & Security" },
+                { q: "Which tool automates deployment pipelines from Git code pushes?", options: ["GitHub Actions / CI-CD", "Photoshop", "Figma", "Excel"], correct: 0, topic: "CI/CD & Cloud" }
+            ],
+            experience: ["Have you deployed a fullstack app with database, API, and frontend?", "Have you handled authentication (JWT / OAuth) end-to-end?"],
+            industryNeeds: ["Frontend Frameworks (React/Next)", "Backend Frameworks (Node/Express/Python)", "Database Design & ORMs (Prisma)", "CI/CD & Cloud Hosting", "Production Security Best Practices"],
+            courses: [
+                { title: "Fullstack Web Development with React & Node", tier: "Beginner", link: "https://www.coursera.org" },
+                { title: "Prisma ORM & PostgreSQL Production Apps", tier: "Intermediate", link: "https://www.coursera.org" },
+                { title: "Docker & CI/CD Pipelines for Fullstack Apps", tier: "Advanced", link: "https://www.coursera.org" }
+            ],
+            internships: [
+                { title: "Fullstack Developer Intern", company: "InnovateTech", tier: "Beginner" },
+                { title: "Software Engineer Intern (Fullstack)", company: "Apex Systems", tier: "Intermediate" }
+            ]
+        },
+        devops: {
+            name: "DevOps Engineer",
+            awareness: { q: "What is the primary role of a DevOps Engineer?", options: ["Automating build, test, infrastructure, and deployment pipelines", "Designing mobile app icons", "Writing marketing content", "Sales outreach"], correct: 0 },
+            knowledge: [
+                { q: "What does CI/CD stand for?", options: ["Continuous Integration and Continuous Delivery", "Cloud Infrastructure & Cloud Design", "Code Inspection & Code Debugging", "Customer Interaction & Customer Data"], correct: 0, topic: "CI/CD Pipelines" },
+                { q: "What is Kubernetes primarily used for?", options: ["Container orchestration and automated scaling", "Editing raw video files", "Designing slide decks", "Writing SQL queries"], correct: 0, topic: "Kubernetes & Containers" },
+                { q: "What is Infrastructure as Code (IaC)?", options: ["Provisioning infrastructure using configuration code (e.g. Terraform)", "Writing HTML web pages", "Manual server setup", "Installing desktop software"], correct: 0, topic: "Infrastructure as Code" },
+                { q: "Which operating system command line is essential for DevOps?", options: ["Linux / Bash Shell", "MS Paint", "Adobe Illustrator", "Keynote"], correct: 0, topic: "Linux & Shell" }
+            ],
+            experience: ["Have you created a Docker container or multi-container Compose file?", "Have you set up a CI/CD build pipeline?"],
+            industryNeeds: ["Linux System Administration", "Docker & Kubernetes Orchestration", "Terraform & IaC", "CI/CD Pipelines (GitHub Actions/Jenkins)", "System Monitoring (Prometheus/Grafana)"],
+            courses: [
+                { title: "Linux Administration & Shell Scripting", tier: "Beginner", link: "https://www.coursera.org" },
+                { title: "Docker & Kubernetes Orchestration", tier: "Intermediate", link: "https://www.coursera.org" },
+                { title: "Terraform Infrastructure as Code", tier: "Advanced", link: "https://www.coursera.org" }
+            ],
+            internships: [
+                { title: "DevOps Support Intern", company: "PipelineCore", tier: "Beginner" },
+                { title: "Site Reliability Intern", company: "UptimeScale", tier: "Intermediate" }
+            ]
+        },
+        data: {
+            name: "Data Scientist",
+            awareness: { q: "What does a Data Scientist focus on?", options: ["Extracting insights, modeling patterns, and building ML models from data", "Designing mobile game graphics", "Writing CSS animations", "Managing office hardware"], correct: 0 },
+            knowledge: [
+                { q: "Which Python library is standard for data manipulation and analysis?", options: ["Pandas", "Figma", "Photoshop", "React"], correct: 0, topic: "Python Data Tools" },
+                { q: "What is the purpose of linear regression?", options: ["Modeling continuous relationships between variables", "Styling HTML tables", "Routing IP packets", "Compiling C code"], correct: 0, topic: "Statistics & ML" },
+                { q: "Which SQL command aggregates data groups?", options: ["GROUP BY", "COLOR BY", "DOCKER BY", "ALIGN BY"], correct: 0, topic: "SQL Analytics" },
+                { q: "What does model evaluation metric 'F1 Score' measure?", options: ["Harmonic mean of precision and recall", "GPU temperature", "Server memory usage", "Download speed"], correct: 0, topic: "Model Evaluation" }
+            ],
+            experience: ["Have you analyzed data using Pandas/NumPy?", "Have you built or evaluated a Machine Learning model?"],
+            industryNeeds: ["Python & Data Analysis (Pandas/NumPy)", "SQL & Data Warehousing", "Machine Learning (Scikit-Learn/PyTorch)", "Data Visualization (Tableau/Matplotlib)", "Statistical Modeling"],
+            courses: [
+                { title: "Python for Data Science & Pandas", tier: "Beginner", link: "https://www.coursera.org" },
+                { title: "Applied Machine Learning with Scikit-Learn", tier: "Intermediate", link: "https://www.coursera.org" },
+                { title: "Deep Learning Foundations with PyTorch", tier: "Advanced", link: "https://www.coursera.org" }
+            ],
+            internships: [
+                { title: "Data Analyst Intern", company: "Insight Metrics", tier: "Beginner" },
+                { title: "Data Science Intern", company: "Quantify AI", tier: "Intermediate" }
+            ]
+        },
+        aiml: {
+            name: "AI & ML Engineer",
+            awareness: { q: "What is the primary role of an AI / Machine Learning Engineer?", options: ["Building, training, evaluating, and deploying machine learning and deep learning models", "Writing SQL queries for accounting only", "Creating graphic designs in Illustrator", "Managing office Wi-Fi networks"], correct: 0 },
+            knowledge: [
+                { q: "What does 'overfitting' mean in machine learning?", options: ["Model performs well on training data but poorly on unseen test data", "Model is too fast to compute", "Dataset has too few columns", "GPU runs out of memory"], correct: 0, topic: "ML Fundamentals" },
+                { q: "Which deep learning architecture is standard for Natural Language Processing and LLMs?", options: ["Transformer", "Random Forest", "K-Means", "Linear Regression"], correct: 0, topic: "Deep Learning & LLMs" },
+                { q: "Which Python framework is industry-standard for deep learning?", options: ["PyTorch / TensorFlow", "WordPress", "Bootstrap", "Photoshop"], correct: 0, topic: "PyTorch & Frameworks" },
+                { q: "What is the purpose of gradient descent in neural network training?", options: ["Minimizing the loss function by iteratively adjusting weights", "Encrypting database records", "Formatting text files", "Connecting to a remote GPU"], correct: 0, topic: "Neural Optimization" }
+            ],
+            experience: ["Have you trained or fine-tuned an ML or deep learning model in Python?", "Have you used PyTorch, TensorFlow, or Hugging Face libraries on a project?"],
+            industryNeeds: ["Python & PyTorch / TensorFlow", "Supervised & Unsupervised ML", "Transformers & Large Language Models (LLMs)", "Model Evaluation & Loss Optimization", "MLOps & Model Serving (FastAPI)"],
+            courses: [
+                { title: "Machine Learning Specialization", tier: "Beginner", link: "https://www.coursera.org" },
+                { title: "Deep Learning with PyTorch Specialization", tier: "Intermediate", link: "https://www.coursera.org" },
+                { title: "Generative AI & LLM Engineering", tier: "Advanced", link: "https://www.coursera.org" }
+            ],
+            internships: [
+                { title: "AI/ML Engineering Intern", company: "CognitiveScale AI", tier: "Beginner" },
+                { title: "Applied Research Intern (NLP)", company: "DeepMind Tech Partner", tier: "Intermediate" }
+            ]
+        },
+        cyber: {
+            name: "Cybersecurity Analyst",
+            awareness: { q: "What is the core focus of a Cybersecurity Analyst?", options: ["Protecting systems, networks, and data from unauthorized access, attacks, and vulnerabilities", "Designing user interface icons", "Writing marketing copy", "Building accounting spreadsheets"], correct: 0 },
+            knowledge: [
+                { q: "What is the principle of 'Least Privilege' in cybersecurity?", options: ["Users and programs should only have the minimum permissions needed to do their job", "Passwords should be as short as possible", "All employees should have root admin access", "Firewalls should be turned off on weekends"], correct: 0, topic: "Security Principles" },
+                { q: "What is a primary defense against SQL Injection vulnerabilities?", options: ["Parameterized queries / Prepared statements", "Using larger font size on buttons", "Disabling HTTPS encryption", "Storing passwords in plain text"], correct: 0, topic: "Application Security" },
+                { q: "What is the purpose of a SIEM tool?", options: ["Aggregating and analyzing security log data to detect threats in real time", "Creating vector graphics", "Compressing video streams", "Sending email newsletters"], correct: 0, topic: "Threat Detection & SIEM" },
+                { q: "What protocol provides secure, encrypted communication over the internet?", options: ["HTTPS / TLS", "HTTP", "FTP", "Telnet"], correct: 0, topic: "Network Security" }
+            ],
+            experience: ["Have you performed a vulnerability scan or used Wireshark / Nmap to inspect traffic?", "Have you implemented authentication safeguards (MFA, encryption, secure headers)?"],
+            industryNeeds: ["Network Security & Packet Inspection (Wireshark)", "OWASP Top 10 Web Vulnerability Defense", "SIEM Tools & Incident Response", "Cryptography & PKI Basics", "Identity & Access Management (IAM)"],
+            courses: [
+                { title: "Google Cybersecurity Professional Certificate", tier: "Beginner", link: "https://www.coursera.org" },
+                { title: "CompTIA Security+ Network Defense Bootcamp", tier: "Intermediate", link: "https://www.coursera.org" },
+                { title: "Ethical Hacking & Penetration Testing", tier: "Advanced", link: "https://www.coursera.org" }
+            ],
+            internships: [
+                { title: "Information Security Intern", company: "CyberShield Labs", tier: "Beginner" },
+                { title: "SOC Analyst Intern", company: "SecureOps Global", tier: "Intermediate" }
+            ]
+        },
+        cloud: {
+            name: "Cloud Solutions Architect",
+            awareness: { q: "What is the primary responsibility of a Cloud Solutions Architect?", options: ["Designing reliable, scalable, and cost-effective cloud architectures on AWS/Azure/GCP", "Writing HTML/CSS styles only", "Conducting phone sales", "Fixing physical office printers"], correct: 0 },
+            knowledge: [
+                { q: "What does High Availability (HA) in cloud architecture mean?", options: ["Systems remain operational and accessible even during hardware or data center failures", "Servers are only turned on during working hours", "Code compiles without warnings", "Storage is unlimited"], correct: 0, topic: "Cloud Architecture" },
+                { q: "Which AWS service is an elastic compute virtual machine?", options: ["Amazon EC2", "Amazon S3", "Amazon Route 53", "Amazon SES"], correct: 0, topic: "Compute & Storage" },
+                { q: "What is serverless computing (e.g. AWS Lambda)?", options: ["Executing code on-demand without provisioning or managing dedicated servers", "Writing code without computers", "Using only local servers", "A database without tables"], correct: 0, topic: "Serverless Architecture" },
+                { q: "What is the purpose of a Virtual Private Cloud (VPC)?", options: ["Isolating cloud resources in a secure, custom-defined virtual network", "Designing company logos", "Publishing social media posts", "Measuring website clicks"], correct: 0, topic: "Cloud Networking" }
+            ],
+            experience: ["Have you configured cloud resources (EC2, S3, IAM, VPC) in AWS, Azure, or GCP?", "Have you designed or deployed a multi-tier cloud application architecture?"],
+            industryNeeds: ["AWS / Azure / GCP Cloud Services", "VPC Networking & Subnet Architecture", "High Availability & Auto-Scaling", "Serverless & Event-Driven Architecture", "Cloud Security & Cost Optimization"],
+            courses: [
+                { title: "AWS Certified Solutions Architect Associate", tier: "Beginner", link: "https://www.coursera.org" },
+                { title: "Cloud Networking & Security Architectures", tier: "Intermediate", link: "https://www.coursera.org" },
+                { title: "Enterprise Multi-Cloud Infrastructure Design", tier: "Advanced", link: "https://www.coursera.org" }
+            ],
+            internships: [
+                { title: "Cloud Engineering Intern", company: "CloudWorks Solutions", tier: "Beginner" },
+                { title: "Associate Solutions Architect", company: "OmniCloud Tech", tier: "Intermediate" }
+            ]
+        },
+        uiux: {
+            name: "UI/UX Designer",
+            awareness: { q: "What is the primary role of a UI/UX Designer?", options: ["Designing intuitive user experiences, wireframes, and visual interfaces", "Writing SQL backend scripts", "Setting up Linux cloud servers", "Managing server routers"], correct: 0 },
+            knowledge: [
+                { q: "What is the main difference between UI and UX?", options: ["UI is visual interface; UX is usability and user journey", "They mean the exact same thing", "UI is SQL code; UX is server hardware", "UX is only for games"], correct: 0, topic: "UI vs UX Concepts" },
+                { q: "Which industry standard tool is widely used for vector UI design and prototyping?", options: ["Figma", "Excel", "MySQL", "Postman"], correct: 0, topic: "Figma Prototyping" },
+                { q: "What is a wireframe?", options: ["A low-fidelity structural blueprint of a screen layout", "A completed database query", "A cloud server configuration", "A marketing email"], correct: 0, topic: "Wireframing" },
+                { q: "What is usability testing?", options: ["Observing users attempting tasks on a prototype to identify friction", "Testing server load capacity", "Checking SQL syntax", "Running unit tests"], correct: 0, topic: "Usability Testing" }
+            ],
+            experience: ["Have you created clickable interactive wireframes in Figma?", "Have you conducted user research or usability testing?"],
+            industryNeeds: ["Figma & Interactive Prototyping", "User Research & Usability Testing", "Wireframing & Information Architecture", "Design Systems & Accessibility (WCAG)", "Design-to-Code Handoff"],
+            courses: [
+                { title: "Figma UI/UX Design Fundamentals", tier: "Beginner", link: "https://www.coursera.org" },
+                { title: "User Research & Usability Testing", tier: "Intermediate", link: "https://www.coursera.org" },
+                { title: "Design Systems at Scale", tier: "Advanced", link: "https://www.coursera.org" }
+            ],
+            internships: [
+                { title: "UI/UX Design Intern", company: "Formify Design", tier: "Beginner" },
+                { title: "Product Design Intern", company: "Northstar UX", tier: "Intermediate" }
+            ]
+        }
+    };
+
+    const DOMAIN_ICONS = {
+        swe: "code",
+        backend: "dns",
+        frontend: "web",
+        fullstack: "layers",
+        devops: "sync_alt",
+        data: "query_stats",
+        aiml: "smart_toy",
+        cyber: "security",
+        cloud: "cloud",
+        uiux: "palette"
+    };
+
+    let currentSelectedDomain = "backend";
+
+    function initDDDAssessmentPage() {
+        const user = getCurrentUser();
+        if (user && user.careerInterest && DOMAIN_DATA[user.careerInterest]) {
+            currentSelectedDomain = user.careerInterest;
+        }
+
+        renderTargetRoleGrid();
+        renderQuestionnaire(currentSelectedDomain);
+    }
+
+    function renderTargetRoleGrid() {
+        const grid = document.getElementById('target-role-grid');
+        if (!grid) return;
+
+        grid.innerHTML = Object.keys(DOMAIN_DATA).map(key => {
+            const domain = DOMAIN_DATA[key];
+            const isSelected = key === currentSelectedDomain;
+            return `
+                <button type="button" onclick="selectTargetRole('${key}')"
+                    class="flex flex-col items-center gap-xs text-center p-md rounded-xl border transition-all ${
+                        isSelected 
+                            ? 'border-primary bg-primary/10 ring-2 ring-primary text-primary font-bold shadow-sm' 
+                            : 'border-outline-variant bg-surface-bright hover:border-primary text-on-surface'
+                    }">
+                    <span class="material-symbols-outlined ${isSelected ? 'text-primary' : 'text-on-surface-variant'}" style="font-size:28px;">${DOMAIN_ICONS[key] || 'work'}</span>
+                    <span class="font-label-md text-xs leading-tight">${domain.name}</span>
+                </button>
+            `;
+        }).join('');
+    }
+
+    function selectTargetRole(domainKey) {
+        currentSelectedDomain = domainKey;
+        const domain = DOMAIN_DATA[domainKey];
+
+        // Persist target role exclusively across website
+        saveCurrentUser({
+            careerInterest: domainKey,
+            targetRole: domain.name
+        });
+
+        renderTargetRoleGrid();
+        renderQuestionnaire(domainKey);
+        showToast(`Target Role set to "${domain.name}"!`);
+    }
+
+    function renderQuestionnaire(domainKey) {
+        const container = document.getElementById('ddd-questionnaire-container');
+        const reportContainer = document.getElementById('ddd-report-container');
+        if (!container || !DOMAIN_DATA[domainKey]) return;
+
+        const domain = DOMAIN_DATA[domainKey];
+        reportContainer.innerHTML = '';
+
+        let html = `<div class="bg-surface-bright border border-outline-variant rounded-xl p-lg space-y-lg" id="ddd-form">
+            <div class="border-b border-outline-variant pb-md flex items-center justify-between">
+                <div>
+                    <span class="text-xs uppercase font-bold tracking-wider text-primary">Assessment for</span>
+                    <h3 class="font-headline-md text-headline-md text-on-surface">${domain.name}</h3>
+                </div>
+                <span class="px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full flex items-center gap-1">
+                    <span class="material-symbols-outlined text-sm">bolt</span> Auto-Analyzing
+                </span>
+            </div>
+        `;
+
+        // Awareness Question
+        html += `<div>
+            <p class="font-label-md text-label-md text-primary uppercase tracking-wider mb-xs">Awareness Check</p>
+            <p class="font-body-md text-body-md font-medium text-on-surface mb-sm">${domain.awareness.q}</p>
+            <div class="space-y-2">`;
+        domain.awareness.options.forEach((opt, i) => {
+            html += `<label class="flex items-center gap-2 bg-surface-container-lowest border border-outline-variant rounded-md px-3 py-2 cursor-pointer hover:border-primary transition-colors">
+                <input type="radio" name="awareness" value="${i}" onchange="autoAnalyzeDomainSkills('${domainKey}')" class="text-primary focus:ring-primary"/>
+                <span class="font-body-md text-body-md text-on-surface">${opt}</span>
+            </label>`;
+        });
+        html += `</div></div>`;
+
+        // Knowledge Questions
+        domain.knowledge.forEach((kq, qi) => {
+            html += `<div>
+                <p class="font-label-md text-label-md text-primary uppercase tracking-wider mb-xs">Knowledge Check ${qi + 1} of ${domain.knowledge.length}</p>
+                <p class="font-body-md text-body-md font-medium text-on-surface mb-sm">${kq.q}</p>
+                <div class="space-y-2">`;
+            kq.options.forEach((opt, i) => {
+                html += `<label class="flex items-center gap-2 bg-surface-container-lowest border border-outline-variant rounded-md px-3 py-2 cursor-pointer hover:border-primary transition-colors">
+                    <input type="radio" name="knowledge-${qi}" value="${i}" onchange="autoAnalyzeDomainSkills('${domainKey}')" class="text-primary focus:ring-primary"/>
+                    <span class="font-body-md text-body-md text-on-surface">${opt}</span>
+                </label>`;
+            });
+            html += `</div></div>`;
+        });
+
+        // Experience Questions
+        html += `<div>
+            <p class="font-label-md text-label-md text-primary uppercase tracking-wider mb-sm">Practical Experience Check</p>
+            <div class="space-y-3">`;
+        domain.experience.forEach((eq, i) => {
+            html += `<div class="flex items-center justify-between gap-md bg-surface-container-lowest border border-outline-variant rounded-md px-3 py-2">
+                <span class="font-body-md text-body-md text-on-surface">${eq}</span>
+                <div class="flex gap-2 shrink-0">
+                    <label class="px-3 py-1 rounded-full border border-outline-variant cursor-pointer text-label-md font-label-md has-[:checked]:bg-primary has-[:checked]:text-on-primary has-[:checked]:border-primary transition-colors">
+                        <input type="radio" name="exp-${i}" value="yes" onchange="autoAnalyzeDomainSkills('${domainKey}')" class="hidden"/>Yes
+                    </label>
+                    <label class="px-3 py-1 rounded-full border border-outline-variant cursor-pointer text-label-md font-label-md has-[:checked]:bg-primary has-[:checked]:text-on-primary has-[:checked]:border-primary transition-colors">
+                        <input type="radio" name="exp-${i}" value="no" onchange="autoAnalyzeDomainSkills('${domainKey}')" class="hidden"/>No
+                    </label>
+                </div>
+            </div>`;
+        });
+        html += `</div></div>`;
+
+        // Self Rating Slider
+        html += `<div>
+            <p class="font-label-md text-label-md text-primary uppercase tracking-wider mb-sm">Self-Confidence Rating</p>
+            <div class="flex items-center gap-md">
+                <span class="font-label-md text-label-md text-on-surface-variant w-4 text-center">1</span>
+                <input class="custom-slider flex-grow" id="domain-self-rating" max="5" min="1" type="range" value="3" 
+                    oninput="document.getElementById('domain-self-rating-val').textContent = this.value; autoAnalyzeDomainSkills('${domainKey}')"/>
+                <span class="font-label-md text-label-md text-on-surface-variant w-4 text-center">5</span>
+                <div class="w-8 h-8 bg-surface-container-high rounded-full flex items-center justify-center font-label-md text-label-md text-primary font-bold ml-sm" id="domain-self-rating-val">3</div>
+            </div>
+            <p class="font-label-md text-label-md text-outline mt-xs">Rate your overall confidence level in this field.</p>
+        </div>`;
+
+        html += `</div>`;
+        container.innerHTML = html;
+
+        // Perform initial baseline auto-analysis
+        autoAnalyzeDomainSkills(domainKey);
+    }
+
+    function autoAnalyzeDomainSkills(domainKey) {
+        const domain = DOMAIN_DATA[domainKey];
+        if (!domain) return;
+
+        // Awareness check
+        const awarenessInput = document.querySelector('input[name="awareness"]:checked');
+        const awarenessCorrect = awarenessInput ? (parseInt(awarenessInput.value, 10) === domain.awareness.correct) : false;
+
+        // Knowledge check
+        let correctCount = 0;
+        let totalAnswered = 0;
+        const lackingTopics = [];
+
+        domain.knowledge.forEach((kq, i) => {
+            const sel = document.querySelector(`input[name="knowledge-${i}"]:checked`);
+            if (sel) {
+                totalAnswered++;
+                if (parseInt(sel.value, 10) === kq.correct) {
+                    correctCount++;
+                } else {
+                    lackingTopics.push(kq.topic);
+                }
+            } else {
+                lackingTopics.push(kq.topic);
+            }
+        });
+
+        const knowledgePct = (correctCount / domain.knowledge.length) * 100;
+
+        // Experience check
+        let yesCount = 0;
+        const experienceGaps = [];
+        domain.experience.forEach((eq, i) => {
+            const sel = document.querySelector(`input[name="exp-${i}"]:checked`);
+            if (sel) {
+                if (sel.value === 'yes') yesCount++;
+                else experienceGaps.push(eq);
+            } else {
+                experienceGaps.push(eq);
+            }
+        });
+
+        const experiencePct = (yesCount / domain.experience.length) * 100;
+
+        // Self rating
+        const selfRatingEl = document.getElementById('domain-self-rating');
+        const selfRating = selfRatingEl ? parseInt(selfRatingEl.value, 10) : 3;
+        const selfRatingPct = (selfRating / 5) * 100;
+
+        // Score formula
+        let score = Math.round(knowledgePct * 0.5 + experiencePct * 0.3 + selfRatingPct * 0.2);
+        let tier = score >= 75 ? "Advanced" : score >= 45 ? "Intermediate" : "Beginner";
+
+        if (awarenessInput && !awarenessCorrect) {
+            tier = "Beginner";
+        }
+
+        const profile = {
+            domain: domain.name,
+            domainKey: domainKey,
+            score: score,
+            tier: tier,
+            knowledgePct: Math.round(knowledgePct),
+            experiencePct: Math.round(experiencePct),
+            selfRatingPct: Math.round(selfRatingPct),
+            awarenessCorrect: awarenessCorrect,
+            lackingTopics: [...new Set(lackingTopics)],
+            experienceGaps: experienceGaps,
+            industryNeeds: domain.industryNeeds,
+            assessedAt: new Date().toISOString()
+        };
+
+        // Automatically persist results to localStorage
+        const user = getCurrentUser();
+        const existingAssessments = (user && user.domainAssessments) || {};
+        existingAssessments[domainKey] = profile;
+
+        saveCurrentUser({
+            careerInterest: domainKey,
+            targetRole: domain.name,
+            domainAssessments: existingAssessments,
+            lastDomainAssessed: domainKey
+        });
+
+        renderDomainReport(domain, profile);
+    }
+
+    function renderDomainReport(domain, profile) {
+        const reportContainer = document.getElementById('ddd-report-container');
+        if (!reportContainer) return;
+
+        const tierColor = profile.tier === "Advanced" ? "bg-green-100 text-green-800 border-green-300"
+            : profile.tier === "Intermediate" ? "bg-amber-100 text-amber-800 border-amber-300"
+            : "bg-red-100 text-red-800 border-red-300";
+
+        const recCourses = domain.courses;
+        const recInternships = domain.internships;
+
+        reportContainer.innerHTML = `
+            <div class="mt-lg bg-surface-container-lowest border-2 border-primary/30 rounded-xl p-lg space-y-lg shadow-md animate-in fade-in duration-300">
+                <div class="flex flex-wrap items-center justify-between gap-md border-b border-outline-variant pb-md">
+                    <div>
+                        <span class="text-xs uppercase tracking-wider text-primary font-bold flex items-center gap-1">
+                            <span class="material-symbols-outlined text-sm">auto_awesome</span> Live Skill Analysis Profile
+                        </span>
+                        <h3 class="font-headline-md text-headline-md text-on-surface">${domain.name}</h3>
+                    </div>
+                    <div class="flex items-center gap-sm">
+                        <div class="text-right">
+                            <div class="font-headline-lg text-2xl font-bold text-primary">${profile.score}%</div>
+                            <div class="text-[10px] text-on-surface-variant font-medium">Readiness Score</div>
+                        </div>
+                        <span class="px-3.5 py-1 rounded-full border text-xs font-bold ${tierColor}">${profile.tier}</span>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+                    <div class="bg-surface-bright rounded-lg p-md border border-outline-variant">
+                        <div class="flex justify-between mb-xs">
+                            <span class="text-xs font-medium text-on-surface-variant">Knowledge Accuracy</span>
+                            <span class="text-xs font-bold text-on-surface">${profile.knowledgePct}%</span>
+                        </div>
+                        <div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
+                            <div class="h-full bg-primary rounded-full" style="width:${profile.knowledgePct}%"></div>
+                        </div>
+                    </div>
+                    <div class="bg-surface-bright rounded-lg p-md border border-outline-variant">
+                        <div class="flex justify-between mb-xs">
+                            <span class="text-xs font-medium text-on-surface-variant">Practical Experience</span>
+                            <span class="text-xs font-bold text-on-surface">${profile.experiencePct}%</span>
+                        </div>
+                        <div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
+                            <div class="h-full bg-secondary rounded-full" style="width:${profile.experiencePct}%"></div>
+                        </div>
+                    </div>
+                    <div class="bg-surface-bright rounded-lg p-md border border-outline-variant">
+                        <div class="flex justify-between mb-xs">
+                            <span class="text-xs font-medium text-on-surface-variant">Self-Confidence</span>
+                            <span class="text-xs font-bold text-on-surface">${profile.selfRatingPct}%</span>
+                        </div>
+                        <div class="w-full h-2 bg-surface-container-high rounded-full overflow-hidden">
+                            <div class="h-full bg-emerald-600 rounded-full" style="width:${profile.selfRatingPct}%"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+                    <div>
+                        <h4 class="font-title-lg text-base font-bold text-on-surface mb-sm flex items-center gap-xs">
+                            <span class="material-symbols-outlined text-red-500 text-lg">trending_down</span> Skill & Knowledge Gaps
+                        </h4>
+                        ${profile.lackingTopics.length ? `<ul class="space-y-1.5">
+                            ${profile.lackingTopics.map(t => `<li class="flex items-start gap-2 text-xs text-on-surface"><span class="material-symbols-outlined text-red-500 text-sm mt-0.5">close</span> ${t}</li>`).join('')}
+                        </ul>` : `<p class="text-xs text-emerald-700 flex items-center gap-1"><span class="material-symbols-outlined text-sm">check_circle</span> Excellent score — no major gaps detected!</p>`}
+                    </div>
+                    <div>
+                        <h4 class="font-title-lg text-base font-bold text-on-surface mb-sm flex items-center gap-xs">
+                            <span class="material-symbols-outlined text-secondary text-lg">domain</span> Industry Requirements
+                        </h4>
+                        <ul class="space-y-1.5">
+                            ${domain.industryNeeds.map(n => `<li class="flex items-start gap-2 text-xs text-on-surface"><span class="material-symbols-outlined text-secondary text-sm mt-0.5">check</span> ${n}</li>`).join('')}
+                        </ul>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-title-lg text-base font-bold text-on-surface mb-sm flex items-center gap-xs">
+                        <span class="material-symbols-outlined text-primary text-lg">school</span> Recommended Courses for ${domain.name}
+                    </h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-sm">
+                        ${recCourses.map(c => `
+                            <a href="${c.link}" target="_blank" rel="noopener noreferrer" class="bg-surface-bright border border-outline-variant hover:border-primary rounded-lg p-3 flex items-center justify-between gap-2 transition-colors group">
+                                <div>
+                                    <p class="text-xs font-semibold text-on-surface group-hover:text-primary transition-colors">${c.title}</p>
+                                    <span class="text-[10px] text-on-surface-variant font-medium">${c.tier} Tier</span>
+                                </div>
+                                <span class="material-symbols-outlined text-primary text-sm shrink-0">open_in_new</span>
+                            </a>
+                        `).join('')}
+                    </div>
+                </div>
+            </div>
+        `;
+    }
+
+    function finishDDDAssessment() {
+        showToast("Assessment complete! Saving & loading your Dashboard...");
+        try {
+            sessionStorage.setItem('skillbridge_assessment_shown', 'true');
+        } catch(e){}
+        setTimeout(() => {
+            window.location.href = "student_dashboard_-_skill_gap__recommendations.html";
+        }, 600);
+    }
+
+    document.addEventListener('DOMContentLoaded', initDDDAssessmentPage);
+</script>
+</body>
+</html>

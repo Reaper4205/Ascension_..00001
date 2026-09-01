@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SkillBridge — Recruiter & Industry Partner Registration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+        darkMode: 'class',
+        theme: {
+            extend: {
+                colors: {
+                    primary: '#047857',
+                    'primary-container': '#059669',
+                    secondary: '#006a61',
+                    background: '#f7fdf9',
+                    surface: '#ffffff',
+                    'surface-container-lowest': '#ffffff',
+                    'surface-container-low': '#eef9f1',
+                    'surface-container': '#e3f6e8',
+                    'on-surface': '#0c1f14',
+                    'on-surface-variant': '#3c463f',
+                    outline: '#6b7d70',
+                    'outline-variant': '#c8d3cb'
+                }
+            }
+        }
+    }
+</script>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+</style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col justify-between antialiased">
+    <!-- Navbar -->
+    <header class="w-full bg-surface-container-lowest border-b border-outline-variant/30 px-6 py-4 flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-xl bg-primary flex items-center justify-center text-white font-bold text-base shadow-sm">S</div>
+            <span class="font-extrabold text-lg tracking-tight text-on-surface">Skill<span class="text-primary">Bridge</span></span>
+        </a>
+        <div class="text-xs font-semibold text-on-surface-variant">
+            Already registered? <a href="login.html" class="text-primary font-bold hover:underline">Log in here</a>
+        </div>
+    </header>
+
+    <!-- Main Signup Form -->
+    <main class="flex-1 max-w-md w-full mx-auto my-8 px-4 flex flex-col justify-center">
+        <div class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant/30 shadow-xl space-y-6">
+            <div class="space-y-2 text-center">
+                <div class="w-12 h-12 rounded-2xl bg-secondary/10 text-secondary flex items-center justify-center mx-auto mb-2">
+                    <span class="material-symbols-outlined text-2xl">work</span>
+                </div>
+                <h1 class="text-2xl font-extrabold text-on-surface">Industry Partner Portal</h1>
+                <p class="text-xs text-on-surface-variant">Post internships, evaluate candidate readiness with explainable match metrics, and feed candidate skill gaps back to universities.</p>
+            </div>
+
+            <form onsubmit="handleRecruiterSignupSubmit(event)" class="space-y-4 text-xs">
+                <div>
+                    <label class="font-bold text-on-surface block mb-1">Full Name & Title</label>
+                    <input type="text" id="recruiter-name" required placeholder="e.g. Sarah Connor" class="w-full p-3 border border-outline-variant/40 rounded-xl bg-surface text-on-surface font-medium focus:ring-2 focus:ring-primary focus:outline-none" />
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="font-bold text-on-surface block mb-1">Company Name</label>
+                        <input type="text" id="recruiter-company" required placeholder="TechCorp / CloudScale" class="w-full p-3 border border-outline-variant/40 rounded-xl bg-surface text-on-surface font-medium focus:ring-2 focus:ring-primary focus:outline-none" />
+                    </div>
+                    <div>
+                        <label class="font-bold text-on-surface block mb-1">Industry Sector</label>
+                        <select id="recruiter-sector" class="w-full p-3 border border-outline-variant/40 rounded-xl bg-surface text-on-surface font-semibold focus:ring-2 focus:ring-primary focus:outline-none">
+                            <option value="Technology">Technology & Software</option>
+                            <option value="Finance">Finance & FinTech</option>
+                            <option value="AI/ML">Artificial Intelligence</option>
+                            <option value="Cloud / SaaS">Cloud & SaaS</option>
+                            <option value="Cybersecurity">Cybersecurity</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="font-bold text-on-surface block mb-1">Work Email Address</label>
+                    <input type="email" id="recruiter-email" required placeholder="sarah@techcorp.com" class="w-full p-3 border border-outline-variant/40 rounded-xl bg-surface text-on-surface font-medium focus:ring-2 focus:ring-primary focus:outline-none" />
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="font-bold text-on-surface block mb-1">Password</label>
+                        <input type="password" id="recruiter-pass" required placeholder="At least 6 characters" class="w-full p-3 border border-outline-variant/40 rounded-xl bg-surface text-on-surface font-medium focus:ring-2 focus:ring-primary focus:outline-none" />
+                    </div>
+                    <div>
+                        <label class="font-bold text-on-surface block mb-1">Confirm Password</label>
+                        <input type="password" id="recruiter-confirm" required placeholder="Re-enter password" class="w-full p-3 border border-outline-variant/40 rounded-xl bg-surface text-on-surface font-medium focus:ring-2 focus:ring-primary focus:outline-none" />
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full py-3.5 bg-primary text-white font-extrabold rounded-xl hover:bg-surface-tint transition-all shadow-md text-sm mt-2">
+                    Create Recruiter Account
+                </button>
+            </form>
+
+            <div class="pt-4 border-t border-outline-variant/30 text-center text-xs text-on-surface-variant">
+                <span>Looking for student registration? <a href="student_signup_-_basic_info.html" class="text-primary font-bold hover:underline">Student Signup</a></span>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-4 text-center text-xs text-on-surface-variant border-t border-outline-variant/20">
+        <p>© 2026 SkillBridge. All rights reserved.</p>
+    </footer>
+
+    <script src="auth.js"></script>
+    <script>
+        function handleRecruiterSignupSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('recruiter-name')?.value;
+            const company = document.getElementById('recruiter-company')?.value;
+            const email = document.getElementById('recruiter-email')?.value;
+            const pass = document.getElementById('recruiter-pass')?.value;
+            const confirm = document.getElementById('recruiter-confirm')?.value;
+
+            const res = signupUser({
+                fullName: name,
+                email: email,
+                password: pass,
+                confirmPassword: confirm,
+                role: 'recruiter',
+                company: company,
+                title: 'Senior Technical Recruiter',
+                avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=256"
+            });
+
+            if (res && res.success) {
+                setTimeout(() => {
+                    window.location.href = "recruiter_-_applicant_management_tracker.html";
+                }, 800);
+            }
+        }
+    </script>
+</body>
+</html>

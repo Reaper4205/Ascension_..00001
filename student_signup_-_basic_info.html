@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SkillBridge - Student Signup</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#3c463f",
+                        "primary-container": "#059669",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "outline": "#6b7d70",
+                        "on-secondary-container": "#006f66",
+                        "surface-tint": "#047857",
+                        "on-primary-fixed": "#022c22",
+                        "secondary": "#006a61",
+                        "on-tertiary-fixed": "#2a1700",
+                        "inverse-primary": "#6ee7b7",
+                        "surface-bright": "#f7fdf9",
+                        "secondary-fixed-dim": "#6bd8cb",
+                        "surface-container-low": "#eef9f1",
+                        "on-primary-container": "#ecfdf5",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#ffeedd",
+                        "surface": "#f7fdf9",
+                        "outline-variant": "#c8d3cb",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#c3e2cd",
+                        "on-secondary-fixed": "#00201d",
+                        "on-error-container": "#93000a",
+                        "background": "#f7fdf9",
+                        "primary-fixed-dim": "#6ee7b7",
+                        "secondary-fixed": "#89f5e7",
+                        "surface-container-high": "#d7f0dd",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "on-surface": "#0c1f14",
+                        "primary": "#047857",
+                        "surface-container-highest": "#cbe8d4",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#cbe8d4",
+                        "tertiary": "#784b00",
+                        "inverse-on-surface": "#e7f7ec",
+                        "secondary-container": "#86f2e4",
+                        "surface-container": "#e3f6e8",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#22362a",
+                        "on-secondary-fixed-variant": "#005049",
+                        "tertiary-container": "#996100",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#065f46",
+                        "on-background": "#0c1f14",
+                        "primary-fixed": "#d1fae5",
+                        "tertiary-fixed": "#ffddb8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xxl": "48px",
+                        "base": "4px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "container-max": "1280px",
+                        "xl": "32px",
+                        "gutter": "24px",
+                        "sm": "8px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "display": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        body { background-color: #f7fdf9; }
+        .input-notion {
+            border: 1px solid #c8d3cb;
+            border-radius: 0.5rem;
+            padding: 12px 16px;
+            width: 100%;
+            transition: all 0.2s ease;
+        }
+        .input-notion:focus {
+            border-color: #047857;
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(0, 74, 198, 0.1);
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-surface min-h-screen flex items-center justify-center py-xl px-md sm:px-lg">
+<main class="w-full max-w-md bg-surface-container-lowest rounded-[16px] shadow-[0_4px_16px_rgba(0,0,0,0.05)] border border-outline-variant p-lg sm:p-xl overflow-hidden relative">
+<div class="mb-lg">
+<div class="flex justify-between items-center mb-sm">
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Step 1 of 4: Basic Info</span>
+<span class="font-label-md text-label-md text-primary font-bold">25%</span>
+</div>
+<div class="w-full h-[8px] bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary w-1/4 rounded-full"></div>
+</div>
+</div>
+<div class="text-center mb-xl">
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-sm">Join SkillBridge</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Tell us a bit about yourself to get started.</p>
+</div>
+<form id="signupForm" onsubmit="handleSignupStep1(event)" class="space-y-md">
+<div class="flex flex-col items-center mb-lg">
+<label for="avatarUploadInput" class="relative group cursor-pointer">
+<div class="w-24 h-24 rounded-full bg-surface-variant overflow-hidden border-2 border-outline-variant flex items-center justify-center hover:border-primary transition-colors">
+<span id="avatarPlaceholderIcon" class="material-symbols-outlined text-outline text-4xl group-hover:text-primary transition-colors">add_a_photo</span>
+<img id="avatarPreviewImg" class="w-full h-full object-cover hidden" alt="Profile photo preview"/>
+</div>
+<div class="absolute bottom-0 right-0 w-7 h-7 bg-primary rounded-full flex items-center justify-center border-2 border-white pointer-events-none">
+<span class="material-symbols-outlined text-white" style="font-size: 16px;">photo_camera</span>
+</div>
+</label>
+<input type="file" id="avatarUploadInput" accept="image/*" class="hidden" onchange="handlePhotoSelect(this, 'avatarPreviewImg', {placeholderId: 'avatarPlaceholderIcon'})"/>
+<p class="font-label-md text-label-md text-on-surface-variant mt-sm text-center">Upload Photo</p>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-xs" for="fullName">Full Name</label>
+<input class="input-notion font-body-md text-body-md text-on-surface" id="fullName" name="fullName" placeholder="Jane Doe" required="" type="text"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-xs" for="email">Email Address</label>
+<input class="input-notion font-body-md text-body-md text-on-surface" id="email" name="email" placeholder="jane@university.edu" required="" type="email"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-xs" for="phone">Phone Number</label>
+<input class="input-notion font-body-md text-body-md text-on-surface" id="phone" name="phone" placeholder="(555) 123-4567" type="tel"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-xs" for="university">College/University</label>
+<input class="input-notion font-body-md text-body-md text-on-surface" id="university" name="university" placeholder="State University" required="" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-md">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-xs" for="degree">Degree Program</label>
+<select class="input-notion font-body-md text-body-md text-on-surface bg-white" id="degree" name="degree">
+<option disabled="" selected="" value="">Select...</option>
+<option value="cs">Computer Science</option>
+<option value="engineering">Engineering</option>
+<option value="business">Business</option>
+<option value="arts">Liberal Arts</option>
+<option value="other">Other</option>
+</select>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-xs" for="year">Year of Study</label>
+<select class="input-notion font-body-md text-body-md text-on-surface bg-white" id="year" name="year">
+<option disabled="" selected="" value="">Select...</option>
+<option value="1">Freshman (Year 1)</option>
+<option value="2">Sophomore (Year 2)</option>
+<option value="3">Junior (Year 3)</option>
+<option value="4">Senior (Year 4+)</option>
+<option value="grad">Graduate</option>
+</select>
+<div class="grid grid-cols-2 gap-md">
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-xs" for="studentPassword">Password</label>
+<input class="input-notion font-body-md text-body-md text-on-surface" id="studentPassword" name="studentPassword" placeholder="At least 6 characters" required="" type="password"/>
+</div>
+<div>
+<label class="block font-label-md text-label-md text-on-surface mb-xs" for="studentConfirmPassword">Confirm Password</label>
+<input class="input-notion font-body-md text-body-md text-on-surface" id="studentConfirmPassword" name="studentConfirmPassword" placeholder="Re-enter password" required="" type="password"/>
+</div>
+</div>
+
+<div class="pt-md mt-lg border-t border-outline-variant">
+<button class="w-full bg-[#059669] hover:bg-primary-fixed-variant text-white font-title-lg text-title-lg py-sm px-lg rounded-lg shadow-[0_4px_8px_rgba(5,150,105,0.2)] transition-all hover:-translate-y-px active:translate-y-0" type="submit">
+                    Continue
+                </button>
+<p class="font-label-md text-label-md text-on-surface-variant text-center mt-md">
+                    Already have an account? <a class="text-primary hover:underline font-bold" href="login.html">Log in</a>
+</p>
+</div>
+</form>
+</main>
+<script src="auth.js"></script>
+<script>
+function handleSignupStep1(e) {
+    e.preventDefault();
+    const pass = document.getElementById('studentPassword')?.value;
+    const confirm = document.getElementById('studentConfirmPassword')?.value;
+
+    const passCheck = validatePassword(pass, confirm);
+    if (!passCheck.valid) {
+        showToast(passCheck.message, "error");
+        return;
+    }
+
+    const degreeSelect = document.getElementById('degree');
+    const degreeText = degreeSelect.options[degreeSelect.selectedIndex]?.text || '';
+    const yearSelect = document.getElementById('year');
+    const yearText = yearSelect.options[yearSelect.selectedIndex]?.text || '';
+
+    const signupData = {
+        fullName: document.getElementById('fullName').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        university: document.getElementById('university').value,
+        password: pass,
+        degree: degreeText !== 'Select...' ? degreeText : 'Computer Science',
+        degreeCode: degreeSelect.value,
+        year: yearText !== 'Select...' ? yearText : 'Junior (Year 3)',
+        yearCode: yearSelect.value,
+        role: 'student',
+        isLoggedIn: true
+    };
+
+    saveCurrentUser(signupData);
+    showToast("Account details validated & saved successfully!");
+    setTimeout(() => {
+        window.location.href = "student_skill_assessment.html";
+    }, 600);
+}
+
+// Pre-fill existing user info if present
+document.addEventListener('DOMContentLoaded', () => {
+    const user = getCurrentUser();
+    if (user && user.fullName && user.fullName !== 'Alex Chen') {
+        document.getElementById('fullName').value = user.fullName || '';
+        document.getElementById('email').value = user.email || '';
+        document.getElementById('phone').value = user.phone || '';
+        document.getElementById('university').value = user.university || '';
+        if (user.degreeCode) document.getElementById('degree').value = user.degreeCode;
+        if (user.yearCode) document.getElementById('year').value = user.yearCode;
+    }
+    if (user && user.avatar) {
+        document.getElementById('avatarPreviewImg').src = user.avatar;
+        document.getElementById('avatarPreviewImg').classList.remove('hidden');
+        document.getElementById('avatarPlaceholderIcon').classList.add('hidden');
+    }
+});
+</script>
+</body></html>

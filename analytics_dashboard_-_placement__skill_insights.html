@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Placement &amp; Skill Insights</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#3c463f",
+                    "primary-container": "#059669",
+                    "on-error": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "outline": "#6b7d70",
+                    "on-secondary-container": "#006f66",
+                    "surface-tint": "#047857",
+                    "on-primary-fixed": "#022c22",
+                    "secondary": "#006a61",
+                    "on-tertiary-fixed": "#2a1700",
+                    "inverse-primary": "#6ee7b7",
+                    "surface-bright": "#f7fdf9",
+                    "secondary-fixed-dim": "#6bd8cb",
+                    "surface-container-low": "#eef9f1",
+                    "on-primary-container": "#ecfdf5",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#ffeedd",
+                    "surface": "#f7fdf9",
+                    "outline-variant": "#c8d3cb",
+                    "on-secondary": "#ffffff",
+                    "surface-dim": "#c3e2cd",
+                    "on-secondary-fixed": "#00201d",
+                    "on-error-container": "#93000a",
+                    "background": "#f7fdf9",
+                    "primary-fixed-dim": "#6ee7b7",
+                    "secondary-fixed": "#89f5e7",
+                    "surface-container-high": "#d7f0dd",
+                    "tertiary-fixed-dim": "#ffb95f",
+                    "on-surface": "#0c1f14",
+                    "primary": "#047857",
+                    "surface-container-highest": "#cbe8d4",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#cbe8d4",
+                    "tertiary": "#784b00",
+                    "inverse-on-surface": "#e7f7ec",
+                    "secondary-container": "#86f2e4",
+                    "surface-container": "#e3f6e8",
+                    "on-primary": "#ffffff",
+                    "inverse-surface": "#22362a",
+                    "on-secondary-fixed-variant": "#005049",
+                    "tertiary-container": "#996100",
+                    "on-tertiary-fixed-variant": "#653e00",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#065f46",
+                    "on-background": "#0c1f14",
+                    "primary-fixed": "#d1fae5",
+                    "tertiary-fixed": "#ffddb8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xxl": "48px",
+                    "base": "4px",
+                    "xs": "4px",
+                    "md": "16px",
+                    "container-max": "1280px",
+                    "xl": "32px",
+                    "gutter": "24px",
+                    "sm": "8px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": [
+                            "Inter"
+                    ],
+                    "label-md": [
+                            "Inter"
+                    ],
+                    "title-lg": [
+                            "Inter"
+                    ],
+                    "display": [
+                            "Inter"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "headline-lg": [
+                            "Inter"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "headline-md": [
+                            "24px",
+                            {
+                                    "lineHeight": "32px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "label-md": [
+                            "12px",
+                            {
+                                    "lineHeight": "16px",
+                                    "fontWeight": "500"
+                            }
+                    ],
+                    "title-lg": [
+                            "20px",
+                            {
+                                    "lineHeight": "28px",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display": [
+                            "48px",
+                            {
+                                    "lineHeight": "56px",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "body-lg": [
+                            "16px",
+                            {
+                                    "lineHeight": "24px",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "headline-lg": [
+                            "32px",
+                            {
+                                    "lineHeight": "40px",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "body-md": [
+                            "14px",
+                            {
+                                    "lineHeight": "20px",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+    },
+        },
+      }
+    </script>
+<style>
+        /* Ambient Shadows */
+        .shadow-level-1 {
+            box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.05);
+        }
+        .shadow-level-2 {
+            box-shadow: 0px 8px 8px 0px rgba(0, 0, 0, 0.10);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest shadow-sm docked full-width top-0 z-50">
+<div class="flex justify-between items-center w-full px-lg md:px-xxl max-w-container-max mx-auto h-16">
+<div class="flex items-center gap-md">
+<a href="index.html" class="font-headline-md text-headline-md font-bold text-primary">SkillBridge</a>
+<nav class="hidden md:flex gap-lg ml-xl">
+<a class="text-primary border-b-2 border-primary pb-1 font-bold" href="analytics_dashboard_-_placement__skill_insights.html">Dashboard</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="industry_-_post_opportunity_form.html">Opportunities</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="recruiter_-_applicant_management_tracker.html">Applications</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors" href="industry_-_matched_candidates_results_page.html">Profile</a>
+</nav>
+</div>
+<div class="flex items-center gap-md">
+<div class="relative hidden md:block">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline" data-icon="search">search</span>
+<input class="pl-xl pr-sm py-sm rounded-lg border border-outline-variant focus:border-primary focus:ring-1 focus:ring-primary outline-none font-body-md text-body-md bg-transparent" placeholder="Search..." type="text"/>
+</div>
+<button class="hover:bg-surface-container-low rounded-lg transition-all p-sm active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+</button>
+<button class="hover:bg-surface-container-low rounded-lg transition-all p-sm active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="settings">settings</span>
+</button>
+<img class="w-8 h-8 rounded-full object-cover ml-sm" data-alt="A professional headshot of a young professional in a modern corporate setting. The lighting is bright and even, highlighting their friendly expression. The background is slightly blurred, showing a contemporary office space with cool tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBWlGwhyNatfmbaQtpy-o1DaOgl-jiTydXAdoBY7aFEZ6udXMyVVPj51zr-I94CjDCTLQMHC8Rxutb_aDEawxFv60QmqPWhhXBuqtZwXUqfuTZNySlBwrHo8GFG5HXLo-VRaMhKyKU4bqH-hgj3m_aK3b1jZwQKgfJRZtH-FytVdgpy6RGcfWq4963zcbWkrdLrRAPJniB_RM5zm-kQSUaiNqqDd3OQWgPdSlKmIGog85fUcr0raf8VZQ"/>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-md md:px-lg py-lg md:py-xl">
+<div class="mb-lg">
+<h1 class="font-headline-lg text-headline-lg text-on-surface mb-xs">Placement &amp; Skill Insights</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Overview of student performance and market demand.</p>
+</div>
+<!-- Stat Cards -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter mb-xl">
+<div class="bg-surface-container-lowest rounded-xl p-lg shadow-level-1 border border-outline-variant hover:shadow-level-2 transition-shadow">
+<div class="flex justify-between items-start mb-md">
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wide">Total Students</p>
+<h2 class="font-display text-display text-on-surface mt-xs">2,450</h2>
+</div>
+<div class="p-sm bg-surface-container rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="group">group</span>
+</div>
+</div>
+<div class="flex items-center gap-xs text-secondary">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+<span class="font-label-md text-label-md">+12% from last month</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-lg shadow-level-1 border border-outline-variant hover:shadow-level-2 transition-shadow">
+<div class="flex justify-between items-start mb-md">
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wide">Total Internships</p>
+<h2 class="font-display text-display text-on-surface mt-xs">845</h2>
+</div>
+<div class="p-sm bg-surface-container rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="work">work</span>
+</div>
+</div>
+<div class="flex items-center gap-xs text-secondary">
+<span class="material-symbols-outlined text-sm" data-icon="trending_up">trending_up</span>
+<span class="font-label-md text-label-md">+5% from last month</span>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-lg shadow-level-1 border border-outline-variant hover:shadow-level-2 transition-shadow">
+<div class="flex justify-between items-start mb-md">
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wide">Avg Match Score</p>
+<h2 class="font-display text-display text-on-surface mt-xs">88%</h2>
+</div>
+<div class="p-sm bg-surface-container rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="target">target</span>
+</div>
+</div>
+<div class="w-full h-2 bg-surface-variant rounded-full mt-sm overflow-hidden">
+<div class="h-full bg-secondary w-[88%] rounded-full"></div>
+</div>
+</div>
+<div class="bg-surface-container-lowest rounded-xl p-lg shadow-level-1 border border-outline-variant hover:shadow-level-2 transition-shadow">
+<div class="flex justify-between items-start mb-md">
+<div>
+<p class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wide">Placement Rate</p>
+<h2 class="font-display text-display text-on-surface mt-xs">76%</h2>
+</div>
+<div class="p-sm bg-surface-container rounded-lg">
+<span class="material-symbols-outlined text-primary" data-icon="task_alt">task_alt</span>
+</div>
+</div>
+<div class="flex items-center gap-xs text-on-surface-variant">
+<span class="font-label-md text-label-md">Target: 80% by Q4</span>
+</div>
+</div>
+</div>
+<!-- Charts Row -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-gutter">
+<!-- Bar Chart Widget -->
+<div class="bg-surface-container-lowest rounded-xl p-lg shadow-level-1 border border-outline-variant lg:col-span-1">
+<h3 class="font-title-lg text-title-lg text-on-surface mb-md">Top 5 In-Demand Skills</h3>
+<div class="space-y-md">
+<!-- Skill Item -->
+<div>
+<div class="flex justify-between font-label-md text-label-md mb-xs">
+<span class="text-on-surface">React.js</span>
+<span class="text-on-surface-variant">450 Requests</span>
+</div>
+<div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[90%] rounded-full"></div>
+</div>
+</div>
+<!-- Skill Item -->
+<div>
+<div class="flex justify-between font-label-md text-label-md mb-xs">
+<span class="text-on-surface">Python</span>
+<span class="text-on-surface-variant">380 Requests</span>
+</div>
+<div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[75%] rounded-full opacity-90"></div>
+</div>
+</div>
+<!-- Skill Item -->
+<div>
+<div class="flex justify-between font-label-md text-label-md mb-xs">
+<span class="text-on-surface">Data Analysis</span>
+<span class="text-on-surface-variant">320 Requests</span>
+</div>
+<div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[65%] rounded-full opacity-80"></div>
+</div>
+</div>
+<!-- Skill Item -->
+<div>
+<div class="flex justify-between font-label-md text-label-md mb-xs">
+<span class="text-on-surface">UX Design</span>
+<span class="text-on-surface-variant">290 Requests</span>
+</div>
+<div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[55%] rounded-full opacity-70"></div>
+</div>
+</div>
+<!-- Skill Item -->
+<div>
+<div class="flex justify-between font-label-md text-label-md mb-xs">
+<span class="text-on-surface">Agile Management</span>
+<span class="text-on-surface-variant">210 Requests</span>
+</div>
+<div class="w-full h-2 bg-surface-variant rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[40%] rounded-full opacity-60"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Donut Chart Widget (Mockup) -->
+<div class="bg-surface-container-lowest rounded-xl p-lg shadow-level-1 border border-outline-variant lg:col-span-1 flex flex-col items-center justify-center relative overflow-hidden">
+<h3 class="font-title-lg text-title-lg text-on-surface mb-md w-full text-left">Applications by Status</h3>
+<div class="relative w-48 h-48 flex items-center justify-center my-auto">
+<!-- Faux Donut segments using SVG -->
+<svg class="w-full h-full transform -rotate-90" viewbox="0 0 36 36">
+<path class="text-surface-variant" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-width="4"></path>
+<!-- Offered (Secondary) 25% -->
+<path class="text-secondary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="25, 100" stroke-width="4"></path>
+<!-- Interviewing (Primary) 40% -->
+<path class="text-primary" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="40, 100" stroke-dashoffset="-25" stroke-width="4"></path>
+<!-- Applied (Outline Variant) 35% -->
+<path class="text-outline-variant" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" stroke-dasharray="35, 100" stroke-dashoffset="-65" stroke-width="4"></path>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="font-display text-headline-lg text-on-surface">1.2k</span>
+<span class="font-label-md text-label-md text-on-surface-variant">Total Apps</span>
+</div>
+</div>
+<div class="w-full mt-md grid grid-cols-3 gap-sm text-center">
+<div>
+<div class="w-3 h-3 rounded-full bg-outline-variant mx-auto mb-xs"></div>
+<p class="font-label-md text-label-md text-on-surface-variant">Applied</p>
+</div>
+<div>
+<div class="w-3 h-3 rounded-full bg-primary mx-auto mb-xs"></div>
+<p class="font-label-md text-label-md text-on-surface-variant">Interview</p>
+</div>
+<div>
+<div class="w-3 h-3 rounded-full bg-secondary mx-auto mb-xs"></div>
+<p class="font-label-md text-label-md text-on-surface-variant">Offered</p>
+</div>
+</div>
+</div>
+<!-- Line Chart Widget (Mockup) -->
+<div class="bg-surface-container-lowest rounded-xl p-lg shadow-level-1 border border-outline-variant lg:col-span-1 flex flex-col">
+<h3 class="font-title-lg text-title-lg text-on-surface mb-md">Monthly Placement Trend</h3>
+<div class="flex-grow flex items-end justify-between relative h-48 px-sm pb-lg mt-auto border-b border-outline-variant">
+<!-- Faux Grid Lines -->
+<div class="absolute inset-0 flex flex-col justify-between py-sm pointer-events-none">
+<div class="border-t border-surface-variant w-full"></div>
+<div class="border-t border-surface-variant w-full"></div>
+<div class="border-t border-surface-variant w-full"></div>
+</div>
+<!-- Chart Bars/Line approximation -->
+<div class="w-1/6 flex flex-col items-center justify-end h-full z-10 group">
+<div class="w-full bg-primary-fixed-dim hover:bg-primary transition-colors rounded-t-sm h-[40%]"></div>
+<span class="font-label-md text-label-md text-on-surface-variant mt-sm absolute bottom-0">Jan</span>
+</div>
+<div class="w-1/6 flex flex-col items-center justify-end h-full z-10 group">
+<div class="w-full bg-primary-fixed-dim hover:bg-primary transition-colors rounded-t-sm h-[55%]"></div>
+<span class="font-label-md text-label-md text-on-surface-variant mt-sm absolute bottom-0">Feb</span>
+</div>
+<div class="w-1/6 flex flex-col items-center justify-end h-full z-10 group">
+<div class="w-full bg-primary-fixed-dim hover:bg-primary transition-colors rounded-t-sm h-[45%]"></div>
+<span class="font-label-md text-label-md text-on-surface-variant mt-sm absolute bottom-0">Mar</span>
+</div>
+<div class="w-1/6 flex flex-col items-center justify-end h-full z-10 group">
+<div class="w-full bg-primary-fixed-dim hover:bg-primary transition-colors rounded-t-sm h-[70%]"></div>
+<span class="font-label-md text-label-md text-on-surface-variant mt-sm absolute bottom-0">Apr</span>
+</div>
+<div class="w-1/6 flex flex-col items-center justify-end h-full z-10 group">
+<div class="w-full bg-primary hover:bg-primary-container transition-colors rounded-t-sm h-[85%]"></div>
+<span class="font-label-md text-label-md text-on-surface-variant mt-sm absolute bottom-0 font-bold">May</span>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 bg-surface-container-lowest shadow-[0_-2px_10px_rgba(0,0,0,0.05)] flex justify-around items-center px-sm py-xs pb-safe">
+<a class="flex flex-col items-center justify-center text-primary font-bold active:bg-surface-container-high transition-colors p-sm rounded-lg active:scale-90 transition-transform duration-200" href="analytics_dashboard_-_placement__skill_insights.html">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="font-label-md text-label-md mt-1">Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:bg-surface-container-high transition-colors p-sm rounded-lg active:scale-90 transition-transform duration-200" href="industry_-_post_opportunity_form.html">
+<span class="material-symbols-outlined" data-icon="work">work</span>
+<span class="font-label-md text-label-md mt-1">Jobs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:bg-surface-container-high transition-colors p-sm rounded-lg active:scale-90 transition-transform duration-200" href="recruiter_-_applicant_management_tracker.html">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="font-label-md text-label-md mt-1">Apps</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:bg-surface-container-high transition-colors p-sm rounded-lg active:scale-90 transition-transform duration-200" href="industry_-_matched_candidates_results_page.html">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-md text-label-md mt-1">Profile</span>
+</a>
+</nav>
+</body></html>

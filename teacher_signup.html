@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SkillBridge — Teacher & Academician Registration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script>
+    tailwind.config = {
+        darkMode: 'class',
+        theme: {
+            extend: {
+                colors: {
+                    primary: '#047857',
+                    'primary-container': '#059669',
+                    secondary: '#006a61',
+                    background: '#f7fdf9',
+                    surface: '#ffffff',
+                    'surface-container-lowest': '#ffffff',
+                    'surface-container-low': '#eef9f1',
+                    'surface-container': '#e3f6e8',
+                    'on-surface': '#0c1f14',
+                    'on-surface-variant': '#3c463f',
+                    outline: '#6b7d70',
+                    'outline-variant': '#c8d3cb'
+                }
+            }
+        }
+    }
+</script>
+<style>
+    body { font-family: 'Inter', sans-serif; }
+</style>
+</head>
+<body class="bg-background text-on-surface min-h-screen flex flex-col justify-between antialiased">
+    <!-- Navbar -->
+    <header class="w-full bg-surface-container-lowest border-b border-outline-variant/30 px-6 py-4 flex justify-between items-center">
+        <a href="index.html" class="flex items-center gap-2">
+            <div class="w-8 h-8 rounded-xl bg-primary flex items-center justify-center text-white font-bold text-base shadow-sm">S</div>
+            <span class="font-extrabold text-lg tracking-tight text-on-surface">Skill<span class="text-primary">Bridge</span></span>
+        </a>
+        <div class="text-xs font-semibold text-on-surface-variant">
+            Already registered? <a href="login.html" class="text-primary font-bold hover:underline">Log in here</a>
+        </div>
+    </header>
+
+    <!-- Main Signup Form -->
+    <main class="flex-1 max-w-md w-full mx-auto my-8 px-4 flex flex-col justify-center">
+        <div class="bg-surface-container-lowest p-8 rounded-2xl border border-outline-variant/30 shadow-xl space-y-6">
+            <div class="space-y-2 text-center">
+                <div class="w-12 h-12 rounded-2xl bg-primary/10 text-primary flex items-center justify-center mx-auto mb-2">
+                    <span class="material-symbols-outlined text-2xl">school</span>
+                </div>
+                <h1 class="text-2xl font-extrabold text-on-surface">Academician & Faculty Portal</h1>
+                <p class="text-xs text-on-surface-variant">Join SkillBridge to monitor student readiness, identify curriculum gaps, and assign industry interventions.</p>
+            </div>
+
+            <form onsubmit="handleTeacherSignupSubmit(event)" class="space-y-4 text-xs">
+                <div>
+                    <label class="font-bold text-on-surface block mb-1">Full Name & Title</label>
+                    <input type="text" id="teacher-name" required placeholder="e.g. Prof. Meera Rao" class="w-full p-3 border border-outline-variant/40 rounded-xl bg-surface text-on-surface font-medium focus:ring-2 focus:ring-primary focus:outline-none" />
+                </div>
+
+                <div>
+                    <label class="font-bold text-on-surface block mb-1">University / College Institution</label>
+                    <input type="text" id="teacher-uni" required placeholder="e.g. Stanford University / NIT" class="w-full p-3 border border-outline-variant/40 rounded-xl bg-surface text-on-surface font-medium focus:ring-2 focus:ring-primary focus:outline-none" />
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="font-bold text-on-surface block mb-1">Department</label>
+                        <select id="teacher-dept" class="w-full p-3 border border-outline-variant/40 rounded-xl bg-surface text-on-surface font-semibold focus:ring-2 focus:ring-primary focus:outline-none">
+                            <option value="Computer Science (CSE)">Computer Science (CSE)</option>
+                            <option value="Information Tech (IT)">Information Tech (IT)</option>
+                            <option value="AI & Data Sci (AI/DS)">AI & Data Sci (AI/DS)</option>
+                            <option value="Electronics (ECE)">Electronics (ECE)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="font-bold text-on-surface block mb-1">Designation</label>
+                        <input type="text" id="teacher-title" placeholder="Associate Professor" class="w-full p-3 border border-outline-variant/40 rounded-xl bg-surface text-on-surface font-medium focus:ring-2 focus:ring-primary focus:outline-none" />
+                    </div>
+                </div>
+
+                <div>
+                    <label class="font-bold text-on-surface block mb-1">Institutional Email Address</label>
+                    <input type="email" id="teacher-email" required placeholder="prof.rao@university.edu" class="w-full p-3 border border-outline-variant/40 rounded-xl bg-surface text-on-surface font-medium focus:ring-2 focus:ring-primary focus:outline-none" />
+                </div>
+
+                <div class="grid grid-cols-2 gap-3">
+                    <div>
+                        <label class="font-bold text-on-surface block mb-1">Password</label>
+                        <input type="password" id="teacher-pass" required placeholder="At least 6 characters" class="w-full p-3 border border-outline-variant/40 rounded-xl bg-surface text-on-surface font-medium focus:ring-2 focus:ring-primary focus:outline-none" />
+                    </div>
+                    <div>
+                        <label class="font-bold text-on-surface block mb-1">Confirm Password</label>
+                        <input type="password" id="teacher-confirm" required placeholder="Re-enter password" class="w-full p-3 border border-outline-variant/40 rounded-xl bg-surface text-on-surface font-medium focus:ring-2 focus:ring-primary focus:outline-none" />
+                    </div>
+                </div>
+
+                <button type="submit" class="w-full py-3.5 bg-primary text-white font-extrabold rounded-xl hover:bg-surface-tint transition-all shadow-md text-sm mt-2">
+                    Create Teacher Account
+                </button>
+            </form>
+
+            <div class="pt-4 border-t border-outline-variant/30 text-center text-xs text-on-surface-variant">
+                <span>Looking for student registration? <a href="student_signup_-_basic_info.html" class="text-primary font-bold hover:underline">Student Signup</a></span>
+            </div>
+        </div>
+    </main>
+
+    <footer class="py-4 text-center text-xs text-on-surface-variant border-t border-outline-variant/20">
+        <p>© 2026 SkillBridge. All rights reserved.</p>
+    </footer>
+
+    <script src="auth.js"></script>
+    <script>
+        function handleTeacherSignupSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('teacher-name')?.value;
+            const uni = document.getElementById('teacher-uni')?.value;
+            const dept = document.getElementById('teacher-dept')?.value;
+            const title = document.getElementById('teacher-title')?.value || 'Professor & Placement Coordinator';
+            const email = document.getElementById('teacher-email')?.value;
+            const pass = document.getElementById('teacher-pass')?.value;
+            const confirm = document.getElementById('teacher-confirm')?.value;
+
+            const res = signupUser({
+                fullName: name,
+                email: email,
+                password: pass,
+                confirmPassword: confirm,
+                role: 'teacher',
+                university: uni,
+                department: dept,
+                title: title,
+                avatar: "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&q=80&w=256"
+            });
+
+            if (res && res.success) {
+                setTimeout(() => {
+                    window.location.href = "teacher_my_students.html";
+                }, 800);
+            }
+        }
+    </script>
+</body>
+</html>

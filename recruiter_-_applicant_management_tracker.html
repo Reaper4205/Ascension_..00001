@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Applicant Tracking Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#3c463f",
+                        "primary-container": "#059669",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "outline": "#6b7d70",
+                        "on-secondary-container": "#006f66",
+                        "surface-tint": "#047857",
+                        "on-primary-fixed": "#022c22",
+                        "secondary": "#006a61",
+                        "on-tertiary-fixed": "#2a1700",
+                        "inverse-primary": "#6ee7b7",
+                        "surface-bright": "#f7fdf9",
+                        "secondary-fixed-dim": "#6bd8cb",
+                        "surface-container-low": "#eef9f1",
+                        "on-primary-container": "#ecfdf5",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#ffeedd",
+                        "surface": "#f7fdf9",
+                        "outline-variant": "#c8d3cb",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#c3e2cd",
+                        "on-secondary-fixed": "#00201d",
+                        "on-error-container": "#93000a",
+                        "background": "#f7fdf9",
+                        "primary-fixed-dim": "#6ee7b7",
+                        "secondary-fixed": "#89f5e7",
+                        "surface-container-high": "#d7f0dd",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "on-surface": "#0c1f14",
+                        "primary": "#047857",
+                        "surface-container-highest": "#cbe8d4",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#cbe8d4",
+                        "tertiary": "#784b00",
+                        "inverse-on-surface": "#e7f7ec",
+                        "secondary-container": "#86f2e4",
+                        "surface-container": "#e3f6e8",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#22362a",
+                        "on-secondary-fixed-variant": "#005049",
+                        "tertiary-container": "#996100",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#065f46",
+                        "on-background": "#0c1f14",
+                        "primary-fixed": "#d1fae5",
+                        "tertiary-fixed": "#ffddb8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xxl": "48px",
+                        "base": "4px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "container-max": "1280px",
+                        "xl": "32px",
+                        "gutter": "24px",
+                        "sm": "8px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "display": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+<!-- TopNavBar Shared Component -->
+<header class="bg-surface-container-lowest text-primary font-body-md docked full-width top-0 shadow-sm shadow-sm flex justify-between items-center w-full px-lg md:px-xxl max-w-container-max mx-auto h-16 z-50 sticky">
+<div class="flex items-center gap-md">
+<a href="index.html" class="font-headline-md text-headline-md font-bold text-primary">SkillBridge</a>
+</div>
+<nav class="hidden md:flex gap-lg h-full items-center">
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-low rounded-lg transition-all px-md py-sm flex items-center h-full" href="analytics_dashboard_-_placement__skill_insights.html">Dashboard</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-low rounded-lg transition-all px-md py-sm flex items-center h-full" href="industry_-_post_opportunity_form.html">Opportunities</a>
+<a class="text-primary border-b-2 border-primary pb-1 font-bold h-full flex items-center px-md" href="recruiter_-_applicant_management_tracker.html">Applications</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors hover:bg-surface-container-low rounded-lg transition-all px-md py-sm flex items-center h-full" href="industry_-_matched_candidates_results_page.html">Profile</a>
+</nav>
+<div class="flex items-center gap-md">
+<!-- search_bar: on_right logic (simplified for layout) -->
+<div class="hidden lg:flex items-center relative">
+<span class="material-symbols-outlined absolute left-sm text-outline" data-icon="search">search</span>
+<input class="pl-xl pr-sm py-sm rounded-full border border-outline-variant bg-surface-container-lowest focus:border-primary focus:ring-1 focus:ring-primary text-body-md font-body-md w-64 transition-all" placeholder="Search..." type="text"/>
+</div>
+<button class="p-xs hover:bg-surface-container-low rounded-full transition-colors active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="notifications">notifications</span>
+</button>
+<button class="p-xs hover:bg-surface-container-low rounded-full transition-colors active:scale-95 transition-transform duration-150">
+<span class="material-symbols-outlined text-on-surface-variant" data-icon="settings">settings</span>
+</button>
+<img alt="User profile photo" class="w-8 h-8 rounded-full object-cover border border-outline-variant" data-alt="A professional headshot of a person with short brown hair, wearing a white button-down shirt, against a soft gray background. The lighting is bright and even, conveying a welcoming and competent corporate tone suitable for a professional platform profile picture." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcyzwfSHfj5nDwWxlrCHmCImMPYtHviYNb8cnCr8jd5mdY2lXsmDf7cASfgDZcQhS75Y7eRgN56GpM9Eqr-HIlfMM1B_svuAr4uVfX9ryTp4YdmCUdSrWWWxaJVuL-tIOPjlIzgKhVeC_sWbaCx4hwSHNisLvosRPvAtv4LMx4CnrJY3v60RyNw3Jf9GOKnEzlJPSJywGrDSaHGRsAt9MJ2_2zJiWDjDIXUOqtTLRwG5kjGFMBPuwP5g"/>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-md md:px-lg py-lg md:py-xl flex flex-col gap-lg">
+<!-- Page Header -->
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-md">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Applicant Tracking</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-xs">Manage and review candidates for open roles.</p>
+</div>
+<div class="flex items-center gap-md w-full md:w-auto">
+<a href="industry_-_post_opportunity_form.html" class="bg-primary text-on-primary font-label-md text-label-md px-md py-sm rounded-lg hover:bg-primary-container transition-colors shadow-sm active:scale-95 flex items-center gap-xs">
+<span class="material-symbols-outlined" data-icon="add" style="font-size: 18px;">add</span>
+                    New Job Posting
+                </a>
+</div>
+</div>
+<!-- Controls Bar: Dynamic Tabs & Search -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/30 p-sm flex flex-col md:flex-row justify-between items-center gap-md">
+<!-- Dynamic Status Tabs -->
+<div id="recruiter-tabs-container" class="flex space-x-sm w-full md:w-auto overflow-x-auto pb-sm md:pb-0 hide-scrollbar">
+    <!-- Rendered dynamically by JS -->
+</div>
+<!-- Contextual Search -->
+<div class="relative w-full md:w-72">
+<span class="material-symbols-outlined absolute left-sm top-1/2 -translate-y-1/2 text-outline" data-icon="search" style="font-size: 20px;">search</span>
+<input id="candidate-search-input" oninput="renderApplicantsTable()" class="w-full pl-xl pr-md py-sm rounded-lg border border-outline-variant bg-surface focus:border-primary focus:ring-1 focus:ring-primary text-body-md font-body-md transition-all shadow-inner" placeholder="Search candidate, skill, or college..." type="text"/>
+</div>
+</div>
+<!-- ATS Data Table Card -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm border border-outline-variant/30 overflow-hidden">
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead class="bg-surface border-b border-outline-variant/50">
+<tr>
+<th class="py-md px-md font-label-md text-label-md text-on-surface-variant">Candidate</th>
+<th class="py-md px-md font-label-md text-label-md text-on-surface-variant">Role Applied</th>
+<th class="py-md px-md font-label-md text-label-md text-on-surface-variant">Match %</th>
+<th class="py-md px-md font-label-md text-label-md text-on-surface-variant">Applied Date</th>
+<th class="py-md px-md font-label-md text-label-md text-on-surface-variant">Status</th>
+<th class="py-md px-md font-label-md text-label-md text-on-surface-variant text-right">Actions</th>
+</tr>
+</thead>
+<tbody id="applicants-table-body" class="divide-y divide-outline-variant/30">
+<!-- Dynamic rows rendered by JavaScript -->
+</tbody>
+</table>
+</div>
+
+<!-- Post-Internship Industry Feedback Modal (SIH44 Closed Loop Spec) -->
+<div id="industry-feedback-modal" class="fixed inset-0 z-[10000] bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-surface-container-lowest border border-outline-variant rounded-2xl shadow-2xl w-full max-w-xl overflow-hidden animate-in fade-in zoom-in duration-200">
+        <div class="bg-primary/10 border-b border-primary/20 px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-xl">rate_review</span>
+                <div>
+                    <h3 class="font-bold text-base text-on-surface">Submit Industry Performance Feedback</h3>
+                    <p id="feedback-modal-subtitle" class="text-xs text-on-surface-variant">Post-internship evaluation feeds directly back into college curriculum intelligence</p>
+                </div>
+            </div>
+            <button type="button" onclick="closeFeedbackModal()" class="w-8 h-8 rounded-full hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface">
+                <span class="material-symbols-outlined text-lg">close</span>
+            </button>
+        </div>
+
+        <form id="industryFeedbackForm" onsubmit="handleIndustryFeedbackSubmit(event)" class="p-6 space-y-4 max-h-[80vh] overflow-y-auto">
+            <input type="hidden" id="feedbackCandidateId" value="">
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 bg-surface-container-low p-3 rounded-xl border border-outline-variant/40">
+                <div>
+                    <label class="block text-xs font-semibold text-on-surface mb-1">Technical Skills (1 - 5)</label>
+                    <select id="fbTechnical" class="w-full bg-surface border border-outline-variant rounded p-2 text-xs">
+                        <option value="5">5 - Outstanding Execution</option>
+                        <option value="4" selected>4 - Solid / Independent</option>
+                        <option value="3">3 - Required Moderate Guidance</option>
+                        <option value="2">2 - Needs Significant Improvement</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-on-surface mb-1">Problem Solving (1 - 5)</label>
+                    <select id="fbProblemSolving" class="w-full bg-surface border border-outline-variant rounded p-2 text-xs">
+                        <option value="5">5 - Highly Analytical</option>
+                        <option value="4" selected>4 - Good Problem Decomposition</option>
+                        <option value="3">3 - Solves Routine Tasks Only</option>
+                        <option value="2">2 - Struggles with Edge Cases</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-on-surface mb-1">Communication & Agility (1 - 5)</label>
+                    <select id="fbCommunication" class="w-full bg-surface border border-outline-variant rounded p-2 text-xs">
+                        <option value="5">5 - Clear & Proactive</option>
+                        <option value="4" selected>4 - Regular Standup Updates</option>
+                        <option value="3">3 - Needs Prompting</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-on-surface mb-1">Industry Readiness (1 - 5)</label>
+                    <select id="fbReadiness" class="w-full bg-surface border border-outline-variant rounded p-2 text-xs">
+                        <option value="5">5 - Full Production Ready</option>
+                        <option value="4" selected>4 - Ready with 2-wk Ramp-up</option>
+                        <option value="3">3 - Academic Only</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Missing Skills Tagging (Closed Loop Spec: Feeds back to Curriculum Gap Alerts) -->
+            <div>
+                <label class="block text-xs font-bold text-on-surface mb-1">Identified Missing / Lagging Skills (Select All That Apply) *</label>
+                <p class="text-[11px] text-outline mb-2">These skills will automatically alert academic coordinators to update coursework.</p>
+                <div class="grid grid-cols-2 gap-2 text-xs">
+                    <label class="flex items-center gap-2 p-2 rounded border border-outline-variant hover:bg-surface-container cursor-pointer">
+                        <input type="checkbox" class="fb-missing-skill" value="System Design">
+                        <span>System Design</span>
+                    </label>
+                    <label class="flex items-center gap-2 p-2 rounded border border-outline-variant hover:bg-surface-container cursor-pointer">
+                        <input type="checkbox" class="fb-missing-skill" value="Testing & QA" checked>
+                        <span>Testing & QA (TDD)</span>
+                    </label>
+                    <label class="flex items-center gap-2 p-2 rounded border border-outline-variant hover:bg-surface-container cursor-pointer">
+                        <input type="checkbox" class="fb-missing-skill" value="Cloud (AWS/GCP)">
+                        <span>Cloud Infrastructure</span>
+                    </label>
+                    <label class="flex items-center gap-2 p-2 rounded border border-outline-variant hover:bg-surface-container cursor-pointer">
+                        <input type="checkbox" class="fb-missing-skill" value="Docker & Containers">
+                        <span>Docker & Containers</span>
+                    </label>
+                </div>
+            </div>
+
+            <!-- Comments -->
+            <div>
+                <label class="block text-xs font-semibold text-on-surface mb-1">Qualitative Feedback for Student & College</label>
+                <textarea id="fbComments" rows="2" class="w-full bg-surface border border-outline-variant rounded p-2 text-xs" placeholder="What should the college emphasize before the next batch of hires?">Demonstrated strong programming instincts. We recommend the university introduce automated integration testing and Docker pipelines into sophomore coursework.</textarea>
+            </div>
+
+            <div class="flex justify-end gap-2 pt-2 border-t border-outline-variant/30">
+                <button type="button" onclick="closeFeedbackModal()" class="px-4 py-2 text-xs font-semibold text-on-surface-variant border border-outline-variant rounded-lg hover:bg-surface-container">Cancel</button>
+                <button type="submit" class="px-5 py-2 text-xs font-bold bg-[#059669] hover:bg-[#047857] text-white rounded-lg transition-all flex items-center gap-1 shadow-sm">
+                    <span class="material-symbols-outlined text-sm">send</span> Submit & Update Skill Intelligence
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+<!-- Pagination Footer -->
+<div class="bg-surface border-t border-outline-variant/50 p-sm flex justify-between items-center">
+<span id="applicant-count-label" class="font-body-md text-body-md text-on-surface-variant text-sm">Showing candidates</span>
+<div class="flex gap-xs">
+<a href="industry_-_matched_candidates_results_page.html" class="px-3 py-1.5 bg-primary/10 text-primary border border-primary/20 rounded-lg text-xs font-bold hover:bg-primary/20 transition-colors flex items-center gap-1">
+    <span class="material-symbols-outlined text-sm">search</span> Match More Candidates
+</a>
+</div>
+</div>
+</div>
+</main>
+<!-- BottomNavBar Shared Component (Mobile Only) -->
+<nav class="bg-surface-container-lowest text-primary font-label-md text-label-md fixed full-width bottom-0 z-50 bg-surface-container-lowest shadow-[0_-2px_10px_rgba(0,0,0,0.05)] shadow-lg md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-sm py-xs pb-safe pb-4 border-t border-outline-variant/30">
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:bg-surface-container-high transition-colors active:scale-90 transition-transform duration-200 p-sm rounded-lg" href="analytics_dashboard_-_placement__skill_insights.html">
+<span class="material-symbols-outlined mb-xs" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:bg-surface-container-high transition-colors active:scale-90 transition-transform duration-200 p-sm rounded-lg" href="industry_-_post_opportunity_form.html">
+<span class="material-symbols-outlined mb-xs" data-icon="work">work</span>
+<span>Jobs</span>
+</a>
+<a class="flex flex-col items-center justify-center text-primary font-bold active:bg-surface-container-high transition-colors active:scale-90 transition-transform duration-200 p-sm rounded-lg" href="recruiter_-_applicant_management_tracker.html">
+<span class="material-symbols-outlined mb-xs" data-icon="assignment" data-weight="fill" style="font-variation-settings: 'FILL' 1;">assignment</span>
+<span>Apps</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant active:bg-surface-container-high transition-colors active:scale-90 transition-transform duration-200 p-sm rounded-lg" href="industry_-_matched_candidates_results_page.html">
+<span class="material-symbols-outlined mb-xs" data-icon="person">person</span>
+<span>Profile</span>
+</a>
+</nav>
+<style>
+        /* Hide scrollbar for clean horizontal scrolling tabs */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Custom select arrow */
+        select {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23434655' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+            background-position: right 0.5rem center;
+            background-repeat: no-repeat;
+            background-size: 1.5em 1.5em;
+        }
+</style>
+<script src="auth.js"></script>
+<script>
+    let activeStageFilter = 'all';
+
+    const TABS_CONFIG = [
+        { key: 'all', label: 'All Applicants' },
+        { key: 'applied', label: 'New / Applied' },
+        { key: 'reviewed', label: 'Reviewed' },
+        { key: 'shortlisted', label: 'Shortlisted' },
+        { key: 'interview', label: 'Interview' },
+        { key: 'selected', label: 'Selected / Offer' },
+        { key: 'internship', label: 'Internship' },
+        { key: 'rejected', label: 'Rejected' },
+        { key: 'feedback_submitted', label: 'Feedback Done' }
+    ];
+
+    const LIFECYCLE_STAGES = [
+        { key: 'applied', label: '1. Applied / New' },
+        { key: 'reviewed', label: '2. Reviewed' },
+        { key: 'shortlisted', label: '3. Shortlisted' },
+        { key: 'interview', label: '4. Interview Scheduled' },
+        { key: 'selected', label: '5. Selected / Offer' },
+        { key: 'internship', label: '6. In Internship / Work' },
+        { key: 'feedback_submitted', label: '7. Feedback Completed' },
+        { key: 'rejected', label: '8. Not Selected / Rejected' }
+    ];
+
+    function renderTabsContainer() {
+        const sharedData = getSkillBridgeData();
+        const candidates = sharedData.candidates || [];
+        const container = document.getElementById('recruiter-tabs-container');
+        if (!container) return;
+
+        container.innerHTML = TABS_CONFIG.map(tab => {
+            const count = tab.key === 'all' 
+                ? candidates.length 
+                : candidates.filter(c => c.status === tab.key).length;
+            const isActive = activeStageFilter === tab.key;
+
+            return `
+                <button type="button" onclick="switchStageFilter('${tab.key}')" class="px-md py-sm rounded-lg font-label-md text-xs font-bold whitespace-nowrap transition-all flex items-center gap-1.5 ${
+                    isActive ? 'bg-primary text-white shadow-sm' : 'text-on-surface-variant hover:bg-surface-container-low'
+                }">
+                    <span>${tab.label}</span>
+                    <span class="px-1.5 py-0.2 text-[10px] rounded-full ${isActive ? 'bg-white/20 text-white' : 'bg-surface-container text-on-surface-variant'}">${count}</span>
+                </button>
+            `;
+        }).join('');
+    }
+
+    function switchStageFilter(key) {
+        activeStageFilter = key;
+        renderTabsContainer();
+        renderApplicantsTable();
+    }
+
+    function renderApplicantsTable() {
+        renderTabsContainer();
+        const sharedData = getSkillBridgeData();
+        const tbody = document.getElementById('applicants-table-body');
+        if (!tbody) return;
+
+        const search = (document.getElementById('candidate-search-input')?.value || '').toLowerCase().trim();
+        let candidates = [...sharedData.candidates];
+
+        if (activeStageFilter !== 'all') {
+            candidates = candidates.filter(c => c.status === activeStageFilter);
+        }
+
+        if (search) {
+            candidates = candidates.filter(c => {
+                const matchName = (c.fullName || '').toLowerCase().includes(search);
+                const matchUni = (c.university || '').toLowerCase().includes(search);
+                const matchRole = (c.appliedRole || '').toLowerCase().includes(search);
+                return matchName || matchUni || matchRole;
+            });
+        }
+
+        const countLabel = document.getElementById('applicant-count-label');
+        if (countLabel) countLabel.textContent = `Showing ${candidates.length} candidate applications across lifecycle stages`;
+
+        if (candidates.length === 0) {
+            tbody.innerHTML = `
+                <tr>
+                    <td colspan="6" class="p-8 text-center text-outline italic">
+                        No candidates found matching the selected stage/search filter.
+                    </td>
+                </tr>
+            `;
+            return;
+        }
+
+        tbody.innerHTML = candidates.map(cand => {
+            const opp = (sharedData.opportunities || []).find(o => o.id === cand.appliedOppId) || sharedData.opportunities[0];
+            const match = calculateCandidateMatch(cand, opp);
+            const pct = match.overallPct;
+
+            const isFeedbackStage = cand.status === 'internship' || cand.status === 'selected' || cand.status === 'feedback_submitted';
+
+            return `
+                <tr class="hover:bg-surface-container-low transition-colors group">
+                    <td class="py-md px-md">
+                        <div class="flex items-center gap-sm">
+                            <img alt="${cand.fullName}" class="w-10 h-10 rounded-full object-cover border border-outline-variant/50 flex-shrink-0" src="${cand.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=256'}"/>
+                            <div>
+                                <div class="font-title-lg text-title-lg text-on-surface text-sm font-bold">${cand.fullName}</div>
+                                <div class="font-body-md text-body-md text-on-surface-variant text-xs">${cand.university || 'State College'} • ${cand.year || 'Senior'}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="py-md px-md font-body-md text-body-md text-on-surface">
+                        <span class="font-semibold text-xs text-primary">${cand.appliedRole || (opp ? opp.title : 'Full Stack Developer')}</span>
+                        <div class="text-[11px] text-on-surface-variant">${cand.appliedCompany || (opp ? opp.company : '')}</div>
+                    </td>
+                    <td class="py-md px-md">
+                        <div class="flex items-center gap-xs">
+                            <div class="w-16 h-2 bg-surface-container-highest rounded-full overflow-hidden">
+                                <div class="h-full rounded-full ${pct >= 85 ? 'bg-emerald-500' : pct >= 70 ? 'bg-amber-500' : 'bg-red-500'}" style="width: ${pct}%;"></div>
+                            </div>
+                            <span class="font-label-md text-xs font-bold ${pct >= 85 ? 'text-emerald-700' : pct >= 70 ? 'text-amber-700' : 'text-red-700'}">${pct}%</span>
+                        </div>
+                    </td>
+                    <td class="py-md px-md font-body-md text-xs text-on-surface-variant">${cand.appliedDate || 'Active'}</td>
+                    <td class="py-md px-md">
+                        <select onchange="handleLifecycleStageChange('${cand.id}', this.value)" class="text-xs rounded-full px-3 py-1 font-semibold border border-outline-variant cursor-pointer transition-colors ${
+                            cand.status === 'feedback_submitted' ? 'bg-emerald-100 text-emerald-800' :
+                            cand.status === 'internship' ? 'bg-purple-100 text-purple-800' :
+                            cand.status === 'selected' ? 'bg-teal-100 text-teal-800' :
+                            cand.status === 'interview' ? 'bg-blue-100 text-blue-800' :
+                            cand.status === 'shortlisted' ? 'bg-amber-100 text-amber-800' :
+                            cand.status === 'rejected' ? 'bg-red-100 text-red-800' :
+                            'bg-surface-container text-on-surface'
+                        }">
+                            ${LIFECYCLE_STAGES.map(s => `
+                                <option value="${s.key}" ${cand.status === s.key ? 'selected' : ''}>${s.label}</option>
+                            `).join('')}
+                        </select>
+                    </td>
+                    <td class="py-md px-md text-right space-x-1 whitespace-nowrap">
+                        <button type="button" onclick="openCandidateModal('${cand.id}')" class="text-primary hover:text-primary-container font-label-md text-xs px-2.5 py-1 border border-primary/20 rounded hover:bg-primary/5 transition-colors font-bold">
+                            Match Details
+                        </button>
+                        ${isFeedbackStage ? `
+                            <button type="button" onclick="openFeedbackModal('${cand.id}')" class="bg-[#059669] hover:bg-[#047857] text-white font-bold text-xs px-2.5 py-1 rounded shadow-sm transition-all flex-inline items-center gap-1">
+                                <span class="material-symbols-outlined text-[13px] align-middle">rate_review</span> Feedback
+                            </button>
+                        ` : ''}
+                    </td>
+                </tr>
+            `;
+        }).join('');
+    }
+
+    function handleLifecycleStageChange(candId, newStage) {
+        const sharedData = getSkillBridgeData();
+        const cand = sharedData.candidates.find(c => c.id === candId);
+        if (cand) {
+            cand.status = newStage;
+            // Sync with applications tracker on student side
+            if (sharedData.applications) {
+                const app = sharedData.applications.find(a => 
+                    (a.opportunityId === cand.appliedOppId || a.opportunityTitle === cand.appliedRole) &&
+                    (a.studentName === cand.fullName || (cand.studentId && a.studentId === cand.studentId))
+                );
+                if (app) {
+                    app.status = newStage;
+                }
+            }
+            saveSkillBridgeData(sharedData);
+            showToast(`${cand.fullName} status updated to: ${newStage.toUpperCase()}`);
+
+            if (newStage === 'internship' || newStage === 'feedback_submitted') {
+                setTimeout(() => {
+                    openFeedbackModal(candId);
+                }, 500);
+            }
+            renderApplicantsTable();
+        }
+    }
+
+    function openFeedbackModal(candId) {
+        const sharedData = getSkillBridgeData();
+        const cand = sharedData.candidates.find(c => c.id === candId);
+        if (!cand) return;
+
+        document.getElementById('feedbackCandidateId').value = candId;
+        document.getElementById('feedback-modal-subtitle').textContent = 
+            `Evaluating ${cand.fullName} (${cand.university || 'College'}). Ratings directly update Teacher Curriculum Demands!`;
+
+        const modal = document.getElementById('industry-feedback-modal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+    }
+
+    function closeFeedbackModal() {
+        const modal = document.getElementById('industry-feedback-modal');
+        if (modal) {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+    }
+
+    function handleIndustryFeedbackSubmit(e) {
+        e.preventDefault();
+        const candId = document.getElementById('feedbackCandidateId').value;
+        const tech = Number(document.getElementById('fbTechnical').value);
+        const prob = Number(document.getElementById('fbProblemSolving').value);
+        const comm = Number(document.getElementById('fbCommunication').value);
+        const read = Number(document.getElementById('fbReadiness').value);
+        const comments = document.getElementById('fbComments').value;
+
+        const missing = Array.from(document.querySelectorAll('.fb-missing-skill:checked')).map(cb => cb.value);
+
+        submitRecruiterFeedback(candId, {
+            technicalRating: tech,
+            problemSolvingRating: prob,
+            communicationRating: comm,
+            industryReadinessRating: read,
+            missingSkills: missing,
+            qualitativeNotes: comments
+        });
+
+        closeFeedbackModal();
+        renderApplicantsTable();
+    }
+
+    function openCandidateModal(candId) {
+        window.location.href = `industry_-_matched_candidates_results_page.html`;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        renderApplicantsTable();
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+        renderApplicantsTable();
+    });
+</script>
+</body></html>

@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Opportunities Feed — SkillBridge</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#3c463f",
+                    "primary-container": "#059669",
+                    "on-error": "#ffffff",
+                    "on-tertiary": "#ffffff",
+                    "outline": "#6b7d70",
+                    "on-secondary-container": "#006f66",
+                    "surface-tint": "#047857",
+                    "on-primary-fixed": "#022c22",
+                    "secondary": "#006a61",
+                    "on-tertiary-fixed": "#2a1700",
+                    "inverse-primary": "#6ee7b7",
+                    "surface-bright": "#f7fdf9",
+                    "secondary-fixed-dim": "#6bd8cb",
+                    "surface-container-low": "#eef9f1",
+                    "on-primary-container": "#ecfdf5",
+                    "surface-container-lowest": "#ffffff",
+                    "on-tertiary-container": "#ffeedd",
+                    "surface": "#f7fdf9",
+                    "outline-variant": "#c8d3cb",
+                    "on-secondary": "#ffffff",
+                    "surface-dim": "#c3e2cd",
+                    "on-secondary-fixed": "#00201d",
+                    "on-error-container": "#93000a",
+                    "background": "#f7fdf9",
+                    "primary-fixed-dim": "#6ee7b7",
+                    "secondary-fixed": "#89f5e7",
+                    "surface-container-high": "#d7f0dd",
+                    "tertiary-fixed-dim": "#ffb95f",
+                    "on-surface": "#0c1f14",
+                    "primary": "#047857",
+                    "surface-container-highest": "#cbe8d4",
+                    "error": "#ba1a1a",
+                    "surface-variant": "#cbe8d4",
+                    "tertiary": "#784b00",
+                    "inverse-on-surface": "#e7f7ec",
+                    "secondary-container": "#86f2e4",
+                    "surface-container": "#e3f6e8",
+                    "on-primary": "#ffffff",
+                    "inverse-surface": "#22362a",
+                    "on-secondary-fixed-variant": "#005049",
+                    "tertiary-container": "#996100",
+                    "on-tertiary-fixed-variant": "#653e00",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed-variant": "#065f46",
+                    "on-background": "#0c1f14",
+                    "primary-fixed": "#d1fae5",
+                    "tertiary-fixed": "#ffddb8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xxl": "48px",
+                    "base": "4px",
+                    "xs": "4px",
+                    "md": "16px",
+                    "container-max": "1280px",
+                    "xl": "32px",
+                    "gutter": "24px",
+                    "sm": "8px",
+                    "lg": "24px"
+            },
+            "fontFamily": {
+                    "headline-md": ["Inter", "sans-serif"],
+                    "label-md": ["Inter", "sans-serif"],
+                    "title-lg": ["Inter", "sans-serif"],
+                    "display": ["Inter", "sans-serif"],
+                    "body-lg": ["Inter", "sans-serif"],
+                    "headline-lg": ["Inter", "sans-serif"],
+                    "body-md": ["Inter", "sans-serif"]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+        }
+        .shadow-ambient {
+            box-shadow: 0 4px 16px -4px rgba(0, 0, 0, 0.05);
+        }
+        .hover\:shadow-ambient-lg:hover {
+            box-shadow: 0 8px 24px -8px rgba(0, 0, 0, 0.1);
+        }
+</style>
+</head>
+<body class="min-h-screen flex flex-col pb-[80px] md:pb-0">
+
+<!-- TopNavBar (Web) -->
+<header class="hidden md:flex bg-surface-container-lowest shadow-sm w-full sticky top-0 z-40 h-16">
+<div class="flex justify-between items-center w-full px-lg md:px-xxl max-w-container-max mx-auto h-16">
+<!-- Brand -->
+<div class="flex items-center">
+<a href="index.html" class="font-headline-md text-headline-md font-bold text-primary">SkillBridge</a>
+</div>
+<!-- Navigation Links -->
+<nav class="flex gap-lg h-full items-center">
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary rounded-lg transition-all px-3 py-2" href="student_dashboard_-_skill_gap__recommendations.html">
+    Dashboard
+</a>
+<a class="font-body-md text-body-md text-primary border-b-2 border-primary font-bold h-full flex items-center px-3 pt-[2px]" href="student_-_matched_internshipsjobs_feed.html">
+    Opportunities
+</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary rounded-lg transition-all px-3 py-2" href="application_tracker_student_side.html">
+    Applications
+</a>
+<a class="font-body-md text-body-md text-on-surface-variant hover:text-primary rounded-lg transition-all px-3 py-2" href="student_public_profile_page.html">
+    Profile
+</a>
+</nav>
+<!-- Trailing Actions -->
+<div class="flex items-center gap-sm">
+<button class="w-10 h-10 rounded-full flex items-center justify-center text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-all">
+<span class="material-symbols-outlined">notifications</span>
+</button>
+<a href="student_public_profile_page.html" class="w-8 h-8 rounded-full overflow-hidden ml-sm border border-outline-variant bg-primary text-white flex items-center justify-center font-bold text-xs">
+<span id="nav-avatar-initial">A</span>
+</a>
+</div>
+</div>
+</header>
+
+<!-- Main Content Area -->
+<main class="flex-grow w-full max-w-container-max mx-auto px-md md:px-lg lg:px-gutter py-xl">
+<!-- Page Header -->
+<div class="flex justify-between items-end mb-lg border-b border-outline-variant pb-md">
+<div>
+<h1 class="font-headline-lg text-headline-lg text-on-surface">Recommended Opportunities</h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-sm">Curated internships and full-time roles based on your Target Role and skills.</p>
+</div>
+<!-- Mobile Filter Toggle (Hidden on Desktop) -->
+<button onclick="toggleMobileFilterDrawer()" class="lg:hidden flex items-center gap-sm px-4 py-2 bg-surface-container-lowest border border-outline-variant rounded-lg text-on-surface font-label-md shadow-sm hover:border-primary">
+<span class="material-symbols-outlined">filter_list</span> Filters (<span id="mobile-filter-count">0</span>)
+</button>
+</div>
+
+<!-- Layout Grid: Sidebar + Feed -->
+<div class="flex flex-col lg:flex-row gap-gutter relative items-start">
+<!-- Filter Sidebar (Left) -->
+<aside id="filter-sidebar" class="hidden lg:flex flex-col gap-lg w-[280px] shrink-0 sticky top-[100px]">
+    <!-- Reset Filters Header -->
+    <div class="flex justify-between items-center bg-surface-container-lowest rounded-xl shadow-ambient px-lg py-md border border-outline-variant/40">
+        <span class="text-xs font-bold text-on-surface uppercase tracking-wider flex items-center gap-1">
+            <span class="material-symbols-outlined text-sm">tune</span> Active Filters
+        </span>
+        <button onclick="clearAllFilters()" class="text-xs font-semibold text-primary hover:underline">Clear All</button>
+    </div>
+
+    <!-- Filter Section: Role Type -->
+    <div class="bg-surface-container-lowest rounded-xl shadow-ambient p-lg border border-outline-variant/30">
+        <h3 class="font-title-lg text-title-lg text-on-surface mb-md font-bold text-sm">Role Type</h3>
+        <div class="flex flex-col gap-sm">
+            <label class="flex items-center gap-sm cursor-pointer group">
+                <input type="checkbox" value="Internship" onchange="handleFilterChange()" class="filter-role-type w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary"/>
+                <span class="font-body-md text-sm text-on-surface-variant group-hover:text-on-surface transition-colors">Internship</span>
+            </label>
+            <label class="flex items-center gap-sm cursor-pointer group">
+                <input type="checkbox" value="Full-Time" onchange="handleFilterChange()" class="filter-role-type w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary"/>
+                <span class="font-body-md text-sm text-on-surface-variant group-hover:text-on-surface transition-colors">Full-Time</span>
+            </label>
+            <label class="flex items-center gap-sm cursor-pointer group">
+                <input type="checkbox" value="Part-Time" onchange="handleFilterChange()" class="filter-role-type w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary"/>
+                <span class="font-body-md text-sm text-on-surface-variant group-hover:text-on-surface transition-colors">Part-Time</span>
+            </label>
+            <label class="flex items-center gap-sm cursor-pointer group">
+                <input type="checkbox" value="Co-op" onchange="handleFilterChange()" class="filter-role-type w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary"/>
+                <span class="font-body-md text-sm text-on-surface-variant group-hover:text-on-surface transition-colors">Co-op</span>
+            </label>
+        </div>
+    </div>
+
+    <!-- Filter Section: Industry -->
+    <div class="bg-surface-container-lowest rounded-xl shadow-ambient p-lg border border-outline-variant/30">
+        <h3 class="font-title-lg text-title-lg text-on-surface mb-md font-bold text-sm">Industry</h3>
+        <div class="flex flex-col gap-sm">
+            <label class="flex items-center gap-sm cursor-pointer group">
+                <input type="checkbox" value="Technology" onchange="handleFilterChange()" class="filter-industry w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary"/>
+                <span class="font-body-md text-sm text-on-surface-variant group-hover:text-on-surface transition-colors">Technology</span>
+            </label>
+            <label class="flex items-center gap-sm cursor-pointer group">
+                <input type="checkbox" value="Finance" onchange="handleFilterChange()" class="filter-industry w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary"/>
+                <span class="font-body-md text-sm text-on-surface-variant group-hover:text-on-surface transition-colors">Finance & FinTech</span>
+            </label>
+            <label class="flex items-center gap-sm cursor-pointer group">
+                <input type="checkbox" value="Design" onchange="handleFilterChange()" class="filter-industry w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary"/>
+                <span class="font-body-md text-sm text-on-surface-variant group-hover:text-on-surface transition-colors">Design & Media</span>
+            </label>
+            <label class="flex items-center gap-sm cursor-pointer group">
+                <input type="checkbox" value="Healthcare" onchange="handleFilterChange()" class="filter-industry w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary"/>
+                <span class="font-body-md text-sm text-on-surface-variant group-hover:text-on-surface transition-colors">Healthcare Tech</span>
+            </label>
+            
+            <!-- Extra Industries (Toggled via Show More) -->
+            <div id="extra-industries" class="hidden flex-col gap-sm">
+                <label class="flex items-center gap-sm cursor-pointer group">
+                    <input type="checkbox" value="AI/ML" onchange="handleFilterChange()" class="filter-industry w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary"/>
+                    <span class="font-body-md text-sm text-on-surface-variant group-hover:text-on-surface transition-colors">AI & ML</span>
+                </label>
+                <label class="flex items-center gap-sm cursor-pointer group">
+                    <input type="checkbox" value="SaaS" onchange="handleFilterChange()" class="filter-industry w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary"/>
+                    <span class="font-body-md text-sm text-on-surface-variant group-hover:text-on-surface transition-colors">SaaS & Enterprise</span>
+                </label>
+                <label class="flex items-center gap-sm cursor-pointer group">
+                    <input type="checkbox" value="E-commerce" onchange="handleFilterChange()" class="filter-industry w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary"/>
+                    <span class="font-body-md text-sm text-on-surface-variant group-hover:text-on-surface transition-colors">E-Commerce</span>
+                </label>
+            </div>
+        </div>
+        <button id="show-more-industries-btn" onclick="toggleShowMoreIndustries()" class="mt-md text-primary font-label-md font-bold text-left hover:underline text-xs flex items-center gap-1">
+            <span>Show more</span> <span class="material-symbols-outlined text-sm">expand_more</span>
+        </button>
+    </div>
+
+    <!-- Filter Section: Platform Source -->
+    <div class="bg-surface-container-lowest rounded-xl shadow-ambient p-lg border border-outline-variant/30">
+        <h3 class="font-title-lg text-title-lg text-on-surface mb-md font-bold text-sm">Platform Source</h3>
+        <div class="flex flex-col gap-sm">
+            <label class="flex items-center gap-sm cursor-pointer group">
+                <input type="checkbox" value="Indeed" onchange="handleFilterChange()" class="filter-source w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary"/>
+                <span class="font-body-md text-sm text-on-surface-variant group-hover:text-on-surface transition-colors flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-[#003A9B]"></span> Indeed Verified
+                </span>
+            </label>
+            <label class="flex items-center gap-sm cursor-pointer group">
+                <input type="checkbox" value="LinkedIn" onchange="handleFilterChange()" class="filter-source w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary"/>
+                <span class="font-body-md text-sm text-on-surface-variant group-hover:text-on-surface transition-colors flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-[#0077B5]"></span> LinkedIn Verified
+                </span>
+            </label>
+            <label class="flex items-center gap-sm cursor-pointer group">
+                <input type="checkbox" value="SkillBridge" onchange="handleFilterChange()" class="filter-source w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary"/>
+                <span class="font-body-md text-sm text-on-surface-variant group-hover:text-on-surface transition-colors flex items-center gap-1.5">
+                    <span class="w-2 h-2 rounded-full bg-primary"></span> Direct / Partner
+                </span>
+            </label>
+        </div>
+    </div>
+
+    <!-- Filter Section: Location & Remote -->
+    <div class="bg-surface-container-lowest rounded-xl shadow-ambient p-lg border border-outline-variant/30">
+        <h3 class="font-title-lg text-title-lg text-on-surface mb-md font-bold text-sm">Location</h3>
+        <div class="relative">
+            <span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline-variant text-sm">search</span>
+            <input id="filter-location-input" oninput="handleFilterChange()" class="w-full pl-9 pr-3 py-2 border border-outline-variant rounded-lg text-xs focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary bg-surface transition-colors" placeholder="Filter by City or Remote..." type="text"/>
+        </div>
+        <label class="flex items-center gap-sm cursor-pointer group mt-md">
+            <input id="filter-remote-checkbox" type="checkbox" onchange="handleFilterChange()" class="w-4 h-4 rounded border-outline-variant text-primary focus:ring-primary"/>
+            <span class="font-body-md text-sm text-on-surface-variant group-hover:text-on-surface transition-colors">Remote Only</span>
+        </label>
+    </div>
+</aside>
+
+<!-- Opportunities Feed (Right/Main) -->
+<div class="flex-1 flex flex-col gap-gutter w-full">
+    <!-- Domain Curation Banner & Filter Bar -->
+    <div class="bg-primary/5 border border-primary/20 rounded-xl p-4 flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+        <div>
+            <div class="flex flex-wrap items-center gap-2">
+                <span class="material-symbols-outlined text-primary text-base">auto_awesome</span>
+                <span class="text-xs uppercase font-bold tracking-wider text-primary">Domain-Tailored Matching</span>
+                <span id="domain-badge-indicator" class="px-2.5 py-0.5 rounded-full text-xs font-bold bg-primary text-white">Target Role</span>
+            </div>
+            <p class="text-xs text-on-surface-variant mt-1" id="domain-curation-text">
+                Showing internships & jobs curated for your target domain.
+            </p>
+        </div>
+        <div class="flex items-center gap-2 w-full md:w-auto">
+            <label class="text-xs font-bold text-on-surface whitespace-nowrap">Filter Domain:</label>
+            <select id="domain-filter-select" onchange="handleDomainFilterChange(this.value)" class="text-xs bg-surface-container-lowest border border-outline-variant rounded-lg px-3 py-1.5 font-semibold text-primary focus:ring-1 focus:ring-primary outline-none cursor-pointer">
+                <option value="my_domain">🎯 My Target Domain</option>
+                <option value="all">🌐 All Domains</option>
+                <option value="backend">Backend Developer</option>
+                <option value="frontend">Frontend Developer</option>
+                <option value="fullstack">Fullstack Engineer</option>
+                <option value="swe">Software Engineer</option>
+                <option value="devops">DevOps & Cloud Engineer</option>
+                <option value="data">Data Scientist</option>
+                <option value="ai">AI / Machine Learning</option>
+                <option value="cyber">Cybersecurity Analyst</option>
+                <option value="cloud">Cloud Solutions Architect</option>
+                <option value="uiux">UI/UX Designer</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- 3 Tier Tabs (SIH44 Spec 6 & 12: Ready Now vs Stretch vs Live Projects) -->
+    <div class="bg-surface-container-lowest rounded-xl p-1.5 border border-outline-variant/40 shadow-sm flex flex-wrap gap-1">
+        <button type="button" onclick="switchFeedTab('ready')" id="tab-ready" class="flex-1 min-w-[140px] py-2.5 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 bg-primary text-white shadow-sm">
+            <span class="material-symbols-outlined text-sm">verified</span>
+            Ready Now Opportunities
+            <span id="badge-count-ready" class="px-1.5 py-0.2 rounded-full text-[10px] bg-white/20">3</span>
+        </button>
+        <button type="button" onclick="switchFeedTab('stretch')" id="tab-stretch" class="flex-1 min-w-[140px] py-2.5 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 text-on-surface-variant hover:bg-surface-container">
+            <span class="material-symbols-outlined text-sm">trending_up</span>
+            Stretch Opportunities
+            <span id="badge-count-stretch" class="px-1.5 py-0.2 rounded-full text-[10px] bg-amber-100 text-amber-800">2</span>
+        </button>
+        <button type="button" onclick="switchFeedTab('live_project')" id="tab-live_project" class="flex-1 min-w-[140px] py-2.5 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 text-on-surface-variant hover:bg-surface-container">
+            <span class="material-symbols-outlined text-sm">hub</span>
+            Live Industry Projects
+            <span id="badge-count-live" class="px-1.5 py-0.2 rounded-full text-[10px] bg-tertiary/20 text-tertiary">2</span>
+        </button>
+    </div>
+
+    <!-- Active Filter Badges Bar -->
+    <div id="active-filter-badges-bar" class="flex flex-wrap items-center gap-2 mb-sm hidden">
+        <span class="text-xs font-semibold text-on-surface-variant">Active:</span>
+        <div id="active-badges-container" class="flex flex-wrap gap-2"></div>
+    </div>
+
+    <!-- Feed Container -->
+    <div id="opportunities-feed-container" class="flex flex-col gap-gutter">
+        <!-- Rendered dynamically -->
+    </div>
+</div>
+</div>
+</main>
+
+<script src="auth.js"></script>
+<script>
+    const ALL_OPPORTUNITIES = [
+        {
+            id: 1,
+            title: "UI/UX Designer",
+            company: "Appernity Technologies",
+            location: "New Delhi",
+            isRemote: false,
+            roleType: "Full-Time",
+            industry: "Design",
+            experience: "1 - 2 yrs",
+            matchPct: 91,
+            tags: ["UI/UX", "Figma", "Prototyping"],
+            source: "via Naukri.com",
+            icon: "palette",
+            link: "https://www.naukri.com/job-listings-ui-ux-designer-appernity-technologies-new-delhi-1-to-2-years-291025503881?src=seo_srp&sid=17880028888679249&xp=1&px=1"
+        },
+        {
+            id: 2,
+            title: "Backend Engineering Intern",
+            company: "CloudScale Systems",
+            location: "Remote",
+            isRemote: true,
+            roleType: "Internship",
+            industry: "Technology",
+            experience: "0 - 1 yrs",
+            matchPct: 95,
+            tags: ["Node.js", "Express", "PostgreSQL", "REST API"],
+            source: "SkillBridge Verified Partner",
+            icon: "dns",
+            link: "https://www.naukri.com"
+        },
+        {
+            id: 3,
+            title: "Data Analyst",
+            company: "OculusIT",
+            location: "Gurugram",
+            isRemote: false,
+            roleType: "Full-Time",
+            industry: "Finance",
+            experience: "0 - 4 yrs",
+            matchPct: 87,
+            tags: ["SQL", "Data Analysis", "Python", "Tableau"],
+            source: "via Naukri.com",
+            icon: "query_stats",
+            link: "https://www.naukri.com/job-listings-data-analyst-oculusit-gurugram-0-to-4-years-240826502754?src=jobsearchDesk&sid=17880033858092375&xp=1&px=1&nignbevent_src=jobsearchDeskGNB"
+        },
+        {
+            id: 4,
+            title: "Software Developer Intern",
+            company: "Surya Infotech",
+            location: "Vadodara",
+            isRemote: false,
+            roleType: "Internship",
+            industry: "Technology",
+            experience: "0 - 2 yrs",
+            matchPct: 93,
+            tags: ["Software Development", "Java", "SQL"],
+            source: "via Naukri.com",
+            icon: "code",
+            link: "https://www.naukri.com/job-listings-software-developer-surya-infotech-vadodara-0-to-2-years-240826021817?src=jobsearchDesk&sid=17880033858092375_1&xp=1&px=1&nignbevent_src=jobsearchDeskGNB"
+        },
+        {
+            id: 5,
+            title: "Frontend Developer (React)",
+            company: "Verve Web Studios",
+            location: "Bengaluru (Remote)",
+            isRemote: true,
+            roleType: "Full-Time",
+            industry: "Technology",
+            experience: "1 - 3 yrs",
+            matchPct: 89,
+            tags: ["React.js", "TypeScript", "Tailwind CSS"],
+            source: "Direct Posting",
+            icon: "web",
+            link: "https://www.naukri.com"
+        },
+        {
+            id: 6,
+            title: "DevOps & Cloud Intern",
+            company: "NimbusOps Infra",
+            location: "Remote",
+            isRemote: true,
+            roleType: "Internship",
+            industry: "Technology",
+            experience: "0 - 1 yrs",
+            matchPct: 82,
+            tags: ["Docker", "Linux", "AWS", "CI/CD"],
+            source: "SkillBridge Verified Partner",
+            icon: "sync_alt",
+            link: "https://www.naukri.com"
+        },
+        {
+            id: 7,
+            title: "Epic BI Engineer",
+            company: "Codevyasa",
+            location: "New Delhi",
+            isRemote: false,
+            roleType: "Full-Time",
+            industry: "Healthcare",
+            experience: "5 - 10 yrs",
+            matchPct: 78,
+            tags: ["Business Intelligence", "SQL", "Healthcare"],
+            source: "via Naukri.com",
+            icon: "bar_chart",
+            link: "https://www.naukri.com/job-listings-epic-bi-engineer-codevyasa-new-delhi-5-to-10-years-290726921484?src=cluster&sid=17880031124269097_4&xp=1&px=1&nignbevent_src=jobsearchDeskGNB"
+        }
+    ];
+
+    let activeFeedTab = 'ready'; // 'ready', 'stretch', 'live_project'
+    let savedOpportunities = new Set();
+
+    function initOpportunitiesPage() {
+        const user = getCurrentUser();
+        if (user && user.fullName) {
+            const navInitial = document.getElementById('nav-avatar-initial');
+            if (navInitial) navInitial.textContent = user.fullName.charAt(0).toUpperCase();
+        }
+
+        const params = new URLSearchParams(window.location.search);
+        const qParam = params.get('q');
+        if (qParam) {
+            const locInput = document.getElementById('filter-location-input');
+            if (locInput) locInput.value = qParam;
+            showToast(`Filtering for query "${qParam}"`);
+        }
+
+        renderFilteredOpportunities();
+    }
+
+    function switchFeedTab(tab) {
+        activeFeedTab = tab;
+        ['ready', 'stretch', 'live_project'].forEach(t => {
+            const btn = document.getElementById(`tab-${t}`);
+            if (btn) {
+                if (t === tab) {
+                    btn.className = "flex-1 min-w-[140px] py-2.5 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 bg-primary text-white shadow-sm";
+                } else {
+                    btn.className = "flex-1 min-w-[140px] py-2.5 px-3 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 text-on-surface-variant hover:bg-surface-container";
+                }
+            }
+        });
+        renderFilteredOpportunities();
+    }
+
+    function getSelectedCheckboxes(className) {
+        return Array.from(document.querySelectorAll(`.${className}:checked`)).map(cb => cb.value);
+    }
+
+    function handleFilterChange() {
+        renderFilteredOpportunities();
+    }
+
+    function getCombinedOpportunities() {
+        const sharedData = getSkillBridgeData();
+        const sharedOpps = sharedData.opportunities || [];
+        return [...sharedOpps];
+    }
+
+    let selectedDomainFilter = 'my_domain'; // 'my_domain', 'all', or specific domain key e.g. 'backend'
+
+    function handleDomainFilterChange(val) {
+        selectedDomainFilter = val;
+        renderFilteredOpportunities();
+    }
+
+    function renderFilteredOpportunities() {
+        const user = getCurrentUser() || {};
+        const studentDomain = user.careerInterest || user.lastDomainAssessed || 'backend';
+        const studentDomainTitle = user.targetRole || (ROLE_BENCHMARKS[studentDomain]?.title || 'Backend Developer');
+
+        // Update Domain Curation Banner
+        const domBadge = document.getElementById('domain-badge-indicator');
+        if (domBadge) domBadge.textContent = studentDomainTitle;
+
+        const domText = document.getElementById('domain-curation-text');
+        if (domText) {
+            if (selectedDomainFilter === 'my_domain') {
+                domText.innerHTML = `Showing internships & jobs curated specifically for your target domain: <strong>${studentDomainTitle}</strong>.`;
+            } else if (selectedDomainFilter === 'all') {
+                domText.innerHTML = `Showing engineering, cloud, data, and design opportunities across <strong>all 10 domains</strong>.`;
+            } else {
+                const selTitle = ROLE_BENCHMARKS[selectedDomainFilter]?.title || selectedDomainFilter;
+                domText.innerHTML = `Showing opportunities filtered by: <strong>${selTitle}</strong>.`;
+            }
+        }
+
+        // Student with domain-aware skills
+        const resolvedSkills = (typeof getStudentDomainSkills === 'function') 
+            ? getStudentDomainSkills(user, studentDomain)
+            : { "React.js": 85, "JavaScript": 88, "TypeScript": 72, "Node.js": 78, "SQL / PostgreSQL": 75, "Docker & Containers": 70 };
+
+        const student = {
+            fullName: user.fullName || "Student",
+            careerInterest: studentDomain,
+            targetRole: studentDomainTitle,
+            skills: resolvedSkills,
+            domainAssessments: user.domainAssessments || {}
+        };
+
+        const allOpps = getCombinedOpportunities();
+        const selectedRoleTypes = getSelectedCheckboxes('filter-role-type');
+        const selectedIndustries = getSelectedCheckboxes('filter-industry');
+        const selectedSources = getSelectedCheckboxes('filter-source');
+        const locationInput = (document.getElementById('filter-location-input')?.value || '').toLowerCase().trim();
+        const remoteOnly = document.getElementById('filter-remote-checkbox')?.checked || false;
+
+        // Filter by Domain
+        let domainOpps = allOpps;
+        if (selectedDomainFilter === 'my_domain') {
+            domainOpps = allOpps.filter(opp => {
+                if (!opp.domain) return true;
+                if (opp.domain === studentDomain) return true;
+                // Related domain crossover
+                if ((studentDomain === 'backend' || studentDomain === 'frontend') && opp.domain === 'fullstack') return true;
+                if (studentDomain === 'fullstack' && (opp.domain === 'backend' || opp.domain === 'frontend')) return true;
+                if (studentDomain === 'swe' && (opp.domain === 'backend' || opp.domain === 'fullstack')) return true;
+                if (studentDomain === 'cloud' && opp.domain === 'devops') return true;
+                if (studentDomain === 'devops' && opp.domain === 'cloud') return true;
+                if (studentDomain === 'ai' && opp.domain === 'data') return true;
+                return false;
+            });
+        } else if (selectedDomainFilter !== 'all') {
+            domainOpps = allOpps.filter(opp => opp.domain === selectedDomainFilter);
+        }
+
+        // Process each opportunity with match calculation (excluding faculty training programs)
+        const studentApplicableOpps = domainOpps.filter(opp => opp.type !== 'faculty');
+
+        const processedOpps = studentApplicableOpps.map(opp => {
+            const matchData = calculateCandidateMatch(student, opp);
+            const isLive = opp.type === 'live_project';
+            const hasCriticalMissing = matchData.criticalMissing && matchData.criticalMissing.length > 0;
+            const isReady = matchData.overallPct >= 75 && !hasCriticalMissing;
+            const isStretch = !isReady && matchData.overallPct >= 45;
+
+            return {
+                ...opp,
+                matchPct: matchData.overallPct,
+                matchData: matchData,
+                isReady: isReady,
+                isStretch: isStretch,
+                isLive: isLive,
+                isTargetDomain: opp.domain === studentDomain
+            };
+        });
+
+        // Update Tab counts
+        const readyCount = processedOpps.filter(o => o.isReady && !o.isLive).length;
+        const stretchCount = processedOpps.filter(o => o.isStretch && !o.isLive).length;
+        const liveCount = processedOpps.filter(o => o.isLive).length;
+
+        const bReady = document.getElementById('badge-count-ready');
+        if (bReady) bReady.textContent = readyCount;
+        const bStretch = document.getElementById('badge-count-stretch');
+        if (bStretch) bStretch.textContent = stretchCount;
+        const bLive = document.getElementById('badge-count-live');
+        if (bLive) bLive.textContent = liveCount;
+
+        // Filter by active Tab
+        let activeTabOpps = processedOpps.filter(opp => {
+            if (activeFeedTab === 'live_project') return opp.isLive;
+            if (activeFeedTab === 'ready') return opp.isReady && !opp.isLive;
+            if (activeFeedTab === 'stretch') return opp.isStretch && !opp.isLive;
+            return true;
+        });
+
+        // Filter by sidebar controls
+        const finalFiltered = activeTabOpps.filter(opp => {
+            if (selectedRoleTypes.length > 0 && !selectedRoleTypes.includes(opp.roleType)) return false;
+            if (selectedIndustries.length > 0 && !selectedIndustries.includes(opp.industry)) return false;
+            if (selectedSources.length > 0) {
+                const oppSrc = (opp.source || '') + ' ' + (opp.link || '');
+                const matchesSrc = selectedSources.some(src => {
+                    if (src === 'SkillBridge') return !oppSrc.includes('linkedin.com') && !oppSrc.includes('indeed.com');
+                    return oppSrc.toLowerCase().includes(src.toLowerCase());
+                });
+                if (!matchesSrc) return false;
+            }
+            if (remoteOnly && !opp.isRemote) return false;
+            if (locationInput) {
+                const matchLoc = (opp.location || '').toLowerCase().includes(locationInput);
+                const matchTitle = (opp.title || '').toLowerCase().includes(locationInput);
+                const matchCompany = (opp.company || '').toLowerCase().includes(locationInput);
+                if (!matchLoc && !matchTitle && !matchCompany) return false;
+            }
+            return true;
+        });
+
+        updateActiveFilterBadgesBar(selectedRoleTypes, selectedIndustries, selectedSources, locationInput, remoteOnly);
+        renderOpportunitiesFeed(finalFiltered);
+    }
+
+    function updateActiveFilterBadgesBar(roleTypes, industries, sources, location, remoteOnly) {
+        const bar = document.getElementById('active-filter-badges-bar');
+        const container = document.getElementById('active-badges-container');
+        if (!bar || !container) return;
+
+        let badges = [];
+        roleTypes.forEach(r => badges.push({ type: 'role', label: r }));
+        industries.forEach(i => badges.push({ type: 'ind', label: i }));
+        (sources || []).forEach(s => badges.push({ type: 'src', label: `Source: ${s}` }));
+        if (location) badges.push({ type: 'loc', label: `Search: ${location}` });
+        if (remoteOnly) badges.push({ type: 'remote', label: 'Remote Only' });
+
+        if (badges.length === 0) {
+            bar.classList.add('hidden');
+            return;
+        }
+
+        bar.classList.remove('hidden');
+        container.innerHTML = badges.map(b => `
+            <span class="inline-flex items-center gap-1 bg-primary/10 text-primary border border-primary/30 px-2.5 py-1 rounded-full text-xs font-semibold">
+                ${b.label}
+            </span>
+        `).join('');
+    }
+
+    function renderOpportunitiesFeed(opportunities) {
+        const container = document.getElementById('opportunities-feed-container');
+        if (!container) return;
+
+        if (opportunities.length === 0) {
+            container.innerHTML = `
+                <div class="bg-surface-container-lowest rounded-xl shadow-ambient p-xl text-center border border-outline-variant/40">
+                    <span class="material-symbols-outlined text-outline text-4xl mb-2">search_off</span>
+                    <h3 class="font-bold text-lg text-on-surface mb-1">No ${activeFeedTab.replace('_', ' ')} opportunities found</h3>
+                    <p class="text-xs text-on-surface-variant mb-md">Try selecting "All Domains" in the domain filter or resetting constraints.</p>
+                    <button onclick="clearAllFilters()" class="bg-primary text-white font-bold text-xs px-4 py-2 rounded-lg hover:bg-surface-tint transition-colors">Reset Filters</button>
+                </div>
+            `;
+            return;
+        }
+
+        container.innerHTML = opportunities.map(opp => {
+            const isSaved = savedOpportunities.has(opp.id);
+            const isLive = opp.isLive;
+            const isRecruiter = opp.isRecruiterPosted || opp.source === 'SkillBridge Recruiter' || opp.source === 'SkillBridge Verified Industry';
+            const match = opp.matchData || {};
+            const unmetSkills = (match.skillsBreakdown || []).filter(s => !s.meets);
+            const domainTitle = (typeof ROLE_BENCHMARKS !== 'undefined' && ROLE_BENCHMARKS[opp.domain]) 
+                ? ROLE_BENCHMARKS[opp.domain].title 
+                : (opp.domain || 'Engineering');
+
+            const isApplied = typeof hasStudentApplied === 'function' && hasStudentApplied(opp.id);
+
+            return `
+            <article class="bg-surface-container-lowest rounded-xl shadow-ambient hover:shadow-ambient-lg transition-all duration-300 p-lg relative flex flex-col gap-md border ${
+                isRecruiter ? 'border-primary/40 bg-emerald-50/10' : isLive ? 'border-tertiary/30 bg-tertiary/5' : 'border-outline-variant/30'
+            } group">
+                <div class="flex flex-col sm:flex-row justify-between items-start gap-4">
+                    <div class="flex gap-md items-start">
+                        <div class="w-14 h-14 rounded-xl ${isRecruiter ? 'bg-primary/20 text-primary' : isLive ? 'bg-tertiary/20 text-tertiary' : 'bg-surface-container-low text-primary'} shrink-0 flex items-center justify-center border border-outline-variant/20">
+                            <span class="material-symbols-outlined text-3xl">${opp.icon || (isRecruiter ? 'verified_user' : isLive ? 'hub' : 'corporate_fare')}</span>
+                        </div>
+                        <div>
+                            <div class="flex flex-wrap items-center gap-2">
+                                <h3 class="font-title-lg text-title-lg font-bold text-on-surface group-hover:text-primary transition-colors cursor-pointer">
+                                    <a href="${opp.link || '#'}" target="_blank" rel="noopener noreferrer" class="hover:underline flex items-center gap-1">
+                                        ${opp.title}
+                                        ${opp.link ? `<span class="material-symbols-outlined text-sm opacity-60">open_in_new</span>` : ''}
+                                    </a>
+                                </h3>
+                                ${isRecruiter ? `<span class="px-2.5 py-0.5 rounded text-[10px] font-extrabold uppercase bg-emerald-600 text-white flex items-center gap-1 shadow-sm"><span class="material-symbols-outlined text-[12px]">verified</span> Recruiter Posted</span>` : ''}
+                                ${isLive ? `<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-tertiary text-white">Live Capstone</span>` : ''}
+                                ${opp.isTargetDomain ? `<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-amber-100 text-amber-900 border border-amber-300 flex items-center gap-0.5"><span class="material-symbols-outlined text-[12px]">verified</span> Domain Match</span>` : ''}
+                                ${opp.domain ? `<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-surface-container text-on-surface-variant border border-outline-variant/40">${domainTitle}</span>` : ''}
+                                ${opp.link && opp.link.includes('linkedin.com') ? `<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-[#0077B5]/10 text-[#0077B5] border border-[#0077B5]/20">LinkedIn</span>` : ''}
+                                ${opp.link && opp.link.includes('indeed.com') ? `<span class="px-2 py-0.5 rounded text-[10px] font-bold uppercase bg-[#003A9B]/10 text-[#003A9B] border border-[#003A9B]/20">Indeed</span>` : ''}
+                            </div>
+                            <p class="font-body-md text-xs text-on-surface-variant mt-1">
+                                <strong class="text-on-surface">${opp.company}</strong> • ${opp.location || 'Remote'} (${opp.workMode || (opp.isRemote ? 'Remote' : 'On-site')}) • Exp: ${opp.experience || '0 - 2 yrs'}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="shrink-0 flex items-center gap-1.5 px-3 py-1 rounded-full font-label-md font-bold text-xs border ${
+                        opp.matchPct >= 75 ? 'bg-emerald-100 text-emerald-800 border-emerald-300' :
+                        opp.matchPct >= 50 ? 'bg-amber-100 text-amber-800 border-amber-300' :
+                        'bg-red-100 text-red-800 border-red-300'
+                    }">
+                        <span class="material-symbols-outlined text-sm">verified</span>
+                        <span>${opp.matchPct}% Match</span>
+                    </div>
+                </div>
+
+                <!-- Description snippet -->
+                ${opp.description ? `
+                    <p class="text-xs text-on-surface-variant line-clamp-2 leading-relaxed">
+                        ${opp.description}
+                    </p>
+                ` : ''}
+
+                ${isLive ? `
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 p-3 rounded-lg bg-surface-container-lowest border border-tertiary/30 text-xs">
+                        <div>
+                            <span class="text-outline block text-[10px] uppercase font-bold">Team Formation</span>
+                            <span class="font-bold text-on-surface flex items-center gap-1"><span class="material-symbols-outlined text-sm text-tertiary">groups</span> ${opp.teamSize || 4} Students Team</span>
+                        </div>
+                        <div>
+                            <span class="text-outline block text-[10px] uppercase font-bold">Project Duration</span>
+                            <span class="font-bold text-on-surface flex items-center gap-1"><span class="material-symbols-outlined text-sm text-tertiary">schedule</span> ${opp.duration || '8 Weeks'}</span>
+                        </div>
+                        <div>
+                            <span class="text-outline block text-[10px] uppercase font-bold">Industry Mentor</span>
+                            <span class="font-bold text-on-surface flex items-center gap-1"><span class="material-symbols-outlined text-sm text-tertiary">person</span> ${opp.mentor || 'Rajesh Verma (Lead Architect)'}</span>
+                        </div>
+                    </div>
+                ` : ''}
+
+                <!-- Skill Tags -->
+                <div class="flex flex-wrap items-center gap-1.5">
+                    <span class="text-[11px] font-bold text-on-surface-variant mr-1">Required Skills:</span>
+                    ${(opp.requiredSkills || []).map(s => {
+                        const prio = s.priority === 'Critical' ? 'bg-red-50 text-red-700 border-red-200' : 'bg-surface-container text-on-surface border-outline-variant/40';
+                        return `<span class="px-2.5 py-0.5 rounded-full text-xs font-semibold border ${prio}">${s.skill || s} ${s.reqPct ? `(${s.reqPct}%)` : ''}</span>`;
+                    }).join('')}
+                </div>
+
+                <!-- Footer Bar -->
+                <div class="mt-auto pt-sm flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 border-t border-outline-variant/30 text-xs">
+                    <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-on-surface-variant font-medium">
+                        <span class="flex items-center gap-1 font-bold text-primary"><span class="material-symbols-outlined text-sm">payments</span> ${opp.stipendOrSalary || opp.compensation || 'Competitive'}</span>
+                        <span>•</span>
+                        <span>Deadline: <strong>${opp.deadline || 'Rolling'}</strong></span>
+                        <span>•</span>
+                        <span class="text-outline text-[11px]">Posted: ${opp.postedDate || '2026-09-01'}</span>
+                    </div>
+                    <div class="flex items-center gap-2 w-full sm:w-auto justify-end">
+                        <button type="button" onclick="toggleSaveOpportunity('${opp.id}')" class="text-on-surface-variant hover:text-primary transition-colors p-2 rounded-lg hover:bg-surface-container">
+                            <span class="material-symbols-outlined text-base">${isSaved ? 'bookmark' : 'bookmark_border'}</span>
+                        </button>
+                        <button type="button" onclick="openSkillGapModal('${opp.id}')" class="px-3 py-2 bg-surface-container hover:bg-surface-container-high text-on-surface font-bold text-xs rounded-lg transition-colors flex items-center gap-1 border border-outline-variant/30">
+                            <span class="material-symbols-outlined text-sm">analytics</span> View Skill Gap
+                        </button>
+                        ${isApplied ? `
+                            <button type="button" disabled class="bg-emerald-700/80 text-white px-4 py-2 rounded-lg font-bold text-xs flex items-center gap-1 cursor-default opacity-90 shadow-sm">
+                                <span class="material-symbols-outlined text-sm">check_circle</span> Applied
+                            </button>
+                        ` : `
+                            <button type="button" onclick="handleStudentApply('${opp.id}', '${opp.title.replace(/'/g, "\\'")}')" class="bg-primary text-white px-5 py-2 rounded-lg font-bold hover:bg-surface-tint transition-all active:scale-95 flex items-center gap-1 shadow-sm">
+                                <span>Apply Now</span>
+                                <span class="material-symbols-outlined text-sm">send</span>
+                            </button>
+                        `}
+                    </div>
+                </div>
+            </article>
+            `;
+        }).join('');
+    }
+
+    function handleStudentApply(oppId, oppTitle) {
+        const res = applyToOpportunity(oppId);
+        if (!res.success) {
+            showToast(res.message, res.alreadyApplied ? "info" : "error");
+        } else {
+            showToast(res.message, "success");
+            renderFilteredOpportunities();
+        }
+    }
+
+    function openSkillGapModal(oppId) {
+        const sharedData = getSkillBridgeData();
+        const opp = (sharedData.opportunities || []).find(o => o.id === oppId);
+        if (!opp) return;
+
+        const user = getCurrentUser() || {};
+        const studentDomain = user.careerInterest || opp.domain || 'backend';
+        const resolvedSkills = (typeof getStudentDomainSkills === 'function')
+            ? getStudentDomainSkills(user, studentDomain)
+            : (user.skills || { "React.js": 85, "JavaScript": 88, "TypeScript": 72, "Node.js": 78 });
+
+        const student = {
+            fullName: user.fullName || "Alex Chen",
+            careerInterest: studentDomain,
+            targetRole: opp.title,
+            skills: resolvedSkills,
+            domainAssessments: user.domainAssessments || {}
+        };
+
+        const matchData = calculateCandidateMatch(student, opp);
+        const overallPct = matchData.overallPct || 75;
+        const matched = (matchData.skillsBreakdown || []).filter(s => s.meets);
+        const gaps = (matchData.skillsBreakdown || []).filter(s => !s.meets);
+        const isApplied = typeof hasStudentApplied === 'function' && hasStudentApplied(opp.id);
+
+        const modal = document.getElementById('skill-gap-modal');
+        const content = document.getElementById('skill-gap-modal-content');
+        if (!modal || !content) return;
+
+        content.innerHTML = `
+            <div class="bg-primary/10 border-b border-primary/20 px-6 py-4 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <span class="material-symbols-outlined text-primary text-2xl">analytics</span>
+                    <div>
+                        <h3 class="font-bold text-base text-on-surface">${opp.title}</h3>
+                        <p class="text-xs text-on-surface-variant">${opp.company} • ${opp.location || 'Remote'}</p>
+                    </div>
+                </div>
+                <button type="button" onclick="closeSkillGapModal()" class="w-8 h-8 rounded-full hover:bg-surface-container flex items-center justify-center text-on-surface-variant hover:text-on-surface">
+                    <span class="material-symbols-outlined text-lg">close</span>
+                </button>
+            </div>
+
+            <div class="p-6 space-y-5 text-xs max-h-[75vh] overflow-y-auto">
+                <!-- Overall Match Metric -->
+                <div class="p-4 rounded-xl bg-surface-container-low border border-outline-variant/30 flex items-center justify-between">
+                    <div>
+                        <span class="font-bold text-on-surface text-sm block">Candidate Match Score</span>
+                        <span class="text-on-surface-variant text-xs">Based on verified and assessed competencies</span>
+                    </div>
+                    <div class="text-right">
+                        <span class="text-2xl font-extrabold ${overallPct >= 75 ? 'text-emerald-600' : overallPct >= 50 ? 'text-amber-600' : 'text-red-600'}">${overallPct}%</span>
+                        <span class="text-[10px] block font-bold text-on-surface-variant">${overallPct >= 75 ? 'Ready to Apply' : 'Skill Deficit'}</span>
+                    </div>
+                </div>
+
+                <!-- Matched Skills -->
+                <div class="space-y-2">
+                    <h4 class="font-bold text-emerald-800 dark:text-emerald-300 text-xs flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm text-emerald-600">check_circle</span>
+                        Matched Skills (${matched.length})
+                    </h4>
+                    ${matched.length === 0 ? `<p class="text-on-surface-variant italic">No exact proficiency matches yet.</p>` : `
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            ${matched.map(m => `
+                                <div class="p-2.5 rounded-lg bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 text-xs flex justify-between items-center">
+                                    <span class="font-semibold text-on-surface">${m.skill}</span>
+                                    <span class="text-emerald-700 font-bold text-[11px]">${m.candidatePct || m.studentProficiency || 85}% ≥ ${m.requiredPct || m.requiredProficiency || 70}%</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `}
+                </div>
+
+                <!-- Skill Gaps / Deficits -->
+                <div class="space-y-2">
+                    <h4 class="font-bold text-amber-800 dark:text-amber-300 text-xs flex items-center gap-1">
+                        <span class="material-symbols-outlined text-sm text-amber-600">warning</span>
+                        Skill Gaps & Training Opportunities (${gaps.length})
+                    </h4>
+                    ${gaps.length === 0 ? `<p class="text-emerald-600 font-semibold">Congratulations! You meet all specified skill requirements.</p>` : `
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                            ${gaps.map(g => `
+                                <div class="p-2.5 rounded-lg bg-amber-50 dark:bg-amber-950/30 border border-amber-200 text-xs flex justify-between items-center">
+                                    <span class="font-semibold text-on-surface">${g.skill}</span>
+                                    <span class="text-amber-800 font-bold text-[11px]">Deficit: -${g.gap}%</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    `}
+                </div>
+            </div>
+
+            <div class="p-4 border-t border-outline-variant/30 bg-surface-container-low flex justify-end gap-2">
+                <button type="button" onclick="closeSkillGapModal()" class="px-4 py-2 rounded-lg border border-outline-variant text-on-surface font-bold text-xs hover:bg-surface-container">Close</button>
+                ${isApplied ? `
+                    <button type="button" disabled class="bg-emerald-700/80 text-white px-5 py-2 rounded-lg font-bold text-xs flex items-center gap-1 cursor-default opacity-90">
+                        <span class="material-symbols-outlined text-sm">check_circle</span> Applied
+                    </button>
+                ` : `
+                    <button type="button" onclick="closeSkillGapModal(); handleStudentApply('${opp.id}', '${opp.title.replace(/'/g, "\\'")}')" class="bg-primary text-white px-5 py-2 rounded-lg font-bold text-xs hover:bg-surface-tint transition-all flex items-center gap-1 shadow-sm">
+                        <span class="material-symbols-outlined text-sm">send</span> Apply Now
+                    </button>
+                `}
+            </div>
+        `;
+
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+    }
+
+    function closeSkillGapModal() {
+        const modal = document.getElementById('skill-gap-modal');
+        if (modal) {
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+    }
+
+    function toggleShowMoreIndustries() {
+        const extra = document.getElementById('extra-industries');
+        const btn = document.getElementById('show-more-industries-btn');
+        if (!extra || !btn) return;
+        if (extra.classList.contains('hidden')) {
+            extra.classList.remove('hidden');
+            extra.classList.add('flex');
+            btn.innerHTML = `<span>Show less</span> <span class="material-symbols-outlined text-sm">expand_less</span>`;
+        } else {
+            extra.classList.add('hidden');
+            extra.classList.remove('flex');
+            btn.innerHTML = `<span>Show more</span> <span class="material-symbols-outlined text-sm">expand_more</span>`;
+        }
+    }
+
+    function clearAllFilters() {
+        document.querySelectorAll('.filter-role-type, .filter-industry, .filter-source').forEach(cb => cb.checked = false);
+        const locInput = document.getElementById('filter-location-input');
+        if (locInput) locInput.value = '';
+        const remoteCb = document.getElementById('filter-remote-checkbox');
+        if (remoteCb) remoteCb.checked = false;
+        renderFilteredOpportunities();
+        showToast("All filters cleared.");
+    }
+
+    function toggleMobileFilterDrawer() {
+        const sidebar = document.getElementById('filter-sidebar');
+        if (!sidebar) return;
+        if (sidebar.classList.contains('hidden')) {
+            sidebar.classList.remove('hidden');
+            sidebar.classList.add('flex', 'w-full', 'mb-lg');
+        } else {
+            sidebar.classList.add('hidden');
+            sidebar.classList.remove('flex', 'w-full', 'mb-lg');
+        }
+    }
+
+    function toggleSaveOpportunity(id) {
+        if (savedOpportunities.has(id)) {
+            savedOpportunities.delete(id);
+            showToast("Opportunity removed from saved items.");
+        } else {
+            savedOpportunities.add(id);
+            showToast("Opportunity saved to your profile!");
+        }
+        renderFilteredOpportunities();
+    }
+
+    document.addEventListener('DOMContentLoaded', initOpportunitiesPage);
+</script>
+
+<!-- Skill Gap Inspector Modal -->
+<div id="skill-gap-modal" class="fixed inset-0 z-[10000] bg-black/60 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div id="skill-gap-modal-content" class="bg-surface-container-lowest border border-outline-variant rounded-2xl shadow-2xl w-full max-w-xl overflow-hidden animate-in fade-in zoom-in duration-200">
+        <!-- Injected dynamically -->
+    </div>
+</div>
+</body>
+</html>

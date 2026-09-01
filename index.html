@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>SkillBridge - Bridge the gap between skills and opportunities</title>
+    <!-- Google Fonts: Inter -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Tailwind Configuration from Design System -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#3c463f",
+                        "primary-container": "#059669",
+                        "on-error": "#ffffff",
+                        "on-tertiary": "#ffffff",
+                        "outline": "#6b7d70",
+                        "on-secondary-container": "#006f66",
+                        "surface-tint": "#047857",
+                        "on-primary-fixed": "#022c22",
+                        "secondary": "#006a61",
+                        "on-tertiary-fixed": "#2a1700",
+                        "inverse-primary": "#6ee7b7",
+                        "surface-bright": "#f7fdf9",
+                        "secondary-fixed-dim": "#6bd8cb",
+                        "surface-container-low": "#eef9f1",
+                        "on-primary-container": "#ecfdf5",
+                        "surface-container-lowest": "#ffffff",
+                        "on-tertiary-container": "#ffeedd",
+                        "surface": "#f7fdf9",
+                        "outline-variant": "#c8d3cb",
+                        "on-secondary": "#ffffff",
+                        "surface-dim": "#c3e2cd",
+                        "on-secondary-fixed": "#00201d",
+                        "on-error-container": "#93000a",
+                        "background": "#f7fdf9",
+                        "primary-fixed-dim": "#6ee7b7",
+                        "secondary-fixed": "#89f5e7",
+                        "surface-container-high": "#d7f0dd",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "on-surface": "#0c1f14",
+                        "primary": "#047857",
+                        "surface-container-highest": "#cbe8d4",
+                        "error": "#ba1a1a",
+                        "surface-variant": "#cbe8d4",
+                        "tertiary": "#784b00",
+                        "inverse-on-surface": "#e7f7ec",
+                        "secondary-container": "#86f2e4",
+                        "surface-container": "#e3f6e8",
+                        "on-primary": "#ffffff",
+                        "inverse-surface": "#22362a",
+                        "on-secondary-fixed-variant": "#005049",
+                        "tertiary-container": "#996100",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "error-container": "#ffdad6",
+                        "on-primary-fixed-variant": "#065f46",
+                        "on-background": "#0c1f14",
+                        "primary-fixed": "#d1fae5",
+                        "tertiary-fixed": "#ffddb8"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "xxl": "48px",
+                        "base": "4px",
+                        "xs": "4px",
+                        "md": "16px",
+                        "container-max": "1280px",
+                        "xl": "32px",
+                        "gutter": "24px",
+                        "sm": "8px",
+                        "lg": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "title-lg": ["Inter"],
+                        "display": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "title-lg": ["20px", { "lineHeight": "28px", "fontWeight": "600" }],
+                        "display": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }],
+                        "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-background text-on-background min-h-screen flex flex-col antialiased">
+    <!-- Top Navigation (Simplified for Landing Page based on prompt, using styles from JSON) -->
+    <header class="bg-surface-container-lowest shadow-sm docked full-width top-0 z-50">
+        <div class="flex justify-between items-center w-full px-lg md:px-xxl max-w-container-max mx-auto h-16">
+            <!-- Logo -->
+            <div class="font-headline-md text-headline-md font-bold text-primary flex items-center gap-sm">
+                <span class="material-symbols-outlined text-primary"
+                    style="font-variation-settings: 'FILL' 1;">hub</span>
+                SkillBridge
+            </div>
+            <div class="flex items-center gap-sm">
+                <button type="button" onclick="openContactModal(event)"
+                    class="font-label-md text-label-md text-on-surface-variant hover:text-primary px-md py-sm rounded-lg hover:bg-surface-container-low transition-all flex items-center gap-1">
+                    <span class="material-symbols-outlined text-base">support_agent</span>
+                    Contact Us
+                </button>
+                <a href="login.html"
+                    class="font-label-md text-label-md text-primary bg-surface-container-lowest border border-outline-variant px-md py-sm rounded-lg hover:bg-surface-container-low hover:text-primary transition-all active:scale-95 duration-150 inline-flex items-center justify-center">
+                    Login
+                </a>
+            </div>
+        </div>
+    </header>
+    <!-- Main Content Canvas -->
+    <main
+        class="flex-grow flex flex-col items-center justify-center px-lg md:px-xxl py-xxl w-full max-w-container-max mx-auto relative overflow-hidden">
+        <!-- Abstract Background Element (CSS based, no image needed) -->
+        <div
+            class="absolute inset-0 pointer-events-none opacity-50 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-surface-container-highest via-background to-background -z-10">
+        </div>
+        <!-- Hero Section -->
+        <section class="text-center max-w-3xl flex flex-col items-center gap-md mb-xl z-10">
+            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary/10 text-primary border border-primary/20 text-xs font-bold uppercase tracking-wider mb-2">
+                <span class="material-symbols-outlined text-sm">auto_awesome</span>
+                SIH44 Closed-Loop Skill Telemetry Platform
+            </div>
+            <h1 class="font-display text-display text-on-surface tracking-tight leading-tight">
+                Bridge the gap between <span class="text-primary">skills</span> and <span class="text-secondary font-bold">opportunities</span>
+            </h1>
+            <p class="font-title-lg text-title-lg text-on-surface-variant max-w-2xl mt-sm">
+                Connecting students, academic faculty, and recruiters through actionable skill telemetry and real-time industry intelligence.
+            </p>
+        </section>
+
+        <!-- Section: One Platform. Three Perspectives. One Goal. -->
+        <section class="w-full max-w-6xl z-10 mb-xxl">
+            <div class="text-center mb-lg">
+                <h2 class="font-headline-lg text-headline-lg text-on-surface">One Platform. Three Perspectives. One Goal.</h2>
+                <p class="font-body-md text-body-md text-on-surface-variant mt-xs">Empowering every stakeholder in the educational and hiring lifecycle.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+                <!-- Student Card -->
+                <div class="bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-outline-variant/30 hover:border-primary p-lg flex flex-col group cursor-pointer hover:-translate-y-1">
+                    <div class="w-14 h-14 rounded-xl bg-surface-container-low flex items-center justify-center mb-md group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                        <span class="material-symbols-outlined text-primary group-hover:text-white text-3xl">school</span>
+                    </div>
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="font-headline-lg text-xl font-bold text-on-surface">I'm a Student</h3>
+                        <span class="px-2.5 py-0.5 rounded text-[10px] font-extrabold uppercase bg-emerald-100 text-emerald-800">Discover Skill Gaps</span>
+                    </div>
+                    <p class="font-body-md text-sm text-on-surface-variant flex-grow mb-xl leading-relaxed">
+                        Assess core engineering competencies, identify exact industry skill gaps, work on live projects, and get matched to verified jobs.
+                    </p>
+                    <div class="space-y-2 mt-auto">
+                        <a href="student_signup_-_basic_info.html" class="w-full bg-primary text-white font-bold text-xs py-3 px-md rounded-xl hover:bg-surface-tint transition-all flex items-center justify-center gap-xs shadow-sm">
+                            Student Signup & Assessment <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </a>
+                        <a href="student_dashboard_-_skill_gap__recommendations.html" class="w-full bg-surface-container text-on-surface font-bold text-xs py-2 px-md rounded-xl hover:bg-surface-container-high transition-all flex items-center justify-center gap-xs">
+                            View Demo Dashboard
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Teacher/Academician Card -->
+                <div class="bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-outline-variant/30 hover:border-tertiary p-lg flex flex-col group cursor-pointer hover:-translate-y-1">
+                    <div class="w-14 h-14 rounded-xl bg-surface-container-low flex items-center justify-center mb-md group-hover:bg-tertiary group-hover:text-white transition-colors duration-300">
+                        <span class="material-symbols-outlined text-tertiary group-hover:text-white text-3xl">cast_for_education</span>
+                    </div>
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="font-headline-lg text-xl font-bold text-on-surface">I'm a Teacher</h3>
+                        <span class="px-2.5 py-0.5 rounded text-[10px] font-extrabold uppercase bg-amber-100 text-amber-900">Develop Talent</span>
+                    </div>
+                    <p class="font-body-md text-sm text-on-surface-variant flex-grow mb-xl leading-relaxed">
+                        Track cohort readiness scores, receive recruiter alerts on curriculum gaps, and launch targeted bootcamps & interventions.
+                    </p>
+                    <div class="space-y-2 mt-auto">
+                        <a href="teacher_signup.html" class="w-full bg-tertiary text-white font-bold text-xs py-3 px-md rounded-xl hover:bg-sky-700 transition-all flex items-center justify-center gap-xs shadow-sm">
+                            Teacher & Faculty Registration <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </a>
+                        <a href="teacher_my_students.html" class="w-full bg-surface-container text-on-surface font-bold text-xs py-2 px-md rounded-xl hover:bg-surface-container-high transition-all flex items-center justify-center gap-xs">
+                            My Students Portal
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Industry/Recruiter Card -->
+                <div class="bg-surface-container-lowest rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 border border-outline-variant/30 hover:border-secondary p-lg flex flex-col group cursor-pointer hover:-translate-y-1">
+                    <div class="w-14 h-14 rounded-xl bg-surface-container-low flex items-center justify-center mb-md group-hover:bg-secondary group-hover:text-white transition-colors duration-300">
+                        <span class="material-symbols-outlined text-secondary group-hover:text-white text-3xl">work</span>
+                    </div>
+                    <div class="flex items-center justify-between mb-2">
+                        <h3 class="font-headline-lg text-xl font-bold text-on-surface">I'm a Recruiter</h3>
+                        <span class="px-2.5 py-0.5 rounded text-[10px] font-extrabold uppercase bg-teal-100 text-teal-900">Find & Shape Talent</span>
+                    </div>
+                    <p class="font-body-md text-sm text-on-surface-variant flex-grow mb-xl leading-relaxed">
+                        Post opportunities, screen candidates via explainable skill match scores, and feed missing skills back to university faculty.
+                    </p>
+                    <div class="space-y-2 mt-auto">
+                        <a href="recruiter_signup.html" class="w-full bg-secondary text-white font-bold text-xs py-3 px-md rounded-xl hover:bg-teal-700 transition-all flex items-center justify-center gap-xs shadow-sm">
+                            Recruiter Portal Access <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                        </a>
+                        <a href="recruiter_-_applicant_management_tracker.html" class="w-full bg-surface-container text-on-surface font-bold text-xs py-2 px-md rounded-xl hover:bg-surface-container-high transition-all flex items-center justify-center gap-xs">
+                            Applicant Management Tracker
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: What's Changing in Industry? (3 Pulse Cards) -->
+        <section class="w-full max-w-6xl z-10 mb-xxl space-y-md">
+            <div class="flex justify-between items-end border-b border-outline-variant/30 pb-sm">
+                <div>
+                    <h2 class="font-headline-lg text-2xl font-bold text-on-surface flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary">bolt</span>
+                        What's Changing in Industry?
+                    </h2>
+                    <p class="font-body-md text-xs text-on-surface-variant">Live market intelligence signals driving current hiring & curriculum updates.</p>
+                </div>
+                <a href="industry_pulse.html" class="text-xs font-bold text-primary hover:underline flex items-center gap-1">
+                    Explore All 10 Signals <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+                <div class="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant/30 shadow-sm space-y-3 flex flex-col justify-between">
+                    <div class="space-y-2">
+                        <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-primary/10 text-primary border border-primary/20">Artificial Intelligence</span>
+                        <h4 class="font-bold text-sm text-on-surface">Generative AI & LLM Fine-Tuning Surges Across Enterprise SaaS</h4>
+                        <p class="text-xs text-on-surface-variant">45% increase in developer hiring requiring PyTorch fine-tuning and vector databases.</p>
+                    </div>
+                    <div class="pt-2 border-t border-outline-variant/20 flex justify-between items-center text-[11px] font-semibold text-primary">
+                        <span>Skills: Python, PyTorch, LLMs</span>
+                        <a href="industry_pulse.html" class="hover:underline">View Signal</a>
+                    </div>
+                </div>
+
+                <div class="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant/30 shadow-sm space-y-3 flex flex-col justify-between">
+                    <div class="space-y-2">
+                        <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-primary/10 text-primary border border-primary/20">Cybersecurity</span>
+                        <h4 class="font-bold text-sm text-on-surface">Cloud Native Security & Zero Trust Architecture Mandated for FinTech</h4>
+                        <p class="text-xs text-on-surface-variant">Regulatory compliance drives critical deficit in threat analysis & OWASP testing.</p>
+                    </div>
+                    <div class="pt-2 border-t border-outline-variant/20 flex justify-between items-center text-[11px] font-semibold text-primary">
+                        <span>Skills: OWASP, Cloud Sec, Python</span>
+                        <a href="industry_pulse.html" class="hover:underline">View Signal</a>
+                    </div>
+                </div>
+
+                <div class="bg-surface-container-lowest p-5 rounded-2xl border border-outline-variant/30 shadow-sm space-y-3 flex flex-col justify-between">
+                    <div class="space-y-2">
+                        <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-primary/10 text-primary border border-primary/20">Web Engineering</span>
+                        <h4 class="font-bold text-sm text-on-surface">Demand for Next.js 14 & Fullstack TypeScript Reaches Record High</h4>
+                        <p class="text-xs text-on-surface-variant">38% skill gap identified for candidates lacking verified TypeScript design patterns.</p>
+                    </div>
+                    <div class="pt-2 border-t border-outline-variant/20 flex justify-between items-center text-[11px] font-semibold text-primary">
+                        <span>Skills: React.js, TypeScript</span>
+                        <a href="industry_pulse.html" class="hover:underline">View Signal</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Visual Closed-Loop SIH44 Workflow Diagram -->
+        <section class="w-full max-w-6xl z-10 bg-gradient-to-br from-surface-container-lowest to-surface-container-low p-8 rounded-3xl border border-outline-variant/40 shadow-sm space-y-6">
+            <div class="text-center max-w-2xl mx-auto space-y-2">
+                <span class="text-xs font-extrabold uppercase tracking-widest text-primary">SIH44 Closed-Loop Solution Architecture</span>
+                <h2 class="font-headline-lg text-2xl font-bold text-on-surface">How SkillBridge Closes the Loop</h2>
+                <p class="text-xs text-on-surface-variant">Moving academia from static open-loop programs to continuous real-time industry feedback loop alignment.</p>
+            </div>
+
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-3 text-center text-xs">
+                <div class="p-3 bg-surface-container-lowest rounded-xl border border-outline-variant/30 space-y-1 shadow-sm">
+                    <span class="material-symbols-outlined text-primary">insights</span>
+                    <span class="font-bold block text-on-surface text-[11px]">1. Demand</span>
+                    <span class="text-[10px] text-on-surface-variant block">Industry Pulse</span>
+                </div>
+                <div class="p-3 bg-surface-container-lowest rounded-xl border border-outline-variant/30 space-y-1 shadow-sm">
+                    <span class="material-symbols-outlined text-primary">map</span>
+                    <span class="font-bold block text-on-surface text-[11px]">2. Mapping</span>
+                    <span class="text-[10px] text-on-surface-variant block">Skill Benchmark</span>
+                </div>
+                <div class="p-3 bg-surface-container-lowest rounded-xl border border-outline-variant/30 space-y-1 shadow-sm">
+                    <span class="material-symbols-outlined text-primary">analytics</span>
+                    <span class="font-bold block text-on-surface text-[11px]">3. Skill Gap</span>
+                    <span class="text-[10px] text-on-surface-variant block">Student Assessment</span>
+                </div>
+                <div class="p-3 bg-surface-container-lowest rounded-xl border border-outline-variant/30 space-y-1 shadow-sm">
+                    <span class="material-symbols-outlined text-primary">school</span>
+                    <span class="font-bold block text-on-surface text-[11px]">4. Intervention</span>
+                    <span class="text-[10px] text-on-surface-variant block">Teacher Bootcamp</span>
+                </div>
+                <div class="p-3 bg-surface-container-lowest rounded-xl border border-outline-variant/30 space-y-1 shadow-sm">
+                    <span class="material-symbols-outlined text-primary">work</span>
+                    <span class="font-bold block text-on-surface text-[11px]">5. Internship</span>
+                    <span class="text-[10px] text-on-surface-variant block">Live Industry Capstone</span>
+                </div>
+                <div class="p-3 bg-surface-container-lowest rounded-xl border border-outline-variant/30 space-y-1 shadow-sm">
+                    <span class="material-symbols-outlined text-primary">verified</span>
+                    <span class="font-bold block text-on-surface text-[11px]">6. Placement</span>
+                    <span class="text-[10px] text-on-surface-variant block">Verified Hiring</span>
+                </div>
+                <div class="p-3 bg-surface-container-lowest rounded-xl border border-outline-variant/30 space-y-1 shadow-sm">
+                    <span class="material-symbols-outlined text-primary">rate_review</span>
+                    <span class="font-bold block text-on-surface text-[11px]">7. Feedback</span>
+                    <span class="text-[10px] text-on-surface-variant block">Recruiter Evaluation</span>
+                </div>
+                <div class="p-3 bg-emerald-100 dark:bg-emerald-950 rounded-xl border border-emerald-300 text-emerald-900 dark:text-emerald-200 space-y-1 col-span-2 md:col-span-1 shadow-sm">
+                    <span class="material-symbols-outlined text-emerald-600">sync</span>
+                    <span class="font-bold block text-[11px]">8. Adaptation</span>
+                    <span class="text-[10px] block font-semibold">Curriculum Updated</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-surface-container-low border-t border-outline-variant full-width bottom-0 mt-auto">
+        <div class="w-full py-xl px-lg max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-lg">
+            <div class="font-title-lg text-title-lg font-bold text-on-surface flex items-center gap-sm">
+                <span class="material-symbols-outlined text-on-surface">hub</span>
+                SkillBridge SIH44 Solution
+            </div>
+            <nav class="flex flex-wrap gap-md justify-center md:justify-end text-xs">
+                <a class="text-on-surface-variant hover:text-primary hover:underline transition-all" href="#">Privacy Policy</a>
+                <a class="text-on-surface-variant hover:text-primary hover:underline transition-all" href="#">Terms of Service</a>
+                <a class="text-on-surface-variant hover:text-primary hover:underline transition-all" href="#">Help Center</a>
+                <a class="text-on-surface-variant hover:text-primary hover:underline transition-all cursor-pointer" onclick="openContactModal(event)" href="#contact">Contact Us</a>
+            </nav>
+            <div class="text-xs text-on-surface-variant text-center md:text-left">
+                © 2026 SkillBridge. All rights reserved.
+            </div>
+        </div>
+    </footer>
+    <script src="auth.js"></script>
+</body>
+</html>
